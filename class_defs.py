@@ -19,7 +19,14 @@ class sentence:
         self.markables = []
         self.gold_markables = []
         utils.extract_sentence_info (self, doc_sentence)
-        
+
+class word:
+    def __init__ (self, word, pos_tag, NER_tag, chunk_tag):
+        self.word = word
+        self.pos_tag = pos_tag
+        self.NER_tag = NER_tag
+        self.chunk_tag = chunk_tag
+
 MARKABLE_FLAG_ANTECEDENT = 1
 MARKABLE_FLAG_ANAPHOR = 2
 MARKABLE_FLAG_NEITHER = 3
