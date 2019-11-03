@@ -15,6 +15,15 @@ def extract_document (doc_obj, input_file, key_file):
   ifp.close ()
   kfp.close ()
   utils_temp.create_gold_markable_list (doc_obj, input_file, key_file)
+  max_line = line_num
+  for i in range (0, max_line):
+    sent_obj = doc_obj.sentences[i]
+    compare_gold_and_extracted_markables (doc_obj, sent_obj)
+
+  print ("Results of markable extraction")
+  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
+  print ("Mismatched % = ", doc_obj.top_obj.mismatched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
+
 
 def preprocess_sentence (doc_sentence):
   doc_sentence = doc_sentence.strip ('\n')
@@ -22,7 +31,8 @@ def preprocess_sentence (doc_sentence):
   return pattern.sub ('', doc_sentence)
 
 
-def compare_gold_and_extracted_markables (top_obj, sent_obj):
+def compare_gold_and_extracted_markables (doc_obj, sent_obj):
+  top_obj = doc_obj.top_obj
   gold_table = sent_obj.gold_markables
   extracted_table = sent_obj.markables
   max_gold_sent = []
@@ -31,13 +41,18 @@ def compare_gold_and_extracted_markables (top_obj, sent_obj):
   gold_len = len(gold_table)
 
   for i in range (gold_len):
+    if (gold_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+      continue
+
+    top_obj.mismatched_ana += 1
     #max string
     max_s_idx = gold_table[i].w_s_idx
     max_e_idx = gold_table[i].w_e_idx
     temp_max = ""
 
+    print ("max_s_idx ", max_s_idx, "max_e_idx", max_e_idx)
     for j in range (max_s_idx, max_e_idx + 1):
-      temp_max += sent_obj.word_list[j]
+      temp_max += sent_obj.word_list[j].word
     max_gold_sent.append (temp_max)
     
     #min string
@@ -46,13 +61,13 @@ def compare_gold_and_extracted_markables (top_obj, sent_obj):
     temp_min = "" 
 
     for j in range (min_s_idx, min_e_idx + 1):
-      temp_min += sent_obj.word_list[j]
+      temp_min += sent_obj.word_list[j].word
     min_gold_sent.append (temp_min)
 
 
   extracted_tlen = len (extracted_table)
   for i in range (extracted_tlen):
-    if (extracted_table[i].flags == MARKABLE_FLAG_ANTECEDENT):
+    if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
       continue
 
     s_idx = extracted_table[i].w_s_idx
@@ -60,15 +75,14 @@ def compare_gold_and_extracted_markables (top_obj, sent_obj):
     temp_e = ""
     
     for j in range (s_idx, e_idx + 1):
-      temp_e += sent_obj.word_list[j]
+      temp_e += sent_obj.word_list[j].word
       
     for i, phrase in enumerate (max_gold_sent):
       if temp_e in phrase:
         if min_gold_sent[i] in temp_e:
           top_obj.matched_ana += 1 
 
-    top_obj.mismatched_ana += 1 
-
+    #top_obj.mismatched_ana += 1 
 
 def compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)
@@ -126,7 +140,14 @@ def extract_sentence_info (sent_obj, doc_sentence):
   #grammar = "NP: (?:(?:\w+ DT )?(?:\w+ JJ )*)?\w+ (?:N[NP]|PRN)"
   #grammar = "NP: {(<V\w+>|<NN\w?>)+.*<NN\w?>}"
 
-  grammar = "NP: {<DT>?<JJ>*<NN>}"
+  grammar = '''NP: {<DT><NN><IN><DT><JJ>}
+                   {<DT><NNP><NNPS>}
+                   {<DT>?<JJ>*<NN>}
+                   {<DT><PRP\$><NN>}
+                   {<DT><JJS><NN>}
+                   {<DT><NN><IN><NNP><NNP>}
+                   {<NN><NN>}
+                   '''
   cp = nltk.RegexpParser(grammar)
 
   np_res = cp.parse (pos_tags)

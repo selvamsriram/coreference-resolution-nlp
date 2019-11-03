@@ -11,9 +11,10 @@ class top:
 
         
 class document:
-  def __init__ (self, input_doc_name, key_doc_name):
+  def __init__ (self, top_obj, input_doc_name, key_doc_name):
     self.sentences = {}
     self.clusters_info = {}
+    self.top_obj = top_obj
     utils.extract_document (self, input_doc_name, key_doc_name)
 
 class sentence:

@@ -12,7 +12,7 @@ def main():
     kfile = kfile.strip ('\n')
     print ("Now Processing {}, {}".format(ifile, kfile))
 
-    top_obj.docs[ifile] = class_defs.document (ifile, kfile)
+    top_obj.docs[ifile] = class_defs.document (top_obj, ifile, kfile)
 
 
   input_list_fp.close ()
