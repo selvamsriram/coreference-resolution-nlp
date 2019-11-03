@@ -1,6 +1,7 @@
 import class_defs 
 import re
 import nltk
+import utils_temp
 
 def extract_document (doc_obj, input_file, key_file):
   ifp = open (input_file)
@@ -13,7 +14,7 @@ def extract_document (doc_obj, input_file, key_file):
 
   ifp.close ()
   kfp.close ()
-
+  utils_temp.create_gold_markable_list (doc_obj, input_file, key_file)
 
 def preprocess_sentence (doc_sentence):
   doc_sentence = doc_sentence.strip ('\n')
