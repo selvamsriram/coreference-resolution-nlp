@@ -7,7 +7,7 @@ class top:
     self.neg_list = []
     self.feature_list = []
     self.matched_ana = 0
-    self.mismatched_ana = 0
+    self.gold_ana = 0
 
         
 class document:

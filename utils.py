@@ -18,11 +18,10 @@ def extract_document (doc_obj, input_file, key_file):
   max_line = line_num
   for i in range (0, max_line):
     sent_obj = doc_obj.sentences[i]
-    compare_gold_and_extracted_markables (doc_obj, sent_obj)
+    compare_gold_and_extracted_markables (doc_obj, sent_obj, i)
 
   print ("Results of markable extraction")
-  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.mismatched_ana))
-  #print ("Mismatched % = ", doc_obj.top_obj.mismatched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
+  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.gold_ana))
 
 
 def preprocess_sentence (doc_sentence):
@@ -31,7 +30,7 @@ def preprocess_sentence (doc_sentence):
   return pattern.sub ('', doc_sentence)
 
 
-def compare_gold_and_extracted_markables (doc_obj, sent_obj):
+def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
   top_obj = doc_obj.top_obj
   gold_table = sent_obj.gold_markables
   extracted_table = sent_obj.markables
@@ -41,48 +40,61 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj):
   gold_len = len(gold_table)
 
   for i in range (gold_len):
-    if (gold_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
-      continue
+    if (gold_table[i].flags != class_defs.MARKABLE_FLAG_ANTECEDENT):
+      top_obj.gold_ana += 1
 
-    top_obj.mismatched_ana += 1
     #max string
     max_s_idx = gold_table[i].w_s_idx
     max_e_idx = gold_table[i].w_e_idx
     temp_max = ""
 
-    print ("max_s_idx ", max_s_idx, "max_e_idx", max_e_idx)
+    #print ("max_s_idx ", max_s_idx, "max_e_idx", max_e_idx)
     for j in range (max_s_idx, max_e_idx + 1):
       temp_max += sent_obj.word_list[j].word
+      if (j != max_e_idx):
+        temp_max += " "
     max_gold_sent.append (temp_max)
     
     #min string
-    min_s_idx = gold_table[i].w_min_s_idx
-    min_e_idx = gold_table[i].w_min_e_idx
-    temp_min = "" 
+    if (gold_table[i].flags != class_defs.MARKABLE_FLAG_ANTECEDENT):
+      min_s_idx = gold_table[i].w_min_s_idx
+      min_e_idx = gold_table[i].w_min_e_idx
+      temp_min = "" 
 
-    for j in range (min_s_idx, min_e_idx + 1):
-      temp_min += sent_obj.word_list[j].word
-    min_gold_sent.append (temp_min)
+      for j in range (min_s_idx, min_e_idx + 1):
+        temp_min += sent_obj.word_list[j].word
+        if (j != min_e_idx):
+          temp_min += " "
+
+      min_gold_sent.append (temp_min)
+    else:
+      min_gold_sent.append (" ")
 
 
   extracted_tlen = len (extracted_table)
   for i in range (extracted_tlen):
-    if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
-      continue
-
     s_idx = extracted_table[i].w_s_idx
     e_idx = extracted_table[i].w_e_idx
     temp_e = ""
     
     for j in range (s_idx, e_idx + 1):
       temp_e += sent_obj.word_list[j].word
-      
-    for i, phrase in enumerate (max_gold_sent):
-      if temp_e in phrase:
-        if min_gold_sent[i] in temp_e:
-          top_obj.matched_ana += 1 
+      if (j != e_idx):
+        temp_e += " "
 
-    #top_obj.mismatched_ana += 1 
+    for k, phrase in enumerate (max_gold_sent):
+      if temp_e in phrase:
+        extracted_table[i].coref_id = gold_table[k].coref_id
+        if (gold_table[k].flags != class_defs.MARKABLE_FLAG_ANAPHOR):
+          extracted_table[i].flags = gold_table[k].flags
+
+        if (gold_table[k].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+          if min_gold_sent[k] in temp_e:
+            top_obj.matched_ana += 1 
+            extracted_table[i].flags = gold_table[k].flags 
+
+    if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+      print ("Coref ID : {} S ID : {} String : {}".format(extracted_table[i].coref_id,sent_num ,temp_e.lstrip ()))
 
 def compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)

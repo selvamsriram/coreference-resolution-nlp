@@ -31,15 +31,20 @@ def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_t
       # 3 for </COREF>
       begin_index = begin_index -(number_of_completed_corefs * 10) - 7 - 7
       end_index = index - (number_of_completed_corefs * 10) -7 -7 -1
+      create_markable_flag = True
 
       #Debug Prints
-      #print ("Coreference ID ", coref_id_string, "Unremoved Antecedent ", antecedent)
-      #print ("Coreference ID ", coref_id_string, "Removed Antecedent ", sent_tag_rem[begin_index:end_index])
+      if (antecedent != sent_tag_rem[begin_index:end_index+1]):
+        #print ("Mistmatched Antecedent")
+        #print ("Coreference ID ", coref_id_string, "Unremoved Antecedent ", antecedent)
+        #print ("Coreference ID ", coref_id_string, "Removed Antecedent ", sent_tag_rem[begin_index:end_index])
+        create_markable_flag = False
 
       #Create a markable_obj
-      markable_obj = class_defs.markable (begin_index, end_index, -1, -1, coref_id_string, class_defs.MARKABLE_FLAG_ANTECEDENT)
-      sent_obj = doc_obj.sentences[line_num]
-      sent_obj.gold_markables.append (markable_obj)
+      if (create_markable_flag == True):
+        markable_obj = class_defs.markable (begin_index, end_index, -1, -1, coref_id_string, class_defs.MARKABLE_FLAG_ANTECEDENT)
+        sent_obj = doc_obj.sentences[line_num]
+        sent_obj.gold_markables.append (markable_obj)
       begin_index = -1
       number_of_completed_corefs += 1
 
@@ -53,7 +58,7 @@ def handle_key_file (doc_obj, kfp):
     if ("<COREF ID=" in line):
       tokens = nltk.word_tokenize (line)
       coref_id_string = tokens[4]
-      print (coref_id_string)
+      #print (coref_id_string)
     else:
       list_of_str = []
       extract = False
@@ -130,6 +135,7 @@ def handle_key_file (doc_obj, kfp):
 
       print ("Tokenized Min :", print_word)
       '''
+
 def create_gold_markable_list (doc_obj, input_file, key_file):
   ifp = open (input_file)
   kfp = open (key_file)
