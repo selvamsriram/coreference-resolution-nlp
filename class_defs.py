@@ -6,6 +6,9 @@ class top:
     self.pos_list = []
     self.neg_list = []
     self.feature_list = []
+    self.matched_ana = 0
+    self.mismatched_ana = 0
+
         
 class document:
   def __init__ (self, input_doc_name, key_doc_name):

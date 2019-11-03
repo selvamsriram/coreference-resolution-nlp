@@ -22,6 +22,53 @@ def preprocess_sentence (doc_sentence):
   return pattern.sub ('', doc_sentence)
 
 
+def compare_gold_and_extracted_markables (top_obj, sent_obj):
+  gold_table = sent_obj.gold_markables
+  extracted_table = sent_obj.markables
+  max_gold_sent = []
+  min_gold_sent = []
+
+  gold_len = len(gold_table)
+
+  for i in range (gold_len):
+    #max string
+    max_s_idx = gold_table[i].w_s_idx
+    max_e_idx = gold_table[i].w_e_idx
+    temp_max = ""
+
+    for j in range (max_s_idx, max_e_idx + 1):
+      temp_max += sent_obj.word_list[j]
+    max_gold_sent.append (temp_max)
+    
+    #min string
+    min_s_idx = gold_table[i].w_min_s_idx
+    min_e_idx = gold_table[i].w_min_e_idx
+    temp_min = "" 
+
+    for j in range (min_s_idx, min_e_idx + 1):
+      temp_min += sent_obj.word_list[j]
+    min_gold_sent.append (temp_min)
+
+
+  extracted_tlen = len (extracted_table)
+  for i in range (extracted_tlen):
+    if (extracted_table[i].flags == MARKABLE_FLAG_ANTECEDENT):
+      continue
+
+    s_idx = extracted_table[i].w_s_idx
+    e_idx = extracted_table[i].w_e_idx
+    temp_e = ""
+    
+    for j in range (s_idx, e_idx + 1):
+      temp_e += sent_obj.word_list[j]
+      
+    for i, phrase in enumerate (max_gold_sent):
+      if temp_e in s:
+        if min_gold_sent[i] in temp_e:
+          top_obj.matched_ana += 1 
+
+        
+
 
 def compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)
