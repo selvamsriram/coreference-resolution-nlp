@@ -21,8 +21,8 @@ def extract_document (doc_obj, input_file, key_file):
     compare_gold_and_extracted_markables (doc_obj, sent_obj)
 
   print ("Results of markable extraction")
-  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
-  print ("Mismatched % = ", doc_obj.top_obj.mismatched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
+  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.mismatched_ana))
+  #print ("Mismatched % = ", doc_obj.top_obj.mismatched_ana/(doc_obj.top_obj.matched_ana + doc_obj.top_obj.mismatched_ana))
 
 
 def preprocess_sentence (doc_sentence):
