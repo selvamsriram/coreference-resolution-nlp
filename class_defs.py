@@ -6,6 +6,7 @@ class top:
     self.docs = {}
     self.pos_list = []
     self.neg_list = []
+    self.selected_neg_list = []
     self.feature_list = []
     self.matched_ana = 0
     self.gold_ana = 0

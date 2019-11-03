@@ -1,6 +1,7 @@
 import class_defs
 import re
 import nltk
+import random
 import utils
 
 def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem):
@@ -255,3 +256,15 @@ def create_data_using_doc (doc_obj, pos_reqd, neg_reqd):
   
   if (neg_reqd == True):
     create_neg_data_using_doc (doc_obj)
+
+def select_neg_data (top_obj, neg_ratio):
+  pos_size = len (top_obj.pos_list)
+  neg_size = len (top_obj.neg_list)
+
+  required_neg = pos_size * neg_ratio
+  if (required_neg > neg_size):
+    print ("For the given ratio we don't have enough neg samples")
+  
+  #Set seed and randomly select required samples
+  random.seed (100)
+  top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)

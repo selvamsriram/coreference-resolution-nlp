@@ -1,5 +1,6 @@
 import class_defs
 import utils
+import utils_temp
 
 
 def main():
@@ -17,7 +18,11 @@ def main():
 
   input_list_fp.close ()
   key_list_fp.close ()
+  #Select a subset of the negative data generated randomly
+  utils_temp.select_neg_data (top_obj, 2)
 
+  print ("Number of Positive and Negative Samples Generated")
+  print ("Positive : {} Negative {} Selected Negative {}".format (len(top_obj.pos_list), len(top_obj.neg_list), len(top_obj.selected_neg_list)))
 
 if __name__ =="__main__":
   main ()
