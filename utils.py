@@ -63,11 +63,11 @@ def compare_gold_and_extracted_markables (top_obj, sent_obj):
       temp_e += sent_obj.word_list[j]
       
     for i, phrase in enumerate (max_gold_sent):
-      if temp_e in s:
+      if temp_e in phrase:
         if min_gold_sent[i] in temp_e:
           top_obj.matched_ana += 1 
 
-        
+    top_obj.mismatched_ana += 1 
 
 
 def compute_markable_table (sent_obj):
