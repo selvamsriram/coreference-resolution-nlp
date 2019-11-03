@@ -37,11 +37,38 @@ def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_t
       #print ("Coreference ID ", coref_id_string, "Removed Antecedent ", sent_tag_rem[begin_index:end_index])
 
       #Create a markable_obj
-      markable_obj = class_defs.markable (begin_index, end_index, coref_id_string, class_defs.MARKABLE_FLAG_ANTECEDENT)
+      markable_obj = class_defs.markable (begin_index, end_index, -1, -1, coref_id_string, class_defs.MARKABLE_FLAG_ANTECEDENT)
       sent_obj = doc_obj.sentences[line_num]
-      sent_obj.markables.append (markable_obj)
+      sent_obj.gold_markables.append (markable_obj)
       begin_index = -1
       number_of_completed_corefs += 1
+
+def handle_key_file (doc_obj, kfp):
+  for line in kfp:
+    line = line.strip ('\n')
+    #Patten Check if the string matches for "<COREF ID="
+    if (len(line) < 2):
+      continue
+
+    if ("<COREF ID=" in line):
+      tokens = nltk.word_tokenize (line)
+      coref_id_string = tokens[5]
+    else:
+      list_of_str = []
+      extract = False
+      string_required = ""
+      for i in range (0, len(line)):
+        if (line[i] == "{"):
+          extract = True
+        elif (line[i] == "}"):
+          extract = False
+          string_required = string_required.lstrip (' ')
+          list_of_str.append(string_required)
+          string_required = ""
+        else:
+          string_required += line[i]
+      #Debug Print
+      #print ("Sentence Num :", list_of_str[0], "Max :", list_of_str[1], "Min :", list_of_str[2])
 
 def create_gold_markable_list (doc_obj, input_file, key_file):
   ifp = open (input_file)
@@ -55,4 +82,5 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
     extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem)
     line_num += 1
   ifp.close ()
+  handle_key_file (doc_obj, kfp)  
   kfp.close ()

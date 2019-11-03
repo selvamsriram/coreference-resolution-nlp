@@ -35,20 +35,20 @@ def compute_markable_table (sent_obj):
    
     #Pronoun not part of Noun Phrase
     if (pos_tag == "PRP" or pos_tag == "PRP$" or pos_tag == "WP" or pos_tag == "WP$"):
-      if (np_tag == "0"):
-        markable_obj = class_defs.markable (i, i, 0, 0)
+      if (np_tag == "O"):
+        markable_obj = class_defs.markable (i, i, -1, -1, 0, 0)
         markable_lst.append (markable_obj)
         continue
 
     if (pos_tag == "NN" or pos_tag == "NNS" or pos_tag == "NNP" or pos_tag == "NNPS"):
-      if (np_tag == "0"):
-        markable_obj = class_defs.markable (i, i, 0, 0)
+      if (np_tag == "O"):
+        markable_obj = class_defs.markable (i, i, -1, -1, 0, 0)
         markable_lst.append (markable_obj)
         continue
 
-    if (np_tag != "0"):
+    if (np_tag != "O"):
       if (np_tag == "B-NP"):
-        markable_obj = class_defs.markable (i, i, 0, 0)
+        markable_obj = class_defs.markable (i, i, -1, -1, 0, 0)
 
       elif (np_tag == "I-NP"):
         markable_obj.w_e_idx = i
@@ -84,9 +84,9 @@ def extract_sentence_info (sent_obj, doc_sentence):
 
   np_res = cp.parse (pos_tags)
 
-  print (np_res)
+  #print (np_res)
   iob_chunk = nltk.chunk.tree2conlltags (np_res)
-  print (iob_chunk)
+  #print (iob_chunk)
   len_sen = len (iob_chunk)
 
   for i in range(len_sen):

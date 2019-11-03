@@ -33,9 +33,11 @@ MARKABLE_FLAG_ANAPHOR = 2
 MARKABLE_FLAG_NEITHER = 3
 
 class markable:
-  def __init__ (self, start_idx, end_idx, coref_id, flags):
+  def __init__ (self, start_idx, end_idx, min_start_idx, min_end_idx, coref_id, flags):
     self.w_s_idx = start_idx
     self.w_e_idx = end_idx
+    self.w_min_s_idx = min_start_idx
+    self.w_min_e_idx = min_end_idx
     self.coref_id = coref_id
     self.flags = flags
 
