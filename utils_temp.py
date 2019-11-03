@@ -150,3 +150,108 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
   ifp.close ()
   handle_key_file (doc_obj, kfp)  
   kfp.close ()
+
+def create_pos_data_using_doc (doc_obj):
+  top = doc_obj.top_obj
+  max_line = len (doc_obj.sentences)
+
+  for line_num in range (0, max_line):
+    sentence = doc_obj.sentences[line_num]
+    markable_list = sentence.markables 
+    max_mark_len = len (markable_list)
+    for mark_index in range (0, max_mark_len):
+      marker = markable_list[mark_index]
+      if (marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+        #Add it to the coref cluster info
+        clus_info = class_defs.cluster_info_piece (line_num, mark_index)
+        doc_obj.clusters_info[marker.coref_id] = clus_info
+
+      elif (marker.flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+        #We gotta find the prev mention of this cluster
+        if (marker.coref_id  in doc_obj.clusters_info):
+          clus_info = doc_obj.clusters_info[marker.coref_id]
+        '''
+          #Debug Prints
+          print ("Added because antecedent is found")
+        else:
+          print ("Skipping because antecedent not in cluster")
+        '''
+        #Pair it up
+        prev_mention_sent_obj = doc_obj.sentences[clus_info.sent_idx]
+        prev_mention_marker   = prev_mention_sent_obj.markables[clus_info.mark_idx] 
+        mp = class_defs.mention_pair (doc_obj, clus_info.sent_idx, prev_mention_marker.w_s_idx, prev_mention_marker.w_e_idx, 
+                                      line_num, marker.w_s_idx, marker.w_e_idx)
+
+        #Insert the pair in POS list
+        top.pos_list.append (mp)
+
+        #Update the latest mention to this mention
+        clus_info.sent_idx = line_num
+        clus_info.mark_idx = mark_index
+        doc_obj.clusters_info[marker.coref_id] = clus_info
+
+def create_neg_data_using_doc (doc_obj):
+  top = doc_obj.top_obj
+  max_line = len (doc_obj.sentences)
+
+  #flush all the cluster keys
+  doc_obj.clusters_info.clear ()
+
+  for line_num in range (0, max_line):
+    sentence = doc_obj.sentences[line_num]
+    markable_list = sentence.markables 
+    max_mark_len = len (markable_list)
+ 
+    for mark_index in range (0, max_mark_len):
+      marker = markable_list[mark_index]
+      if (marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+        #Add it to the coref cluster info
+        clus_info = class_defs.cluster_info_piece (line_num, mark_index)
+        doc_obj.clusters_info[marker.coref_id] = clus_info
+      elif (marker.flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+        #Pair a anaphor with anything between the prev mention to this anaphor
+        #We gotta find the prev mention of this cluster
+        if (marker.coref_id  in doc_obj.clusters_info):
+          clus_info = doc_obj.clusters_info[marker.coref_id]
+
+        prev_mention_sent_idx = clus_info.sent_idx
+        prev_mention_mark_idx = clus_info.mark_idx
+        #Begin the crazy pairing 
+        #We will pair this anaphor with everything but its antecedent.
+        #Anything in the middle like another antecedent or nothing works good for A component
+        sent_iter_idx = 0
+        markable_end_idx = 0
+        markable_start_idx = 0
+        for sent_iter_idx in range (prev_mention_sent_idx, line_num+1):
+          if sent_iter_idx == line_num:
+            markable_end_idx = mark_index
+          else:
+            markable_end_idx = len (doc_obj.sentences[sent_iter_idx].markables)
+
+          if sent_iter_idx == prev_mention_sent_idx:
+            markable_start_idx = prev_mention_mark_idx + 1
+          else:
+            markable_start_idx = 0
+          
+          markable_iter_idx = 0
+          for markable_iter_idx in range (markable_start_idx, markable_end_idx):
+            a_comp_sent_obj = doc_obj.sentences[sent_iter_idx]
+            a_comp_marker   = a_comp_sent_obj.markables[markable_iter_idx] 
+            mp = class_defs.mention_pair (doc_obj, sent_iter_idx, a_comp_marker.w_s_idx, a_comp_marker.w_e_idx, 
+                                      line_num, marker.w_s_idx, marker.w_e_idx)
+            #Insert the pair in POS list
+            top.neg_list.append (mp)
+
+        #Update the latest mention to this mention
+        clus_info.sent_idx = line_num
+        clus_info.mark_idx = mark_index
+        doc_obj.clusters_info[marker.coref_id] = clus_info
+
+
+
+def create_data_using_doc (doc_obj, pos_reqd, neg_reqd):
+  if (pos_reqd == True):
+    create_pos_data_using_doc (doc_obj)
+  
+  if (neg_reqd == True):
+    create_neg_data_using_doc (doc_obj)

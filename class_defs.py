@@ -1,4 +1,5 @@
 import utils
+import utils_temp
 
 class top:
   def __init__ (self):
@@ -8,6 +9,9 @@ class top:
     self.feature_list = []
     self.matched_ana = 0
     self.gold_ana = 0
+    #Temporary measuring of how much markables are wasted
+    self.matched_ante_ana = 0
+    self.total_markable = 0
 
         
 class document:
@@ -16,6 +20,7 @@ class document:
     self.clusters_info = {}
     self.top_obj = top_obj
     utils.extract_document (self, input_doc_name, key_doc_name)
+    utils_temp.create_data_using_doc (self, True, True)
 
 class sentence:
   def __init__ (self,doc_sentence):
@@ -51,8 +56,8 @@ class cluster_info_piece:
     self.mark_idx = markable_idx
 
 class mention_pair:
-  def __init__ (self, doc_name, a_sent_idx, a_start_idx, a_end_idx, b_sent_idx, b_start_idx, b_end_idx):
-    self.dname =doc_name
+  def __init__ (self, doc_obj, a_sent_idx, a_start_idx, a_end_idx, b_sent_idx, b_start_idx, b_end_idx):
+    self.dobj = doc_obj
     self.a_sent_idx = a_sent_idx
     self.a_start_idx = a_start_idx
     self.a_end_idx = a_end_idx

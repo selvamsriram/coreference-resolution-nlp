@@ -20,8 +20,10 @@ def extract_document (doc_obj, input_file, key_file):
     sent_obj = doc_obj.sentences[i]
     compare_gold_and_extracted_markables (doc_obj, sent_obj, i)
 
+  top = doc_obj.top_obj
   print ("Results of markable extraction")
-  print ("Matched % = ", doc_obj.top_obj.matched_ana/(doc_obj.top_obj.gold_ana))
+  print ("Matched % = ", top.matched_ana/(top.gold_ana))
+  print ("Wasted Markable % = ", (top.total_markable - top.matched_ante_ana)/top.total_markable)
 
 
 def preprocess_sentence (doc_sentence):
@@ -72,6 +74,7 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
 
 
   extracted_tlen = len (extracted_table)
+  top_obj.total_markable += extracted_tlen
   for i in range (extracted_tlen):
     s_idx = extracted_table[i].w_s_idx
     e_idx = extracted_table[i].w_e_idx
@@ -95,6 +98,10 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
 
     if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
       print ("Coref ID : {} S ID : {} String : {}".format(extracted_table[i].coref_id,sent_num ,temp_e.lstrip ()))
+
+    if ((extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR) or 
+        (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT)):
+       top_obj.matched_ante_ana += 1
 
 def compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)
