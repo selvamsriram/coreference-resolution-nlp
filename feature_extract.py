@@ -17,4 +17,6 @@ def main():
     input_list_fp.close ()
     key_list_fp.close ()
 
-main ()
+
+if __name__ =="__main__":
+  main ()

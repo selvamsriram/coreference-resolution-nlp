@@ -27,6 +27,7 @@ class word:
         self.NER_tag = NER_tag
         self.chunk_tag = chunk_tag
 
+
 MARKABLE_FLAG_ANTECEDENT = 1
 MARKABLE_FLAG_ANAPHOR = 2
 MARKABLE_FLAG_NEITHER = 3
