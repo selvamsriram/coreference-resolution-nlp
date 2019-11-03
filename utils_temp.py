@@ -30,7 +30,7 @@ def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_t
       # 7 for <COREF ID="X#">
       # 3 for </COREF>
       begin_index = begin_index -(number_of_completed_corefs * 10) - 7 - 7
-      end_index = index - (number_of_completed_corefs * 10) -7 -7
+      end_index = index - (number_of_completed_corefs * 10) -7 -7 -1
 
       #Debug Prints
       #print ("Coreference ID ", coref_id_string, "Unremoved Antecedent ", antecedent)
@@ -52,7 +52,8 @@ def handle_key_file (doc_obj, kfp):
 
     if ("<COREF ID=" in line):
       tokens = nltk.word_tokenize (line)
-      coref_id_string = tokens[5]
+      coref_id_string = tokens[4]
+      print (coref_id_string)
     else:
       list_of_str = []
       extract = False
@@ -69,7 +70,66 @@ def handle_key_file (doc_obj, kfp):
           string_required += line[i]
       #Debug Print
       #print ("Sentence Num :", list_of_str[0], "Max :", list_of_str[1], "Min :", list_of_str[2])
+      #Now we got all the anaphorts in a list format, lets do the following tasks
+      # 1. Get the sentence from the doc
+      # 2. Tokenize the max and min
+      # 3. Iterate through the word_list inside sentence and find from which index to index there is a overlap.
+      sentence_obj = doc_obj.sentences[int(list_of_str[0])]
+      tokenized_max = nltk.word_tokenize (list_of_str[1])
+      tokenized_min = nltk.word_tokenize (list_of_str[2])
+      max_len = len(sentence_obj.word_list)
+      match = False
+      max_start_idx = -1
+      max_end_idx = -1
+      min_start_idx = -1
+      min_end_idx = -1
+      len_of_max_str = len (tokenized_max)
+      for i in range (0, max_len):
+        #Check if the first token matches
+        if sentence_obj.word_list[i].word == tokenized_max[0]:
+          match = True
+          for j  in range (1, len_of_max_str):
+            if sentence_obj.word_list[i+j].word != tokenized_max[j]:
+              match = False
+              break
+          if (match == True):
+            #Max pattern is found in the tokenized obj
+            max_start_idx = i
+            max_end_idx = i+len_of_max_str - 1
+            break
+      len_of_min_str = len (tokenized_min)
+      for i in range (0, max_len):
+        #Check if the first token matches
+        if sentence_obj.word_list[i].word == tokenized_min[0]:
+          match = True
+          for j  in range (1, len_of_min_str):
+            if sentence_obj.word_list[i+j].word != tokenized_min[j]:
+              match = False
+              break
+          if (match == True):
+            #Max pattern is found in the tokenized obj
+            min_start_idx = i
+            min_end_idx = i+len_of_min_str -1
+            break
 
+      markable_obj = class_defs.markable (max_start_idx, max_end_idx, min_start_idx, min_end_idx, coref_id_string, class_defs.MARKABLE_FLAG_ANAPHOR)
+      sent_obj = doc_obj.sentences[int(list_of_str[0])]
+      sent_obj.gold_markables.append (markable_obj)
+
+      '''
+      #Debug Prints
+      print ("Sentence Num :", list_of_str[0], "Max :", list_of_str[1], "Min :", list_of_str[2])
+      print_word = ""
+      for print_index in range (max_start_idx, max_end_idx+1):
+        print_word  += sentence_obj.word_list[print_index].word + " "
+      print ("Tokenized Max :", print_word)
+
+      print_word = ""
+      for print_index in range (min_start_idx, min_end_idx+1):
+        print_word  += sentence_obj.word_list[print_index].word + " "
+
+      print ("Tokenized Min :", print_word)
+      '''
 def create_gold_markable_list (doc_obj, input_file, key_file):
   ifp = open (input_file)
   kfp = open (key_file)
