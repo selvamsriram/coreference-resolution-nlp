@@ -198,6 +198,8 @@ def create_features_handler (filename, lst, top_obj, label):
   llen = len (lst)
   pronoun_lst = ["a", "an", "the", "this", "these", "that", "those"]
   dem_pronoun_lst = ["this", "these", "that", "those"]
+  male_identifiers = ["mr.", "mr", "he", "him", "himself", "his", "boy", "sir"]
+  female_identifiers = ["mrs.", "miss", "ms.", "ms", "she", "her", "herself", "her's", "madam", "lady", "girl"]
 
   for i in range (llen):
     row = []
@@ -312,8 +314,41 @@ def create_features_handler (filename, lst, top_obj, label):
         row.append (1)
         break
 
+    #Feature 9 (Gender Agreement)
+    #Note dependent on Feature 8's antecedent and anaphor variable
+    # 1 = Match
+    # 2 = Mismatch
+    # 3 = Unknown
+    gender_agreement = 3
+    if ((antecedent.lower () in male_identifiers) and (anaphor.lower () in male_identifiers)) or
+       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in female_identifiers)):
+       gender_agreement = 1
 
-    print ("===========================")
+    if ((antecedent.lower () in male_identifiers) and (anaphor.lower () in female_identifiers)) or
+       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in male_identifiers)):
+       gender_agreement = 2
+
+    row.append (gender_agreement)
+
+    #Feature 10 (Both Proper-Name)
+    a_pos_tag_list = []
+    b_pos_tag_list = []
+    both_proper_names = 0
+
+    for pos_iter_index in range (a_s_idx, a_e_idx+1):
+      a_pos_tag_list.append (a_wordlst[pos_iter_index].pos_tag)
+
+    for pos_iter_index in range (b_s_idx, b_e_idx+1):
+      b_pos_tag_list.append (b_wordlst[pos_iter_index].pos_tag)
+
+    if (("NNP" in a_pos_tag_list) or ("NNPS" in a_pos_tag_list)):
+      if (("NNP" in b_pos_tag_list) or ("NNPS" in b_pos_tag_list)):
+        both_proper_names = 1
+
+    row.append (both_proper_names)
+
+
+
 
 
 
