@@ -151,8 +151,13 @@ def compute_markable_table (sent_obj):
 
 
 def extract_sentence_info (sent_obj, doc_sentence):
+  spacy_obj = spacy.load('en_core_web_sm')
   doc_sentence = preprocess_sentence (doc_sentence)
   tokens = nltk.word_tokenize (doc_sentence)
+  spacy_doc_toks = spacy_obj (doc_sentence)
+  if (len(tokens) != len(spacy_doc_toks)):
+    print ("NLTK vs SPACY token count didn't match")
+
   pos_tags = nltk.pos_tag (tokens)
 
   ner_tree = nltk.ne_chunk (pos_tags)
@@ -320,12 +325,12 @@ def create_features_handler (filename, lst, top_obj, label):
     # 2 = Mismatch
     # 3 = Unknown
     gender_agreement = 3
-    if ((antecedent.lower () in male_identifiers) and (anaphor.lower () in male_identifiers)) or
-       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in female_identifiers)):
+    if (((antecedent.lower () in male_identifiers) and (anaphor.lower () in male_identifiers)) or
+       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in female_identifiers))):
        gender_agreement = 1
 
-    if ((antecedent.lower () in male_identifiers) and (anaphor.lower () in female_identifiers)) or
-       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in male_identifiers)):
+    if (((antecedent.lower () in male_identifiers) and (anaphor.lower () in female_identifiers)) or
+       ((antecedent.lower () in female_identifiers) and (anaphor.lower () in male_identifiers))):
        gender_agreement = 2
 
     row.append (gender_agreement)
@@ -347,6 +352,7 @@ def create_features_handler (filename, lst, top_obj, label):
 
     row.append (both_proper_names)
 
+    #Feature 
 
 
 
