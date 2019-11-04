@@ -302,13 +302,16 @@ def create_features_handler (filename, lst, top_obj, label):
     ner_spacy_ant = ner_spacy (antecedent)
     ner_spacy_ana = ner_spacy (anaphor)
 
-    print ("Antecedent: ", antecedent)
-    for ents in ner_spacy_ant.ents:
-      print (ents.text, ents.label_ )
+    #print ("Antecedent: ", antecedent)
+    #for ents in ner_spacy_ant.ents:
+      #print (ents.text, ents.label_ )
 
-    print ("Anaphor: ", anaphor)
+    #print ("Anaphor: ", anaphor)
     for ents in ner_spacy_ana.ents:
-      print (ents.text, ents.label_ )
+      if (ents.label_ in ner_spacy_ant.ents):
+        row.append (1)
+        break
+
 
     print ("===========================")
 
@@ -320,7 +323,9 @@ def create_features (top_obj):
   pos_lst = top_obj.pos_list
   neg_lst = top_obj.selected_neg_list
  
+  print ("Positive data")
   create_features_handler (fv_file, pos_lst, top_obj, 1)
+  print ("Negative data")
   create_features_handler (fv_file, neg_lst, top_obj, 0)
 
   fv_file.close ()
