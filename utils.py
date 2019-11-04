@@ -2,6 +2,8 @@ import class_defs
 import re
 import nltk
 import utils_temp
+from nltk.stem import WordNetLemmatizer
+import spacy
 
 def extract_document (doc_obj, input_file, key_file):
   ifp = open (input_file)
@@ -189,6 +191,139 @@ def extract_sentence_info (sent_obj, doc_sentence):
 
   markable_lst = compute_markable_table (sent_obj)
   sent_obj.markables = markable_lst
+
+
+
+def create_features_handler (filename, lst, top_obj, label):
+  llen = len (lst)
+  pronoun_lst = ["a", "an", "the", "this", "these", "that", "those"]
+  dem_pronoun_lst = ["this", "these", "that", "those"]
+
+  for i in range (llen):
+    row = []
+    a_sentid = lst[i].a_sent_idx
+    antecedent_sent = lst[i].dobj.sentences[a_sentid]
+    a_s_idx = antecedent_sent.markables[lst[i].a_mark_idx].w_s_idx
+    a_e_idx = antecedent_sent.markables[lst[i].a_mark_idx].w_e_idx
+    a_wordlst = antecedent_sent.word_list
+    
+    b_sentid = lst[i].b_sent_idx
+    anaphor_sent = lst[i].dobj.sentences[b_sentid]
+    b_s_idx = anaphor_sent.markables[lst[i].b_mark_idx].w_s_idx
+    b_e_idx = anaphor_sent.markables[lst[i].b_mark_idx].w_e_idx
+    b_wordlst = anaphor_sent.word_list
+
+    #Label
+    row.append (label)
+
+    #Feature 1 (Distance)
+    row.append (a_sentid - b_sentid)
+
+    #Feature 2 (i-Pronoun)
+    if (a_s_idx == a_e_idx):
+      a_pos_tag = antecedent_sent.word_list[a_s_idx].pos_tag
+      if (a_pos_tag == "PRP" or a_pos_tag == "PRP$"):
+        row.append (1)
+      else:
+        row.append (0)
+    else:
+      row.append(0)
+
+    #Feature 3 (j-Pronoun)
+    if (b_s_idx == b_e_idx):
+      b_pos_tag = anaphor_sent.word_list[b_s_idx].pos_tag
+      if (b_pos_tag == "PRP" or b_pos_tag == "PRP$"):
+        row.append (1)
+      else:
+        row.append (0)
+    else:
+      row.append(0)
+     
+    #Feature 4 (String Match)
+    temp_s1 = ""
+    for s in range (a_s_idx, a_e_idx+1):
+      if (a_wordlst[s].word.lower() in pronoun_lst):
+        continue
+
+      temp_s1 += a_wordlst[s].word.lower()
+      if (s != a_e_idx):
+        temp_s1 += " "
+
+
+    temp_s2 = ""
+    for s in range (b_s_idx, b_e_idx+1):
+      if (b_wordlst[s].word.lower() in pronoun_lst):
+        continue
+
+      temp_s2 += b_wordlst[s].word.lower()
+      if (s != b_e_idx):
+        temp_s2 += " "
+
+    if (temp_s1 == temp_s2):
+      row.append (1)
+    else: 
+      row.append (0)
+
+    #Feature 5 (Definitive Noun Phrase)
+    #Check if j is definitive NP
+
+    if (b_wordlst[b_s_idx].word.lower() == "the"):
+      row.append (1)
+    else:
+      row.append (0)
+
+    #Feature 6 (Demonstrative Noun Phrase)
+    if (b_wordlst[b_s_idx].word.lower() in dem_pronoun_lst):
+      row.append (1)
+    else:
+      row.append (0)
+
+    #Feature 7 (Number Agreement) Pending ...
+    wl = WordNetLemmatizer ()
+
+
+    #Feature 8 (Semantic Class Agreement)
+    ner_spacy = spacy.load('en_core_web_sm')
+
+    antecedent = ""
+    for s in range (a_s_idx, a_e_idx+1):
+
+      antecedent += a_wordlst[s].word
+      if (s != a_e_idx):
+        antecedent += " "
+
+    anaphor = ""
+    for s in range (b_s_idx, b_e_idx+1):
+
+      anaphor += b_wordlst[s].word
+      if (s != b_e_idx):
+        anaphor += " "
+
+    ner_spacy_ant = ner_spacy (antecedent)
+    ner_spacy_ana = ner_spacy (anaphor)
+
+    print ("Antecedent: ", antecedent)
+    for ents in ner_spacy_ant.ents:
+      print (ents.text, ents.label_ )
+
+    print ("Anaphor: ", anaphor)
+    for ents in ner_spacy_ana.ents:
+      print (ents.text, ents.label_ )
+
+    print ("===========================")
+
+
+
+
+def create_features (top_obj):
+  fv_file = open ("feature_vector.input", 'w')
+  pos_lst = top_obj.pos_list
+  neg_lst = top_obj.selected_neg_list
+ 
+  create_features_handler (fv_file, pos_lst, top_obj, 1)
+  create_features_handler (fv_file, neg_lst, top_obj, 0)
+
+  fv_file.close ()
 
 
 

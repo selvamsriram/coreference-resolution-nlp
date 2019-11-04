@@ -24,5 +24,7 @@ def main():
   print ("Number of Positive and Negative Samples Generated")
   print ("Positive : {} Negative {} Selected Negative {}".format (len(top_obj.pos_list), len(top_obj.neg_list), len(top_obj.selected_neg_list)))
 
+  utils.create_features (top_obj)
+
 if __name__ =="__main__":
   main ()
