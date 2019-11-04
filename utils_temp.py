@@ -344,7 +344,7 @@ def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
   for coref_id, clus_info_obj in doc_obj.clusters_info.items ():
     #Pair up the clus info obj and our mark index and generate mp
     mp = create_mention_pairs_for_testing (doc_obj, coref_id, 
-                                           clus_info_obj.a_sent_idx, clus_info_obj.a_mark_idx,
+                                           clus_info_obj.sent_idx, clus_info_obj.mark_idx,
                                            line_num, mark_index)
     test_mp_list.append (mp)
 
