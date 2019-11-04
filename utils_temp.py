@@ -316,3 +316,71 @@ def take_care_of_missed_antecedents (doc_obj, sent_obj, sent_num):
       sent_obj.markables.append (new_marker)
 
 
+def predict_wrapper (doc_obj, mp):
+  #To be filled after model is ready
+  return 0
+
+def get_predicted_coref_id_given_mps (doc_obj, test_mp_list):
+  max_coref_id = None
+  max_score = 0
+
+  #Predict probability or use softmax and get the coref_id responsible for max score
+  for mp in test_mp_list:
+    prediction_score = predict_wrapper (doc_obj, mp)
+    if (prediction_score > max_score):
+      max_score = prediction_score
+      max_coref_id = mp.coref_id
+  
+  return max_coref_id
+
+def create_mention_pairs_for_testing (doc_obj, coref_id, a_sent_idx, a_mark_idx, b_sent_idx, b_mark_idx):
+  mp = class_defs.mention_pair (doc_obj, a_sent_idx, a_mark_idx, b_sent_idx, b_mark_idx)
+  mp.coref_id = coref_id
+  return mp
+
+def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
+  #Pair this markable with every other markable found in the cluster and creat mention pairs
+  test_mp_list = []
+  for coref_id, clus_info_obj in doc_obj.clusters_info.items ():
+    #Pair up the clus info obj and our mark index and generate mp
+    mp = create_mention_pairs_for_testing (doc_obj, coref_id, 
+                                           clus_info_obj.a_sent_idx, clus_info_obj.a_mark_idx,
+                                           line_num, mark_index)
+    test_mp_list.append (mp)
+
+  predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
+  return predicted_coref_id
+
+def process_testing_per_sentence (doc_obj, line_num):
+  sent_obj = doc_obj.sentences[line_num]
+  max_markable = len(sent_obj.markables)
+  for mark_index in range (0, max_markable):
+    cur_marker = sent_obj.markables[mark_index]
+    if (cur_marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+      #Update the last mention of this coref cluster
+      clus_info_obj = class_defs.cluster_info_piece (line_num, mark_index)
+      doc_obj.clusters_info[cur_marker.coref_id] = clus_info_obj
+      new_cluster_list = [clus_info_obj]
+      doc_obj.result_clusters_info[cur_marker.coref_id] = new_cluster_list
+    else:
+      #This is a markable without coref id yet
+      #So, we begin creating mention pairs and work on a coref id for this.
+      predicted_coref_id = predict_coref_id_of_cluster (doc_obj, line_num, mark_index)
+      if (predicted_coref_id != None):
+        #Update the appearance on the cluster info
+        clus_info_obj = class_defs.cluster_info_piece (line_num, mark_index)
+        doc_obj.clusters_info[predicted_coref_id] = clus_info_obj
+        doc_obj.result_clusters_info[predicted_coref_id].append (clus_info_obj)
+        
+        #Set flag as Anaphor and also update the markable 
+        cur_marker.flags = class_defs.MARKABLE_FLAG_ANAPHOR
+        cur_marker.coref_id = predicted_coref_id
+        sent_obj.markables[mark_index] = cur_marker
+
+
+def begin_testing (doc_obj):
+  #Clear the cluster info before beginning to process this doc
+  doc_obj.clusters_info.clear ()
+  max_sentence = len (doc_obj.sentences)
+  for line_num in range (0, max_sentence):
+    process_testing_per_sentence (doc_obj, line_num)

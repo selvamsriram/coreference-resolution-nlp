@@ -4,6 +4,8 @@ import utils_temp
 import sys
 import os.path
 
+def generate_doc_specific_op (doc_obj, doc_name):
+
 def begin_input_doc_processing (top_obj, input_file_list):
   ifp = open (input_file_list)
 

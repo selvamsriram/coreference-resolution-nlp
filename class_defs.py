@@ -19,6 +19,7 @@ class document:
   def __init__ (self, top_obj, input_doc_name, key_doc_name):
     self.sentences = {}
     self.clusters_info = {}
+    self.result_clusters_info = {}
     self.top_obj = top_obj
     utils.extract_document (self, input_doc_name, key_doc_name)
     if (key_doc_name != None):
@@ -64,3 +65,4 @@ class mention_pair:
     self.a_mark_idx = a_mark_idx
     self.b_sent_idx = b_sent_idx
     self.b_mark_idx = b_mark_idx
+    self.coref_id = None
