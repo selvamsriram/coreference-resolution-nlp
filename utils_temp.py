@@ -356,6 +356,7 @@ def process_testing_per_sentence (doc_obj, line_num):
   max_markable = len(sent_obj.markables)
   for mark_index in range (0, max_markable):
     cur_marker = sent_obj.markables[mark_index]
+
     if (cur_marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
       #Update the last mention of this coref cluster
       clus_info_obj = class_defs.cluster_info_piece (line_num, mark_index)
