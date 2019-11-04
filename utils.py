@@ -1,4 +1,5 @@
-import class_defs 
+import class_defs
+import numpy as np 
 import re
 import nltk
 import utils_temp
@@ -220,7 +221,7 @@ def create_features_handler (filename, lst, top_obj, label):
     row.append (label)
 
     #Feature 1 (Distance)
-    row.append (a_sentid - b_sentid)
+    row.append (b_sentid - a_sentid)
 
     #Feature 2 (i-Pronoun)
     if (a_s_idx == a_e_idx):
@@ -310,10 +311,20 @@ def create_features_handler (filename, lst, top_obj, label):
       #print (ents.text, ents.label_ )
 
     #print ("Anaphor: ", anaphor)
+    flag = False
+
     for ents in ner_spacy_ana.ents:
-      if (ents.label_ in ner_spacy_ant.ents):
-        row.append (1)
+      for ant_ents in ner_spacy_ana.ents:
+        if (ents.label_ is ant_ents.label_):
+          row.append (1)
+          flag = True
+          break
+      if (flag == True):
         break
+
+    if (flag == False):
+      row.append (0)
+
 
     #Feature 9 (Gender Agreement)
     #Note dependent on Feature 8's antecedent and anaphor variable
@@ -350,7 +361,15 @@ def create_features_handler (filename, lst, top_obj, label):
 
     #Feature 
 
+    if (filename == None):
+      return np.asarray (row)
 
+    for idx, col_val in enumerate (row):
+      filename.write ("%s" %col_val)
+      if (idx != len(row) -1):
+        filename.write (", ")
+
+    filename.write ("\n")
 
 
 

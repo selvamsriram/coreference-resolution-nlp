@@ -10,7 +10,7 @@ def train_lr_model (fpath):
   X = data[:, 1:num_col]
   Y = data[:, 0]
 
-  lr_model = LogisticRegression ()
+  lr_model = LogisticRegression (solver='lbfgs')
   lr_model.fit (X, Y)
 
   model_fpath = "../../lr_trained.sav"
