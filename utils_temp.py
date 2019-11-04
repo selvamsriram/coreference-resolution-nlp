@@ -420,7 +420,7 @@ def spacy_get_ner_bio_tag (doc_sentence):
 
   return ner_iob_tag_list, ner_label_list
 
-def spacy_get_markables_filled (doc_sentence)
+def spacy_get_markables_filled (doc_sentence):
   spacy_obj = spacy.load("en_core_web_sm")
   doc = spacy_obj (doc_sentence)
   markables_list = []
