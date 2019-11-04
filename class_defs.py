@@ -21,7 +21,8 @@ class document:
     self.clusters_info = {}
     self.top_obj = top_obj
     utils.extract_document (self, input_doc_name, key_doc_name)
-    utils_temp.create_data_using_doc (self, True, True)
+    if (key_doc_name != None):
+      utils_temp.create_data_using_doc (self, True, True)
 
 class sentence:
   def __init__ (self,doc_sentence):

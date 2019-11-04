@@ -5,7 +5,6 @@ import utils_temp
 
 def extract_document (doc_obj, input_file, key_file):
   ifp = open (input_file)
-  kfp = open (key_file)
 
   line_num = 0
   for line in ifp:
@@ -13,17 +12,21 @@ def extract_document (doc_obj, input_file, key_file):
       line_num += 1
 
   ifp.close ()
-  kfp.close ()
+
   utils_temp.create_gold_markable_list (doc_obj, input_file, key_file)
   max_line = line_num
   for i in range (0, max_line):
     sent_obj = doc_obj.sentences[i]
+    #Compare and also propogate values from gold to markables list
     compare_gold_and_extracted_markables (doc_obj, sent_obj, i)
+    #Put the missing antecedents in place
+    utils_temp.take_care_of_missed_antecedents (doc_obj, sent_obj, i)
 
-  top = doc_obj.top_obj
-  print ("Results of markable extraction")
-  print ("Matched % = ", top.matched_ana/(top.gold_ana))
-  print ("Wasted Markable % = ", (top.total_markable - top.matched_ante_ana)/top.total_markable)
+  if (key_file != None):
+    top = doc_obj.top_obj
+    print ("Results of markable extraction")
+    print ("Matched % = ", top.matched_ana/(top.gold_ana))
+    print ("Wasted Markable % = ", (top.total_markable - top.matched_ante_ana)/top.total_markable)
 
 
 def preprocess_sentence (doc_sentence):

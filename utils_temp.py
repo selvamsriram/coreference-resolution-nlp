@@ -139,7 +139,6 @@ def handle_key_file (doc_obj, kfp):
 
 def create_gold_markable_list (doc_obj, input_file, key_file):
   ifp = open (input_file)
-  kfp = open (key_file)
 
   line_num = 0
   for line in ifp:
@@ -149,6 +148,11 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
     extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem)
     line_num += 1
   ifp.close ()
+  
+  if (key_file == None):
+    return
+
+  kfp = open (key_file)
   handle_key_file (doc_obj, kfp)  
   kfp.close ()
 
@@ -268,3 +272,47 @@ def select_neg_data (top_obj, neg_ratio):
   #Set seed and randomly select required samples
   random.seed (100)
   top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)
+
+def take_care_of_missed_antecedents (doc_obj, sent_obj, sent_num):
+  gold_markables = sent_obj.gold_markables
+
+  antecedent_markables = []
+  #Filter the antecedents
+  gm_len = len (gold_markables)
+  for i in range (0, gm_len):
+    marker =  gold_markables[i]
+    if (marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+      antecedent_markables.append (marker)
+
+  gm_len = len (antecedent_markables)
+  #Nothing is missed
+  if (gm_len == 0):
+    return
+
+  for i in range (0, gm_len):
+    g_marker = antecedent_markables[i]
+    #Check if this g_marker's identical twin is found in our markable list
+    our_markable_len = len (sent_obj.markables)
+    inserted_or_found = False 
+    for j in range (0, our_markable_len):
+      o_marker = sent_obj.markables[j]
+      if ((o_marker.w_s_idx == g_marker.w_s_idx) and (o_marker.w_e_idx == g_marker.w_e_idx)):
+        if (o_marker.flags != g_marker.flags):
+          #Update if there is a mismatch in flags
+          o_marker.flags = class_defs.MARKABLE_FLAG_ANTECEDENT
+          sent_obj.markables[j] = o_marker
+        inserted_or_found = True 
+        break
+      elif ((o_marker.w_s_idx > g_marker.w_s_idx)):
+        #We have crossed the place where we should have found this but we still haven't so add it
+        #Create a new marker_obj
+        new_marker = class_defs.markable (g_marker.w_s_idx, g_marker.w_e_idx, -1, -1, g_marker.coref_id, g_marker.flags)
+        sent_obj.markables.insert (j, new_marker)
+        inserted_or_found = True
+        break
+      
+    if (inserted_or_found == False):
+      new_marker = class_defs.markable (g_marker.w_s_idx, g_marker.w_e_idx, -1, -1, g_marker.coref_id, g_marker.flags)
+      sent_obj.markables.append (new_marker)
+
+
