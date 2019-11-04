@@ -58,12 +58,9 @@ class cluster_info_piece:
     self.mark_idx = markable_idx
 
 class mention_pair:
-  def __init__ (self, doc_obj, a_sent_idx, a_start_idx, a_end_idx, b_sent_idx, b_start_idx, b_end_idx):
+  def __init__ (self, doc_obj, a_sent_idx, a_mark_idx, b_sent_idx, b_mark_idx):
     self.dobj = doc_obj
     self.a_sent_idx = a_sent_idx
-    self.a_start_idx = a_start_idx
-    self.a_end_idx = a_end_idx
+    self.a_mark_idx = a_mark_idx
     self.b_sent_idx = b_sent_idx
-    self.b_start_idx = b_start_idx
-    self.b_end_idx = b_end_idx
-        
+    self.b_mark_idx = b_mark_idx

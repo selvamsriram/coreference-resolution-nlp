@@ -184,8 +184,8 @@ def create_pos_data_using_doc (doc_obj):
         #Pair it up
         prev_mention_sent_obj = doc_obj.sentences[clus_info.sent_idx]
         prev_mention_marker   = prev_mention_sent_obj.markables[clus_info.mark_idx] 
-        mp = class_defs.mention_pair (doc_obj, clus_info.sent_idx, prev_mention_marker.w_s_idx, prev_mention_marker.w_e_idx, 
-                                      line_num, marker.w_s_idx, marker.w_e_idx)
+        mp = class_defs.mention_pair (doc_obj, clus_info.sent_idx, clus_info.mark_idx, 
+                                      line_num, mark_index)
 
         #Insert the pair in POS list
         top.pos_list.append (mp)
@@ -242,8 +242,8 @@ def create_neg_data_using_doc (doc_obj):
           for markable_iter_idx in range (markable_start_idx, markable_end_idx):
             a_comp_sent_obj = doc_obj.sentences[sent_iter_idx]
             a_comp_marker   = a_comp_sent_obj.markables[markable_iter_idx] 
-            mp = class_defs.mention_pair (doc_obj, sent_iter_idx, a_comp_marker.w_s_idx, a_comp_marker.w_e_idx, 
-                                      line_num, marker.w_s_idx, marker.w_e_idx)
+            mp = class_defs.mention_pair (doc_obj, sent_iter_idx, markable_iter_idx, 
+                                      line_num, mark_index)
             #Insert the pair in POS list
             top.neg_list.append (mp)
 
