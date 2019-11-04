@@ -33,10 +33,11 @@ class sentence:
     utils.extract_sentence_info (self, doc_sentence)
 
 class word:
-  def __init__ (self, word, pos_tag, NER_tag, chunk_tag):
+  def __init__ (self, word, pos_tag, NER_tag, NER_label, chunk_tag):
     self.word = word
     self.pos_tag = pos_tag
     self.NER_tag = NER_tag
+    self.NER_label = NER_label
     self.chunk_tag = chunk_tag
 
 

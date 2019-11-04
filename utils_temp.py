@@ -3,6 +3,7 @@ import re
 import nltk
 import random
 import utils
+import spacy
 
 def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem):
   coref_id_string = ""
@@ -385,3 +386,47 @@ def begin_testing (doc_obj):
   max_sentence = len (doc_obj.sentences)
   for line_num in range (0, max_sentence):
     process_testing_per_sentence (doc_obj, line_num)
+
+
+def spacy_get_tokenized_word (doc_sentence):
+  spacy_obj = spacy.load("en_core_web_sm")
+  doc = spacy_obj (doc_sentence)
+  token_list = []
+  for tok in doc:
+    token_list.append (tok.text)
+
+  return token_list
+
+def spacy_get_pos_tags (doc_sentence):
+  spacy_obj = spacy.load("en_core_web_sm")
+  doc = spacy_obj (doc_sentence)
+  pos_tag_list = []
+
+  #We opt for Penn Tree tags over spacy Tags
+  for tok in doc:
+    pos_tag_list.append (tok.tag_)
+  
+  return pos_tag_listi
+
+def spacy_get_ner_bio_tag (doc_sentence):
+  spacy_obj = spacy.load("en_core_web_sm")
+  doc = spacy_obj (doc_sentence)
+  ner_iob_tag_list = []
+  ner_label_list = []
+  label = None
+  for ents in doc:
+    ner_iob_tag_list.append (ents.ent_iob_)
+    ner_label_list.append (ents.ent_type_)
+
+  return ner_iob_tag_list, ner_label_list
+
+def spacy_get_markables_filled (doc_sentence)
+  spacy_obj = spacy.load("en_core_web_sm")
+  doc = spacy_obj (doc_sentence)
+  markables_list = []
+
+  for chunk in doc.noun_chunks:
+    mark_obj = class_defs.markable (chunk.start, chunk.end-1, -1, -1, 0, 0)
+    markables_list.append (mark_obj)
+
+  return markables_list

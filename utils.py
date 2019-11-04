@@ -151,12 +151,8 @@ def compute_markable_table (sent_obj):
 
 
 def extract_sentence_info (sent_obj, doc_sentence):
-  spacy_obj = spacy.load('en_core_web_sm')
   doc_sentence = preprocess_sentence (doc_sentence)
   tokens = nltk.word_tokenize (doc_sentence)
-  spacy_doc_toks = spacy_obj (doc_sentence)
-  if (len(tokens) != len(spacy_doc_toks)):
-    print ("NLTK vs SPACY token count didn't match")
 
   pos_tags = nltk.pos_tag (tokens)
 
@@ -192,7 +188,7 @@ def extract_sentence_info (sent_obj, doc_sentence):
     chunk_tag = iob_chunk[i][2]
     NER_tag = ner_bio[i][2]
 
-    sent_obj.word_list.append (class_defs.word (curr_word, pos_tag, NER_tag, chunk_tag))
+    sent_obj.word_list.append (class_defs.word (curr_word, pos_tag, NER_tag, None, chunk_tag))
 
   markable_lst = compute_markable_table (sent_obj)
   sent_obj.markables = markable_lst
