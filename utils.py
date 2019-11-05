@@ -11,7 +11,7 @@ def extract_document (doc_obj, input_file, key_file):
 
   line_num = 0
   for line in ifp:
-      doc_obj.sentences[line_num] = class_defs.sentence (line)
+      doc_obj.sentences[line_num] = class_defs.sentence (line, doc_obj)
       line_num += 1
 
   ifp.close ()
@@ -102,12 +102,72 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
             top_obj.matched_ana += 1 
             extracted_table[i].flags = gold_table[k].flags 
 
-    if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
-      print ("Coref ID : {} S ID : {} String : {}".format(extracted_table[i].coref_id,sent_num ,temp_e.lstrip ()))
+    #if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+      #print ("Coref ID : {} S ID : {} String : {}".format(extracted_table[i].coref_id,sent_num ,temp_e.lstrip ()))
 
     if ((extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR) or 
         (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT)):
        top_obj.matched_ante_ana += 1
+
+def spacy_extract_sentence_info (sent_obj, doc_sentence, doc_obj):
+  doc_sentence = preprocess_sentence (doc_sentence)
+  tok_list = utils_temp.spacy_get_tokenized_word (doc_obj, doc_sentence)
+  pos_list = utils_temp.spacy_get_pos_tags (doc_obj, doc_sentence)
+  ner_tag_list, ner_label_list = utils_temp.spacy_get_ner_bio_tag (doc_obj, doc_sentence)
+  len_sen = len (tok_list)
+
+  for i in range(len_sen):
+    curr_word = tok_list[i]
+    pos_tag = pos_list[i]
+    NER_tag = ner_tag_list[i]
+    NER_label = ner_label_list[i]
+    sent_obj.word_list.append (class_defs.word (curr_word, pos_tag, NER_tag, NER_label, 'O'))
+
+  utils_temp.spacy_get_np_tags_filled (doc_obj, sent_obj, doc_sentence)
+  
+  markable_list = spacy_compute_markable_table (sent_obj)
+  sent_obj.markables = markable_list
+
+def spacy_compute_markable_table (sent_obj):
+  len_lst = len (sent_obj.word_list)
+  markable_lst = []
+  m_start_idx = -1
+  m_end_idx = -1
+
+  for i in range (len_lst):
+    curr_word = sent_obj.word_list[i]
+    pos_tag = curr_word.pos_tag
+    NER_tag = curr_word.NER_tag
+    np_tag = curr_word.chunk_tag
+
+    if (((np_tag == "B-NP") or (NER_tag == "B")) and (m_start_idx == -1)):
+      m_start_idx = i 
+      m_end_idx = i 
+    elif ((np_tag == "I-NP") or (NER_tag == "I")):
+      m_end_idx = i
+    else:
+      if (m_start_idx != -1):
+        markable_obj = class_defs.markable (m_start_idx, m_end_idx, -1, -1, 0, 0)
+        markable_lst.append (markable_obj)
+        m_start_idx = -1
+        m_end_idx = -1
+      
+      if (pos_tag == "PRP" or pos_tag == "PRP$" or pos_tag == "WP" or pos_tag == "WP$" or 
+         pos_tag == "NN" or pos_tag == "NNS" or pos_tag == "NNP" or pos_tag == "NNPS"):
+        markable_obj = class_defs.markable (i, i, -1, -1, 0, 0)
+        markable_lst.append (markable_obj)
+
+  if (m_start_idx != -1):
+    markable_obj = class_defs.markable (m_start_idx, m_end_idx, -1, -1, 0, 0)
+    markable_lst.append (markable_obj)
+
+  for marker in markable_lst:
+    print ("\n", end="")
+    for i in range (marker.w_s_idx, marker.w_e_idx+1):
+      print (sent_obj.word_list[i].word, " ", end="")
+
+
+  return markable_lst
 
 def compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)
@@ -287,7 +347,7 @@ def create_features_handler (filename, lst, top_obj, label):
 
 
     #Feature 8 (Semantic Class Agreement)
-    ner_spacy = spacy.load('en_core_web_sm')
+    ner_spacy = top_obj.spacy_obj 
 
     antecedent = ""
     for s in range (a_s_idx, a_e_idx+1):
@@ -324,7 +384,6 @@ def create_features_handler (filename, lst, top_obj, label):
 
     if (flag == False):
       row.append (0)
-
 
     #Feature 9 (Gender Agreement)
     #Note dependent on Feature 8's antecedent and anaphor variable

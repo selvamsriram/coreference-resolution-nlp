@@ -1,5 +1,6 @@
 import utils
 import utils_temp
+import spacy
 
 class top:
   def __init__ (self):
@@ -13,6 +14,7 @@ class top:
     #Temporary measuring of how much markables are wasted
     self.matched_ante_ana = 0
     self.total_markable = 0
+    self.spacy_obj = spacy.load("en_core_web_sm")
 
         
 class document:
@@ -26,11 +28,11 @@ class document:
       utils_temp.create_data_using_doc (self, True, True)
 
 class sentence:
-  def __init__ (self,doc_sentence):
+  def __init__ (self,doc_sentence, doc_obj):
     self.word_list = []
     self.markables = []
     self.gold_markables = []
-    utils.extract_sentence_info (self, doc_sentence)
+    utils.spacy_extract_sentence_info (self, doc_sentence, doc_obj)
 
 class word:
   def __init__ (self, word, pos_tag, NER_tag, NER_label, chunk_tag):

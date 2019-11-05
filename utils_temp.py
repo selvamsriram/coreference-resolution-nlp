@@ -8,6 +8,184 @@ import sys
 sys.path.insert(1,'models/Logistic_Regression')
 import lr_test
 
+def get_all_antecedents_from_input_file (gold_sentence):
+  max_sent_len = len (gold_sentence)
+  crossed_sent_tag = False
+  cur_coref_id = ""
+  cur_antecedent_str = ""
+  coref_id_list = []
+  ante_str_list = []
+  start_extraction = False
+  for i in range (0, max_sent_len):
+    if (crossed_sent_tag == False):
+      if (gold_sentence[i] == '>'):
+        crossed_sent_tag = True 
+      continue
+    if (gold_sentence[i] == '<'):
+      #This can be one of the following
+      # <COREF ID="X0">
+      # </COREF>
+      # </S>
+      if (gold_sentence[i:i+4] == "</S>"):
+        #Sentence is complete
+        break
+      if (gold_sentence[i:i+8] == "</COREF>"):
+        ante_str_list.append (cur_antecedent_str)
+        cur_antecedent_str = ""
+        start_extraction = False
+      if (gold_sentence[i:i+11] == "<COREF ID=\""):
+        t_loop_idx = i+11
+        for t_loop_idx in range (i+11, max_sent_len):
+          if (gold_sentence[t_loop_idx] == "\""):
+            break
+          else:
+            cur_coref_id += gold_sentence[t_loop_idx]
+        coref_id_list.append (cur_coref_id)
+
+    elif (gold_sentence[i] == ">"):
+      if (cur_coref_id != ""):
+        start_extraction = True
+  
+    if (start_extraction == True):
+      if (cur_coref_id != ""):
+        cur_coref_id = ""
+        continue
+      cur_antecedent_str += gold_sentence[i]
+
+  #print (coref_id_list)
+  #print (ante_str_list)
+  return coref_id_list, ante_str_list
+
+def create_markable_for_coref_id_and_str (doc_obj, sent_obj, coref_id, ante_str):
+  tokenized_ante_str = spacy_get_tokenized_word (doc_obj, ante_str)
+  max_len = len(sent_obj.word_list)
+  len_of_ante_str = len (tokenized_ante_str)
+  max_start_idx = -1
+  max_end_idx = -1
+
+  match = False
+  for i in range (0, max_len):
+    #Check if the first token matches
+    if sent_obj.word_list[i].word == tokenized_ante_str[0]:
+      match = True
+      for j in range (1, len_of_ante_str):
+        if sent_obj.word_list[i+j].word != tokenized_ante_str[j]:
+          match = False
+          break
+      if (match == True):
+        #Max pattern is found in the tokenized obj
+        max_start_idx = i
+        max_end_idx = i+ len_of_ante_str - 1
+        break
+  if (max_start_idx != -1) and (max_end_idx != -1):
+    markable_obj = class_defs.markable (max_start_idx, max_end_idx, -1, -1, coref_id, class_defs.MARKABLE_FLAG_ANTECEDENT)
+    sent_obj.gold_markables.append (markable_obj)
+
+
+def spacy_extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem):
+  coref_id_list, ante_str_list = get_all_antecedents_from_input_file (sent_tag_unrem)
+  sent_obj = doc_obj.sentences[line_num]
+
+  print ("SID : ", line_num, "Coref ID : ", coref_id_list, "ante_str_list : ", ante_str_list)
+
+  for coref_id, ante_str in zip (coref_id_list, ante_str_list):
+    #For each of the coref ID and ante string one markable is needed
+    create_markable_for_coref_id_and_str (doc_obj, sent_obj, coref_id, ante_str)
+
+def spacy_handle_key_file (doc_obj, kfp):
+  for line in kfp:
+    line = line.strip ('\n')
+    #Patten Check if the string matches for "<COREF ID="
+    if (len(line) < 2):
+      continue
+
+    if ("<COREF ID=" in line):
+      e_start_index = 11
+      coref_id_string = ""
+      for t_loop_idx in range (e_start_index, len(line)):
+        if (line[t_loop_idx] == "\""):
+          break
+        else:
+          coref_id_string += line [t_loop_idx]
+
+      #print (coref_id_string)
+    else:
+      list_of_str = []
+      extract = False
+      string_required = ""
+      for i in range (0, len(line)):
+        if (line[i] == "{"):
+          extract = True
+        elif (line[i] == "}"):
+          extract = False
+          string_required = string_required.lstrip (' ')
+          list_of_str.append(string_required)
+          string_required = ""
+        else:
+          string_required += line[i]
+      #Debug Print
+      #print ("Sentence Num :", list_of_str[0], "Max :", list_of_str[1], "Min :", list_of_str[2])
+      #Now we got all the anaphorts in a list format, lets do the following tasks
+      # 1. Get the sentence from the doc
+      # 2. Tokenize the max and min
+      # 3. Iterate through the word_list inside sentence and find from which index to index there is a overlap.
+      sentence_obj = doc_obj.sentences[int(list_of_str[0])]
+      tokenized_max = spacy_get_tokenized_word (doc_obj, list_of_str[1])
+      tokenized_min = spacy_get_tokenized_word (doc_obj, list_of_str[2])
+      max_len = len(sentence_obj.word_list)
+      match = False
+      max_start_idx = -1
+      max_end_idx = -1
+      min_start_idx = -1
+      min_end_idx = -1
+      len_of_max_str = len (tokenized_max)
+      for i in range (0, max_len):
+        #Check if the first token matches
+        if sentence_obj.word_list[i].word == tokenized_max[0]:
+          match = True
+          for j  in range (1, len_of_max_str):
+            if sentence_obj.word_list[i+j].word != tokenized_max[j]:
+              match = False
+              break
+          if (match == True):
+            #Max pattern is found in the tokenized obj
+            max_start_idx = i
+            max_end_idx = i+len_of_max_str - 1
+            break
+      len_of_min_str = len (tokenized_min)
+      for i in range (0, max_len):
+        #Check if the first token matches
+        if sentence_obj.word_list[i].word == tokenized_min[0]:
+          match = True
+          for j  in range (1, len_of_min_str):
+            if sentence_obj.word_list[i+j].word != tokenized_min[j]:
+              match = False
+              break
+          if (match == True):
+            #Max pattern is found in the tokenized obj
+            min_start_idx = i
+            min_end_idx = i+len_of_min_str -1
+            break
+
+      markable_obj = class_defs.markable (max_start_idx, max_end_idx, min_start_idx, min_end_idx, coref_id_string, class_defs.MARKABLE_FLAG_ANAPHOR)
+      sent_obj = doc_obj.sentences[int(list_of_str[0])]
+      sent_obj.gold_markables.append (markable_obj)
+
+      '''
+      #Debug Prints
+      print ("Sentence Num :", list_of_str[0], "Max :", list_of_str[1], "Min :", list_of_str[2])
+      print_word = ""
+      for print_index in range (max_start_idx, max_end_idx+1):
+        print_word  += sentence_obj.word_list[print_index].word + " "
+      print ("Tokenized Max :", print_word)
+
+      print_word = ""
+      for print_index in range (min_start_idx, min_end_idx+1):
+        print_word  += sentence_obj.word_list[print_index].word + " "
+
+      print ("Tokenized Min :", print_word)
+      '''
+
 def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem):
   coref_id_string = ""
   antecedent = None
@@ -149,7 +327,8 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
     line = line.strip ('\n')
     sent_tag_unrem = line
     sent_tag_rem = utils.preprocess_sentence  (line)
-    extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem)
+    #extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem)
+    spacy_extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem)
     line_num += 1
   ifp.close ()
   
@@ -157,7 +336,8 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
     return
 
   kfp = open (key_file)
-  handle_key_file (doc_obj, kfp)  
+  #handle_key_file (doc_obj, kfp)  
+  spacy_handle_key_file (doc_obj, kfp)  
   kfp.close ()
 
 def create_pos_data_using_doc (doc_obj):
@@ -392,8 +572,8 @@ def begin_testing (doc_obj):
     process_testing_per_sentence (doc_obj, line_num)
 
 
-def spacy_get_tokenized_word (doc_sentence):
-  spacy_obj = spacy.load("en_core_web_sm")
+def spacy_get_tokenized_word (doc_obj, doc_sentence):
+  spacy_obj = doc_obj.top_obj.spacy_obj
   doc = spacy_obj (doc_sentence)
   token_list = []
   for tok in doc:
@@ -401,8 +581,8 @@ def spacy_get_tokenized_word (doc_sentence):
 
   return token_list
 
-def spacy_get_pos_tags (doc_sentence):
-  spacy_obj = spacy.load("en_core_web_sm")
+def spacy_get_pos_tags (doc_obj, doc_sentence):
+  spacy_obj = doc_obj.top_obj.spacy_obj
   doc = spacy_obj (doc_sentence)
   pos_tag_list = []
 
@@ -410,10 +590,10 @@ def spacy_get_pos_tags (doc_sentence):
   for tok in doc:
     pos_tag_list.append (tok.tag_)
   
-  return pos_tag_listi
+  return pos_tag_list
 
-def spacy_get_ner_bio_tag (doc_sentence):
-  spacy_obj = spacy.load("en_core_web_sm")
+def spacy_get_ner_bio_tag (doc_obj, doc_sentence):
+  spacy_obj = doc_obj.top_obj.spacy_obj
   doc = spacy_obj (doc_sentence)
   ner_iob_tag_list = []
   ner_label_list = []
@@ -424,13 +604,11 @@ def spacy_get_ner_bio_tag (doc_sentence):
 
   return ner_iob_tag_list, ner_label_list
 
-def spacy_get_markables_filled (doc_sentence):
-  spacy_obj = spacy.load("en_core_web_sm")
+def spacy_get_np_tags_filled (doc_obj, sent_obj, doc_sentence):
+  spacy_obj = doc_obj.top_obj.spacy_obj
   doc = spacy_obj (doc_sentence)
-  markables_list = []
 
   for chunk in doc.noun_chunks:
-    mark_obj = class_defs.markable (chunk.start, chunk.end-1, -1, -1, 0, 0)
-    markables_list.append (mark_obj)
-
-  return markables_list
+    sent_obj.word_list[chunk.start].chunk_tag = "B-NP"
+    for i in range (chunk.start+1, chunk.end):
+      sent_obj.word_list[i].chunk_tag = "I-NP"
