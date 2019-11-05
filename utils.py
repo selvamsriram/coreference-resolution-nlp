@@ -434,7 +434,7 @@ def create_features_handler (filename, lst, top_obj, label):
 
 
 def create_features (top_obj):
-  fv_file = open ("feature_vector.input", 'w')
+  fv_file = open ("feature_vector.input", 'w+')
   pos_lst = top_obj.pos_list
   neg_lst = top_obj.selected_neg_list
  
