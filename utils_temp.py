@@ -4,6 +4,9 @@ import nltk
 import random
 import utils
 import spacy
+import sys
+sys.path.insert(1,'models/Logistic_Regression')
+import lr_test
 
 def extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, sent_tag_rem):
   coref_id_string = ""
@@ -319,7 +322,8 @@ def take_care_of_missed_antecedents (doc_obj, sent_obj, sent_num):
 
 def predict_wrapper (doc_obj, mp):
   #To be filled after model is ready
-  return 0
+  y_prob = lr_test.test_lr_model (mp, doc_obj.top_obj)
+  return y_prob
 
 def get_predicted_coref_id_given_mps (doc_obj, test_mp_list):
   max_coref_id = None
