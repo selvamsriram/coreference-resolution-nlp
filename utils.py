@@ -260,11 +260,15 @@ def create_features_handler (filename, lst, top_obj, label):
   llen = len (lst)
   pronoun_lst = ["a", "an", "the", "this", "these", "that", "those"]
   dem_pronoun_lst = ["this", "these", "that", "those"]
-  male_identifiers = ["mr.", "mr", "he", "him", "himself", "his", "boy", "sir"]
-  female_identifiers = ["mrs.", "miss", "ms.", "ms", "she", "her", "herself", "her's", "madam", "lady", "girl"]
-
+  male_identifiers = ["mr.", "mr", "he", "him", "himself", "his", "boy", "sir", "boys", "men", "man"]
+  female_identifiers = ["mrs.", "miss", "ms.", "ms", "she", "her", "herself", "her's", "madam", "lady", "girl", "girls", "women", "woman"]
+  plural_pronoun_lst = ["these", "those", "both", "few", "fewer", "many", "others", "several", "our",
+                        "their", "theirs", "we", "they", "us", "them", "ourselves", "themselves"]
+  singular_pronoun_lst = ["me", "it", "my", "mine", "its", "myself", "itself", "this", "that", "he", "him", "himself",
+                          "his", "she", "her", "herself", "her's"]
   for i in range (llen):
     row = []
+    doc_obj = lst[i].dobj
     a_sentid = lst[i].a_sent_idx
     antecedent_sent = lst[i].dobj.sentences[a_sentid]
     a_s_idx = antecedent_sent.markables[lst[i].a_mark_idx].w_s_idx
@@ -344,7 +348,52 @@ def create_features_handler (filename, lst, top_obj, label):
 
     #Feature 7 (Number Agreement) Pending ...
     wl = WordNetLemmatizer ()
+    #-1 = unknown
+    #0 = singular
+    #1 = plural
+    a_person = -1
+    for a_idx in range (a_s_idx, a_e_idx + 1):
+      word_a = a_wordlst[a_idx].word
+      if (word_a.lower() in plural_pronoun_lst):
+        a_person = 1
+        break
+      elif (word_a.lower() in singular_pronoun_lst):
+        a_person = 0
+        break
 
+      lemma = wl.lemmatize(word_a, 'n')
+      if (word_a not in lemma):
+        a_person = 1
+        break
+      else:
+        if (a_wordlst[a_idx].pos_tag == "NN" or a_wordlst[a_idx].pos_tag == "NNP"):
+          if (word_a in lemma):
+            a_person = 0
+            break
+
+    b_person = -1
+    for b_idx in range (b_s_idx, b_e_idx + 1):
+      word_b = b_wordlst[b_idx].word
+      if (word_b.lower() in plural_pronoun_lst):
+        b_person = 1
+        break
+      elif (word_b.lower() in singular_pronoun_lst):
+        b_person = 0
+        break
+
+      lemma = wl.lemmatize(word_b, 'n')
+      if (word_b not in lemma):
+        b_person = 1
+        break
+      else:
+        if (b_wordlst[b_idx].pos_tag == "NN" or b_wordlst[b_idx].pos_tag == "NNP"):
+          if (word_b in lemma):
+            b_person = 0
+            break
+    if (a_person == b_person):
+      row.append (1)
+    else:
+      row.append (0)
 
     #Feature 8 (Semantic Class Agreement)
     ner_spacy = top_obj.spacy_obj 
@@ -418,8 +467,85 @@ def create_features_handler (filename, lst, top_obj, label):
 
     row.append (both_proper_names)
 
-    #Feature 
+    #Feature 11 (Alias Feature)
+    #Check the NER tag for the antecedents and anaphor
+    a_tok_list = []
+    a_ner_tag_list = []
+    a_atleast_one_valid = False
+    a_ner_label_type = ""
 
+    b_tok_list = []
+    b_ner_tag_list = []
+    b_atleast_one_valid = False 
+    b_ner_label_type = ""
+
+    for ner_iter_index  in range (a_s_idx, a_e_idx+1):
+      word = a_wordlst[ner_iter_index]
+      if (word.NER_tag != 'O'):
+        a_atleast_one_valid = True
+        a_ner_label_type = word.NER_label
+      a_ner_tag_list.append (word.NER_tag)
+      a_tok_list.append (word.word)
+
+    for ner_iter_index  in range (b_s_idx, b_e_idx+1):
+      word = b_wordlst[ner_iter_index]
+      if (word.NER_tag != 'O'):
+        b_atleast_one_valid = True
+        b_ner_label_type = word.NER_label
+      b_ner_tag_list.append (word.NER_tag)
+      b_tok_list.append (word.word)
+
+    if ((a_atleast_one_valid != b_atleast_one_valid) or 
+        ((a_atleast_one_valid == False) and (b_atleast_one_valid == False)) or
+        (a_ner_label_type != b_ner_label_type)):
+      row.append (0)
+    else:
+      a_set = set(a_tok_list)
+      b_set = set (b_tok_list)
+
+      if (a_set & b_set):
+        #print ("NER Type :", antecedent, a_ner_label_type, anaphor, b_ner_label_type, "Match", )
+        row.append (1)
+      else:
+        row.append (0)
+
+    #Feature 12 (Appositive Feature)
+    #Dependent on Feature 10
+    #Check if the strings are close to each other
+    sent_diff = b_sentid - a_sentid
+
+    if (sent_diff > 0):
+      row.append (0)
+    else:
+      #They are in the same line, now check how close they are to each other
+      index_diff = b_s_idx - a_e_idx
+      if (index_diff > 1):
+        row.append (0)
+      else:
+        #We have established they are close, now check what is in between if there is any.
+        verb_found = False
+        if (index_diff > 0):
+          for temp_index  in range (a_e_idx+1, b_s_idx):
+            if (a_wordlst[temp_index].pos_tag in ["MD", "VBD", "VB", "VBG", "VBN", "VBZ"]):
+              verb_found = True
+              break
+          if (verb_found == True):
+            row.append (0)
+        
+        if (verb_found == False):
+          #Check if one of them are proper noun
+          #Dependent on Feature 10
+          pos_tag_set = set (a_pos_tag_list + b_pos_tag_list)
+          if ("NNP" in pos_tag_set):
+            if (b_wordlst[b_s_idx].word.lower() == "the"):
+              print ("Appositive Feature : Index Diff : ", index_diff, "Ante :", antecedent, "Anaphor :", anaphor)
+              row.append (1)
+            else:
+              row.append (0)
+          else:
+            row.append (0)
+
+    #Feature - ENDS       
     if (filename == None):
       return np.asarray (row)
 

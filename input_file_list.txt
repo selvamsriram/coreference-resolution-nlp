@@ -16,3 +16,5 @@ data/train/b9.input
 data/train/c1.input
 data/train/c2.input
 data/train/c3.input
+data/train/c4.input
+data/train/c5.input
