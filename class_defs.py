@@ -10,7 +10,11 @@ class top:
     self.selected_neg_list = []
     self.feature_list = []
     self.matched_ana = 0
+    self.loaded_ante = 0
+    self.gold_ante = 0
     self.gold_ana = 0
+    self.missed_anaphors = 0
+    self.pos_create_ana_encountered = 0
     #Temporary measuring of how much markables are wasted
     self.matched_ante_ana = 0
     self.total_markable = 0
@@ -29,6 +33,7 @@ class document:
 
 class sentence:
   def __init__ (self,doc_sentence, doc_obj):
+    self.full_sentence = None 
     self.word_list = []
     self.markables = []
     self.gold_markables = []
@@ -55,6 +60,7 @@ class markable:
     self.w_min_e_idx = min_end_idx
     self.coref_id = coref_id
     self.flags = flags
+    self.anaphor_detected = False
 
 class cluster_info_piece:
   def __init__ (self, sentence_idx, markable_idx):

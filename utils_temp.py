@@ -8,6 +8,11 @@ import sys
 sys.path.insert(1,'models/Logistic_Regression')
 import lr_test
 
+def debug_printer(doc_obj):
+  sent_obj = doc_obj.sentences[28]
+  for marker in sent_obj.markables:
+    print ("DPRINTER: ", marker.coref_id, marker.flags)
+
 def get_all_antecedents_from_input_file (gold_sentence):
   max_sent_len = len (gold_sentence)
   crossed_sent_tag = False
@@ -52,8 +57,8 @@ def get_all_antecedents_from_input_file (gold_sentence):
         continue
       cur_antecedent_str += gold_sentence[i]
 
-  #print (coref_id_list)
-  #print (ante_str_list)
+  print (coref_id_list)
+  print (ante_str_list)
   return coref_id_list, ante_str_list
 
 def create_markable_for_coref_id_and_str (doc_obj, sent_obj, coref_id, ante_str):
@@ -341,6 +346,8 @@ def create_gold_markable_list (doc_obj, input_file, key_file):
   kfp.close ()
 
 def create_pos_data_using_doc (doc_obj):
+  #print ("From create_pos_data_using_doc")
+  #debug_printer(doc_obj)
   top = doc_obj.top_obj
   max_line = len (doc_obj.sentences)
 
@@ -356,28 +363,31 @@ def create_pos_data_using_doc (doc_obj):
         doc_obj.clusters_info[marker.coref_id] = clus_info
 
       elif (marker.flags == class_defs.MARKABLE_FLAG_ANAPHOR):
+        top.pos_create_ana_encountered += 1
         #We gotta find the prev mention of this cluster
         if (marker.coref_id  in doc_obj.clusters_info):
           clus_info = doc_obj.clusters_info[marker.coref_id]
-        '''
-          #Debug Prints
-          print ("Added because antecedent is found")
-        else:
-          print ("Skipping because antecedent not in cluster")
-        '''
-        #Pair it up
-        prev_mention_sent_obj = doc_obj.sentences[clus_info.sent_idx]
-        prev_mention_marker   = prev_mention_sent_obj.markables[clus_info.mark_idx] 
-        mp = class_defs.mention_pair (doc_obj, clus_info.sent_idx, clus_info.mark_idx, 
+          '''
+            #Debug Prints
+            print ("Added because antecedent is found")
+          '''
+          #Pair it up
+          prev_mention_sent_obj = doc_obj.sentences[clus_info.sent_idx]
+          prev_mention_marker   = prev_mention_sent_obj.markables[clus_info.mark_idx] 
+          mp = class_defs.mention_pair (doc_obj, clus_info.sent_idx, clus_info.mark_idx, 
                                       line_num, mark_index)
 
-        #Insert the pair in POS list
-        top.pos_list.append (mp)
+          #Insert the pair in POS list
+          top.pos_list.append (mp)
 
-        #Update the latest mention to this mention
-        clus_info.sent_idx = line_num
-        clus_info.mark_idx = mark_index
-        doc_obj.clusters_info[marker.coref_id] = clus_info
+          #Update the latest mention to this mention
+          clus_info.sent_idx = line_num
+          clus_info.mark_idx = mark_index
+          doc_obj.clusters_info[marker.coref_id] = clus_info
+        else:
+          print ("Skipping because antecedent not in cluster")
+          print ("Sentence : ", doc_obj.sentences[line_num].full_sentence)
+          print ("line number :", line_num, "Mark Idx : ", mark_index, "Coref ID : ", marker.coref_id)
 
 def create_neg_data_using_doc (doc_obj):
   top = doc_obj.top_obj

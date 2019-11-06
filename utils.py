@@ -5,6 +5,7 @@ import nltk
 import utils_temp
 from nltk.stem import WordNetLemmatizer
 import spacy
+from prettytable import PrettyTable
 
 def extract_document (doc_obj, input_file, key_file):
   ifp = open (input_file)
@@ -22,14 +23,117 @@ def extract_document (doc_obj, input_file, key_file):
     sent_obj = doc_obj.sentences[i]
     #Compare and also propogate values from gold to markables list
     compare_gold_and_extracted_markables (doc_obj, sent_obj, i)
+    #print ("After compare gold") 
+    #utils_temp.debug_printer (doc_obj)
     #Put the missing antecedents in place
     utils_temp.take_care_of_missed_antecedents (doc_obj, sent_obj, i)
+    #print ("After take care") 
+    #utils_temp.debug_printer (doc_obj)
+    find_missed_anaphors (doc_obj, sent_obj, i)
+    #print ("After find_missed_anaphors")
+    #utils_temp.debug_printer (doc_obj)
+    count_total_antecedents_our_markable (doc_obj, sent_obj)
 
   if (key_file != None):
     top = doc_obj.top_obj
     print ("Results of markable extraction")
     print ("Matched % = ", top.matched_ana/(top.gold_ana))
+    print ("Total Markables  = {}".format (top.total_markable))
+    print ("Gold Anaphors    = {}".format (top.gold_ana))
+    print ("Matched Anaphors = {}".format (top.matched_ana))
+    print ("Gold Antecedent  = {}".format (top.gold_ante))
+    print ("Loaded Antecdent = {}".format (top.loaded_ante))
     print ("Wasted Markable % = ", (top.total_markable - top.matched_ante_ana)/top.total_markable)
+    print ("Missed Anaphor : ", top.missed_anaphors)
+
+def compare_total_antecedents (doc_obj):
+  max_sent_len = len (doc_obj.sentences)
+
+  for line_num in range (0, max_sent_len):
+    sent_obj = doc_obj.sentences[line_num]
+    if (len(sent_obj.markables) == 0) and (len(sent_obj.gold_markables) == 0):
+      continue
+    mids = []
+    coref_ids = []
+    indices = []
+    flags = []
+    print (line_num, ":", sent_obj.full_sentence)
+    for i,marker in enumerate (sent_obj.markables):
+      mids.append (i)
+      coref_ids.append (marker.coref_id)
+      indices.append ((marker.w_s_idx, marker.w_e_idx))
+      flags.append (marker.flags)
+    t = PrettyTable (mids)
+    t.add_row (coref_ids)
+    t.add_row (indices)
+    t.add_row (flags)
+    print ("Our Markable Tables")
+    print (t)
+    mids = []
+    coref_ids = []
+    indices = []
+    flags = []
+    for i,marker in enumerate (sent_obj.gold_markables):
+      mids.append (i)
+      coref_ids.append (marker.coref_id)
+      indices.append ((marker.w_s_idx, marker.w_e_idx))
+      flags.append (marker.flags)
+    t = PrettyTable (mids)
+    t.add_row (coref_ids)
+    t.add_row (indices)
+    t.add_row (flags)
+    print ("Gold Markable Tables")
+    print (t)
+
+def count_total_antecedents_our_markable (doc_obj, sent_obj):
+  markables = sent_obj.markables 
+  for marker in markables:
+    if (marker.flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+      doc_obj.top_obj.loaded_ante += 1
+
+def find_missed_anaphors (doc_obj, sent_obj, line_num):
+  gold_markables = sent_obj.gold_markables
+  first = True
+
+  for i, gmarker in enumerate (gold_markables):
+    if (gmarker.flags == class_defs.MARKABLE_FLAG_ANAPHOR) and (gmarker.anaphor_detected == False):
+      doc_obj.top_obj.missed_anaphors += 1
+      if (first == True):
+        print ("Line Num", line_num)
+        print ("Sentence   : ", sent_obj.full_sentence)
+        first = False
+      s_idx = gmarker.w_s_idx
+      e_idx = gmarker.w_e_idx
+      tok_list = ["TOKEN"]
+      pos_list = ["POS TAG"]
+      NER_tag_list = ["NER TAG"]
+      NER_label_list = ["NER LABEL"]
+      NP_chunk_tag_list = ["NP CHUNK TAG"]
+      tok_header_list = ["Info Name"]
+      an_string = ""
+      for i in range (s_idx, e_idx+1):
+        word = sent_obj.word_list[i]
+        tok_header_list.append (i)
+        tok_list.append (word.word)
+        pos_list.append (word.pos_tag)
+        NER_tag_list.append (word.NER_tag)
+        NER_label_list.append (word.NER_label) 
+        NP_chunk_tag_list.append (word.chunk_tag)
+        an_string += word.word
+        if (i != e_idx):
+          an_string += " "
+
+      print ("Missed Anaphor:")
+      print ("---------------")
+      print (an_string)
+
+      t = PrettyTable(tok_header_list)
+      t.add_row (tok_list)
+      t.add_row (pos_list)
+      t.add_row (NER_tag_list)
+      t.add_row (NER_label_list)
+      t.add_row (NP_chunk_tag_list)
+      print (t)
 
 
 def preprocess_sentence (doc_sentence):
@@ -50,6 +154,8 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
   for i in range (gold_len):
     if (gold_table[i].flags != class_defs.MARKABLE_FLAG_ANTECEDENT):
       top_obj.gold_ana += 1
+    elif (gold_table[i].flags == class_defs.MARKABLE_FLAG_ANTECEDENT):
+      top_obj.gold_ante += 1
 
     #max string
     max_s_idx = gold_table[i].w_s_idx
@@ -93,14 +199,19 @@ def compare_gold_and_extracted_markables (doc_obj, sent_obj, sent_num):
 
     for k, phrase in enumerate (max_gold_sent):
       if temp_e in phrase:
-        extracted_table[i].coref_id = gold_table[k].coref_id
         if (gold_table[k].flags != class_defs.MARKABLE_FLAG_ANAPHOR):
-          extracted_table[i].flags = gold_table[k].flags
+          if (temp_e == phrase):
+            extracted_table[i].coref_id = gold_table[k].coref_id
+            extracted_table[i].flags = gold_table[k].flags
+            break
 
         if (gold_table[k].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
-          if min_gold_sent[k] in temp_e:
+          if (min_gold_sent[k] in temp_e) and (extracted_table[i].flags != class_defs.MARKABLE_FLAG_ANTECEDENT):
             top_obj.matched_ana += 1 
             extracted_table[i].flags = gold_table[k].flags 
+            extracted_table[i].coref_id = gold_table[k].coref_id
+            gold_table[k].anaphor_detected = True
+            break
 
     #if (extracted_table[i].flags == class_defs.MARKABLE_FLAG_ANAPHOR):
       #print ("Coref ID : {} S ID : {} String : {}".format(extracted_table[i].coref_id,sent_num ,temp_e.lstrip ()))
@@ -127,6 +238,7 @@ def spacy_extract_sentence_info (sent_obj, doc_sentence, doc_obj):
   
   markable_list = spacy_compute_markable_table (sent_obj)
   sent_obj.markables = markable_list
+  sent_obj.full_sentence = doc_sentence
 
 def spacy_compute_markable_table (sent_obj):
   len_lst = len (sent_obj.word_list)
@@ -254,6 +366,88 @@ def extract_sentence_info (sent_obj, doc_sentence):
   markable_lst = compute_markable_table (sent_obj)
   sent_obj.markables = markable_lst
 
+
+def print_mention_pair_all_details (top_obj, mp, row):
+  doc_obj = mp.dobj
+  a_sent_obj = doc_obj.sentences[mp.a_sent_idx]
+  b_sent_obj = doc_obj.sentences[mp.b_sent_idx]
+  a_marker = a_sent_obj.markables[mp.a_mark_idx]
+  b_marker = b_sent_obj.markables[mp.b_mark_idx]
+  a_s_idx = a_marker.w_s_idx
+  a_e_idx = a_marker.w_e_idx
+  b_s_idx = b_marker.w_s_idx
+  b_e_idx = b_marker.w_e_idx
+  tok_list = ["TOKEN"]
+  pos_list = ["POS TAG"]
+  NER_tag_list = ["NER TAG"]
+  NER_label_list = ["NER LABEL"]
+  NP_chunk_tag_list = ["NP CHUNK TAG"]
+  tok_header_list = ["Info Name"]
+  an_string = ""
+  for i in range (a_s_idx, a_e_idx+1):
+    word = a_sent_obj.word_list[i]
+    tok_header_list.append (i)
+    tok_list.append (word.word)
+    pos_list.append (word.pos_tag)
+    NER_tag_list.append (word.NER_tag)
+    NER_label_list.append (word.NER_label) 
+    NP_chunk_tag_list.append (word.chunk_tag)
+    an_string += word.word
+    if (i != a_e_idx):
+      an_string += " "
+
+  print ("-----------------------------------------------------------------------------------------------")  
+  print ("Antecedent")
+  print ("-----------")
+  print ("Sentence   : ", a_sent_obj.full_sentence)
+  print ("Antecedent : ", an_string)
+
+  t = PrettyTable(tok_header_list)
+  t.add_row (tok_list)
+  t.add_row (pos_list)
+  t.add_row (NER_tag_list)
+  t.add_row (NER_label_list)
+  t.add_row (NP_chunk_tag_list)
+  print (t)
+
+  tok_list = ["TOKEN"]
+  pos_list = ["POS TAG"]
+  NER_tag_list = ["NER TAG"]
+  NER_label_list = ["NER LABEL"]
+  NP_chunk_tag_list = ["NP CHUNK TAG"]
+  tok_header_list = ["Info Name"]
+  an_string = ""
+  for i in range (b_s_idx, b_e_idx+1):
+    word = b_sent_obj.word_list[i]
+    tok_header_list.append (i)
+    tok_list.append (word.word)
+    pos_list.append (word.pos_tag)
+    NER_tag_list.append (word.NER_tag)
+    NER_label_list.append (word.NER_label) 
+    NP_chunk_tag_list.append (word.chunk_tag)
+    an_string += word.word
+    if (i != b_e_idx):
+      an_string += " "
+  
+  print ("\nAnaphor")
+  print ("----------")
+  print ("Sentence : ", b_sent_obj.full_sentence)
+  print ("Anaphor  : ", an_string)
+
+  t = PrettyTable(tok_header_list)
+  t.add_row (tok_list)
+  t.add_row (pos_list)
+  t.add_row (NER_tag_list)
+  t.add_row (NER_label_list)
+  t.add_row (NP_chunk_tag_list)
+  print (t)
+  print_feature_row (top_obj, mp, row)
+
+def print_feature_row (top_obj, mp, row):
+  feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
+  t = PrettyTable(feature_list)
+  t.add_row (row)
+  print (t)
 
 
 def create_features_handler (filename, lst, top_obj, label):
@@ -545,6 +739,8 @@ def create_features_handler (filename, lst, top_obj, label):
           else:
             row.append (0)
 
+    #Debug Print
+    #print_mention_pair_all_details (top_obj, lst[i], row)
     #Feature - ENDS       
     if (filename == None):
       return np.asarray (row)

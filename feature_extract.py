@@ -20,9 +20,13 @@ def main():
   key_list_fp.close ()
   #Select a subset of the negative data generated randomly
   utils_temp.select_neg_data (top_obj, 2)
-
+  print ("Pos Create Ana Encountered : ", top_obj.pos_create_ana_encountered)
   print ("Number of Positive and Negative Samples Generated")
   print ("Positive : {} Negative {} Selected Negative {}".format (len(top_obj.pos_list), len(top_obj.neg_list), len(top_obj.selected_neg_list)))
+
+  #Debug Prints
+  #for key, dobj in top_obj.docs.items():
+  #  utils.compare_total_antecedents(dobj)
 
   utils.create_features (top_obj)
 
