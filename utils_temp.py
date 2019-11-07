@@ -540,7 +540,7 @@ def get_manual_coref_id_given_mps (doc_obj, test_mp_list):
 
   #Predict probability or use softmax and get the coref_id responsible for max score
   for mp in test_mp_list:
-    prediction_score = give_score_when_no_op_from_ml (doc_obj, mp):
+    prediction_score = give_score_when_no_op_from_ml (doc_obj, mp)
     if (prediction_score > max_score):
       max_score = prediction_score
       max_coref_id = mp.coref_id
