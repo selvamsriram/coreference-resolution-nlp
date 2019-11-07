@@ -516,7 +516,7 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
   a_string = []
   b_sent_id = mp.b_sent_idx
   b_sent_obj = doc_obj.sentences[b_sent_id]
-  b_marker = a_sent_obj.markables[mp.b_mark_idx]
+  b_marker = b_sent_obj.markables[mp.b_mark_idx]
   b_string = []
 
   #Fill A Part String
@@ -524,8 +524,8 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
     a_string.append (a_sent_obj.word_list[i].word)
 
   #Fill b Part String
-  for i in range (b_marker.w_s_idx, b_marker.w_e_idx+1):
-    b_string.append (b_sent_obj.word_list[i].word)
+  for j in range (b_marker.w_s_idx, b_marker.w_e_idx+1):
+    b_string.append (b_sent_obj.word_list[j].word)
 
   a_set = set (a_string)
   b_set = set (b_string)

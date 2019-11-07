@@ -9,7 +9,9 @@ python3.6
 apt install python3-pip
 pip3 install numpy nltk spacy
 pip3 install scikit-learn
+pip3  install prettytable --user
 python3 -m spacy download en_core_web_sm
+
 #Inside python3.6 prompt
 >>> import nltk
 >>> nltk.download('wordnet')
