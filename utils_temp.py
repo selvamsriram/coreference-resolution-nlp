@@ -529,7 +529,8 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
 
   a_set = set (a_string)
   b_set = set (b_string)
-  eliminate_set = set ("the", "a", "this", "that")
+  eliminate_list = ["the", "a", "this", "that"]
+  eliminate_set = set (eliminate_list)
   res_set = a_set & b_set
   res_set = res_set - eliminate_set
   return len(res_set)
