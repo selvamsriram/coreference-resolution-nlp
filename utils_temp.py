@@ -509,6 +509,43 @@ def take_care_of_missed_antecedents (doc_obj, sent_obj, sent_num):
       new_marker = class_defs.markable (g_marker.w_s_idx, g_marker.w_e_idx, -1, -1, g_marker.coref_id, g_marker.flags)
       sent_obj.markables.append (new_marker)
 
+def give_score_when_no_op_from_ml (doc_obj, mp):
+  a_sent_id = mp.a_sent_idx
+  a_sent_obj = doc_obj.sentences[a_sent_id]
+  a_marker = a_sent_obj.markables[mp.a_mark_idx]
+  a_string = []
+  b_sent_id = mp.b_sent_idx
+  b_sent_obj = doc_obj.sentences[b_sent_id]
+  b_marker = a_sent_obj.markables[mp.b_mark_idx]
+  b_string = []
+
+  #Fill A Part String
+  for i in range (a_marker.w_s_idx, a_marker.w_e_idx+1):
+    a_string.append (a_sent_obj.word_list[i].word)
+
+  #Fill b Part String
+  for i in range (b_marker.w_s_idx, b_marker.w_e_idx+1):
+    b_string.append (b_sent_obj.word_list[i].word)
+
+  a_set = set (a_string)
+  b_set = set (b_string)
+  eliminate_set = set ("the", "a", "this", "that")
+  res_set = a_set & b_set
+  res_set = res_set - eliminate_set
+  return len(res_set)
+
+def get_manual_coref_id_given_mps (doc_obj, test_mp_list):
+  max_coref_id = None
+  max_score = 0
+
+  #Predict probability or use softmax and get the coref_id responsible for max score
+  for mp in test_mp_list:
+    prediction_score = give_score_when_no_op_from_ml (doc_obj, mp):
+    if (prediction_score > max_score):
+      max_score = prediction_score
+      max_coref_id = mp.coref_id
+  
+  return max_coref_id
 
 def predict_wrapper (doc_obj, mp):
   #To be filled after model is ready
@@ -517,7 +554,7 @@ def predict_wrapper (doc_obj, mp):
 
 def get_predicted_coref_id_given_mps (doc_obj, test_mp_list):
   max_coref_id = None
-  max_score = 0
+  max_score = 0.6
 
   #Predict probability or use softmax and get the coref_id responsible for max score
   for mp in test_mp_list:
@@ -544,6 +581,8 @@ def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
     test_mp_list.append (mp)
 
   predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
+  if (predicted_coref_id == None):
+    predicted_coref_id = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
   return predicted_coref_id
 
 def process_testing_per_sentence (doc_obj, line_num):
