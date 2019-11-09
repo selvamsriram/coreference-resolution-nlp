@@ -7,7 +7,7 @@ After exploring various options that were available, we chose to implement the s
 
 [Wee Meng Soon , Hwee Tou Ng , Daniel Chung Yong Lim, A machine learning approach to coreference resolution of noun phrases, Computational Linguistics, v.27 n.4, December 2001](https://dl.acm.org/citation.cfm?id=972602)
 
-## Required Packages:
+## Required Packages
 ```
 python3.6
 numpy nltk spacy scikit-learn prettytable 
@@ -18,7 +18,7 @@ Inside python3.6 prompt
 >>> nltk.download('wordnet')
 ```
 
-## Training From the Scratch:
+## Training From the Scratch
 ```
 python3.6 ./feature_extract.py
 cd models/Logistic_Regression/
@@ -26,12 +26,12 @@ python3.6 ./lr_train.py
 cd ../../
 ```
 
-## Using Coref File to Test:
+## Using Coref File to Test
 ```
 python3.6 ./coref.py list_file.txt scoring-program/responses/
 ```
 
-## Input File Specifications:
+## Input File Specifications
 Input files are present in data/train folder, they end with ".input" extension
 Each document is marked up with two types of information:
 1. Sentence boundaries.
@@ -52,7 +52,7 @@ As an example, a short story might look like this:
 
 This story has 4 sentences and 3 coreference clusters. The initial reference for the first cluster is “Susan Mills”, the initial reference for the second cluster is “a home”, and the initial reference for the third cluster is “her dog”.
 
-## Answer Key or Gold Standard File:
+## Answer Key or Gold Standard File
 Answer key files are for the development, they contain the gold standard coreference clusters for each document. We use the answer key files to better understand the nature of the task, to evaluate the performance of your system on thedevelopment set stories, and to train a machine learning system. 
 
 Each coreference cluster in the answer key files begins with the initial reference (as marked up in the document) followed by each coreferent phrase in the document on a separate line. Each coreferent phrase is indicated by the sentence number where it occurs, its maximalphrase, and its minimal phrase. The maximal phrase is the full text span for the coreferent phrase, and the minimal phrase is the shortest acceptable text span for the coreferent phrase, which is usually the head noun or a named entity span. The specific format is shown below:
@@ -83,7 +83,7 @@ Coreference system is scored based on its ability to find the correct coreferent
 
 For example, consider the coreference cluster for “a home”. Any of the following phrases from Sentence 1 is considered correct: “the 2-story house”, “2-story house”, and “house”. But these phrases are considered incorrect: “that the 2-story house” (exceeds maximalspan), “house has” (exceeds maximal span), and “the house” (because the phrase is not acontiguous span in the document).
 
-## Output or Response File Specifications:
+## Output or Response File Specifications
 Coreference system should produce a response file for each document that lists the coreference phrases found for each cluster. The format is similar to the answer key files,except that it should produce just a single phrase for each answer (whereas the answer keyhas maximal and minimal spans). The specific format is shown below:
 
 ```
@@ -114,7 +114,7 @@ We list the mentions in the order that they occur in the document, with the earl
 For example, consider the sentence: John Smith is a singer and John has wonmany awards.
 Be sure to list “John Smith” in your list of referents before “John”.
 
-## I/O Specifications:
+## I/O Specifications
 Coreference resolver accepts two arguments as input:
 
 A ListFile that specifies the full pathname for the input files to be processed, one per line. Each input file is named "StoryID.input". For example, a ListFile might look like this:
@@ -134,7 +134,7 @@ python3 coref test1.lisfile /home/yourname/project/coref/output/
 For each input file, coreference resolver will produce a new file with the same prefix but the extension .response instead of .input.
 For example, given 52.input, your program should generate an output file named 52.response. All of the response files should be put in the directory specified on the command line.
 
-## Scoring:
+## Scoring
 The performance of the coreference resolver is based on its F score, which is a harmonic mean of Recall and Precision.
 These scores are defined as:
 
