@@ -36,17 +36,17 @@ Each document is marked up with two types of information:
 1. Sentence boundaries.
 2. The initial reference for every coreference cluster.
 
-Each sentence is surrounded by the tags \<S ID=“#”\>and\</S\>, where ID indicatesthe sentence number (#).
+Each sentence is surrounded by the tags <S ID=“#”>and</S>, where ID indicatesthe sentence number (#).
 
-Each initial reference is surrounded by the tags \<COREF ID=“X#”\>and\</COREF\>, where the ID is a unique identifier (X#) for the reference. The initial reference is the earliest mention of the cluster concept in the document. One can assume that there will be at least one additional reference belonging to each cluster, that all additional references will occur after the initial reference, and that each reference will be a pronoun, noun, or nounphrase. For this project we didn't need to find possessive references (e.g., “his” or “Susan’s”).
+Each initial reference is surrounded by the tags <COREF ID=“X#”>and</COREF>, where the ID is a unique identifier (X#) for the reference. The initial reference is the earliest mention of the cluster concept in the document. One can assume that there will be at least one additional reference belonging to each cluster, that all additional references will occur after the initial reference, and that each reference will be a pronoun, noun, or nounphrase. For this project we didn't need to find possessive references (e.g., “his” or “Susan’s”).
 
 As an example, a short story might look like this:
 
 ```
-\<S ID=“0”\>\<COREF ID=“X0”\>Susan Mills\</COREF\>bought\<COREF ID=“X1”\>ahome\</COREF\>in Utah.\</S\>
-\<S ID=“1”\>A nice feature is that the 2-story house has a big yard for\<COREF ID=“X2”\>herdog\</COREF\>.\</S\>
-\<S ID=“2”\>The German Shepherd weighs 100 lbs and is very active.\</S\>
-\<S ID=“3”\>Both Sue and the dog love the new house!\</S\>
+<S ID=“0”><COREF ID=“X0”>Susan Mills</COREF>bought<COREF ID=“X1”>a home</COREF>in Utah.</S>
+<S ID=“1”>A nice feature is that the 2-story house has a big yard for<COREF ID=“X2”>herdog</COREF>.</S>
+<S ID=“2”>The German Shepherd weighs 100 lbs and is very active.</S>
+<S ID=“3”>Both Sue and the dog love the new house!</S>
 ```
 
 This story has 4 sentences and 3 coreference clusters. The initial reference for the first cluster is “Susan Mills”, the initial reference for the second cluster is “a home”, and the initial reference for the third cluster is “her dog”.
@@ -66,14 +66,14 @@ etc.
 Each cluster’s information is separated by a blank line. For the sample document shownearlier, the answer key file looks like this:
 
 ```
-\<COREF ID=“X0”\>Susan Mills\</COREF\>
+<COREF ID=“X0”>Susan Mills</COREF>
 {3} {Sue} {Sue}
 
-\<COREF ID=“X1”\>a home\</COREF\>
+<COREF ID=“X1”>a home</COREF>
 {1} {the 2-story house} {house}
 {3} {the new house} {house}
 
-\<COREF ID=“X2”\>her dog\</COREF\>
+<COREF ID=“X2”>her dog</COREF>
 {2} {The German Shepherd} {German Shepherd}
 {3} {the dog} {dog}
 ```
@@ -95,14 +95,14 @@ etc.
 The information for each cluster is separated by a blank line. For example, a response file for the previous story looks like this:
 
 ```
-\<COREF ID=“X0”\>Susan Mills\</COREF\>
+<COREF ID=“X0”>Susan Mills</COREF>
 {1} {A nice feature}
 {3} {Sue}
 
-\<COREF ID=“X1”\>a home\</COREF\>
+<COREF ID=“X1”>a home</COREF>
 {1} {house has}
 
-\<COREF ID=“X2”\>her dog\</COREF\>
+<COREF ID=“X2”>her dog</COREF>
 {3} {dog}
 ```
 
