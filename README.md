@@ -1,20 +1,20 @@
 # Co-reference resolution system based on Machine Learning
 
 ## Introduction
-This was originally a class project written by Anneswa Ghosh and Myself (Sriram).
+This was a class project submitted for CS 6340: Natural Language Processing.
 
 After exploring various options that were available, we chose to implement the simplest and straight-forward machine learning approach based on the below paper.
 
-[A Machine Learning Approach to Coreference Resolution of Noun Phrases" paper by Soon, NG, et All.] (https://dl.acm.org/citation.cfm?id=972602)
+**A Machine Learning Approach to Coreference Resolution of Noun Phrases" paper by Soon, NG, et All.** (https://dl.acm.org/citation.cfm?id=972602)
 
-##INPUT FILE SPECIFICATIONS:
+## INPUT FILE SPECIFICATIONS:
 Input files are present in data/train folder, they end with ".input" extension
 
 Each document is marked up with two types of information:
-	(1) sentence boundaries,and 
-	(2) the initial reference for every coreference cluster.
+1. Sentence boundaries.
+2. The initial reference for every coreference cluster.
 
-Each sentence is surrounded by the tags<S ID=“#”>and</S>, where ID indicatesthe sentence number (#).
+Each sentence is surrounded by the tags \<S ID=“#”\>and\</S\>, where ID indicatesthe sentence number (#).
 
 Each initial reference is surrounded by the tags<COREF ID=“X#”>and</COREF>,where the ID is a unique identifier (X#) for the reference. The initial reference is the earliest mention of the cluster concept in the document. One can assume that there will be at least one additional reference belonging to each cluster, that all additional references will occur after the initial reference, and that each reference will be a pronoun, noun, or nounphrase. For this project we didn't need to find possessive references (e.g., “his” or “Susan’s”).
 
@@ -26,7 +26,7 @@ As an example, a short story might look like this:
 
 This story has 4 sentences and 3 coreference clusters. The initial reference for the first cluster is “Susan Mills”, the initial reference for the second cluster is “a home”, and the initial reference for the third cluster is “her dog”.
 
-##ANSWER KEY (GOLD STANDARD) FILE:
+## ANSWER KEY (GOLD STANDARD) FILE:
 Answer key files are for the development, they contain the gold standard coreference clusters for each document. We use the answer key files to better understand the nature of the task, to evaluate the performance of your system on thedevelopment set stories, and to train a machine learning system. 
 
 Each coreference cluster in the answer key files begins with the initial reference (as marked up in the document) followed by each coreferent phrase in the document on a separate line. Each coreferent phrase is indicated by the sentence number where it occurs, its maximalphrase, and its minimal phrase. The maximal phrase is the full text span for the coreferent phrase, and the minimal phrase is the shortest acceptable text span for the coreferent phrase, which is usually the head noun or a named entity span. The specific format is shown below:
@@ -53,7 +53,7 @@ Coreference system is scored based on its ability to find the correct coreferent
 
 For example, consider the coreference cluster for “a home”. Any of the following phrases from Sentence 1 is considered correct: “the 2-story house”, “2-story house”, and “house”. But these phrases are considered incorrect: “that the 2-story house” (exceeds maximalspan), “house has” (exceeds maximal span), and “the house” (because the phrase is not acontiguous span in the document).
 
-OUTPUT (RESPONSE) FILE SPECIFICATIONS:
+## OUTPUT (RESPONSE) FILE SPECIFICATIONS:
 -------------------------------------
 Coreference system should produce a response file for each document that lists the coreference phrases found for each cluster. The format is similar to the answer key files,except that it should produce just a single phrase for each answer (whereas the answer keyhas maximal and minimal spans). The specific format is shown below:
 
@@ -81,7 +81,7 @@ We list the mentions in the order that they occur in the document, with the earl
 For example, consider the sentence: John Smith is a singer and John has wonmany awards.
 Be sure to list “John Smith” in your list of referents before “John”.
 
-I/O SPECIFICATIONS:
+## I/O SPECIFICATIONS:
 -------------------
 Coreference resolver accepts two arguments as input:
 1. A ListFile that specifies the full pathname for the input les to be processed, one per line. Each input file is named \StoryID.input". For example, a ListFile might look like this:
@@ -101,7 +101,7 @@ python3 coref test1.lisfile /home/yourname/project/coref/output/
 For each input file, coreference resolver will produce a new file with the same prefix but the extension .response instead of .input.
 For example, given 52.input, your program should generate an output file named 52.response. All of the response files should be put in the directory specified on the command line.
 
-Scoring:
+## Scoring:
 ---------
 The performance of the coreference resolver is based on its F score, which is a harmonic mean of Recall and Precision.
 These scores are defined as:
@@ -115,7 +115,7 @@ F Score: F(R,P) = (2 x P x R)/(P + R)
 This formula measures the balance between recall and precision (it is the harmonic mean).
 The final performance of each system will be based on its F Score.
 
-Mandatorily Required Packages:
+## Mandatorily Required Packages:
 ------------------------------
 python3.6
 apt install python3-pip
@@ -128,13 +128,13 @@ Inside python3.6 prompt
 >>> import nltk
 >>> nltk.download('wordnet')
 
-Training From the Scratch:
+## Training From the Scratch:
 -----------------------------
 python3.6 ./feature_extract.py
 cd models/Logistic_Regression/
 python3.6 ./lr_train.py
 cd ../../
 
-Using Coref File to Test:
+## Using Coref File to Test:
 --------------------------
 python3.6 ./coref.py list_file.txt scoring-program/responses/
