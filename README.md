@@ -4,6 +4,7 @@
 Coreference resolution is the task of finding all expressions that refer to the same entity in a text. It is an important step for a lot of higher level NLP tasks that involve natural language understanding such as document summarization, question answering, and information extraction. This was a class project submitted for CS 6340: Natural Language Processing.
 
 After exploring various options that were available, we chose to implement the simplest and straight-forward machine learning approach based on the below paper.
+
 [Wee Meng Soon , Hwee Tou Ng , Daniel Chung Yong Lim, A machine learning approach to coreference resolution of noun phrases, Computational Linguistics, v.27 n.4, December 2001](https://dl.acm.org/citation.cfm?id=972602)
 
 ## Required Packages:
