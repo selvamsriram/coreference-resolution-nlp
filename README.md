@@ -29,6 +29,7 @@ cd ../../
 ```
 python3.6 ./coref.py list_file.txt scoring-program/responses/
 ```
+
 ## Input File Specifications:
 Input files are present in data/train folder, they end with ".input" extension
 Each document is marked up with two types of information:
