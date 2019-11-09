@@ -1,15 +1,36 @@
-# Co-reference resolution system based on Machine Learning
+# Coreference resolution system based on Machine Learning
 
 ## Introduction
-This was a class project submitted for CS 6340: Natural Language Processing.
+Coreference resolution is the task of finding all expressions that refer to the same entity in a text. It is an important step for a lot of higher level NLP tasks that involve natural language understanding such as document summarization, question answering, and information extraction. This was a class project submitted for CS 6340: Natural Language Processing.
 
 After exploring various options that were available, we chose to implement the simplest and straight-forward machine learning approach based on the below paper.
+[Wee Meng Soon , Hwee Tou Ng , Daniel Chung Yong Lim, A machine learning approach to coreference resolution of noun phrases, Computational Linguistics, v.27 n.4, December 2001](https://dl.acm.org/citation.cfm?id=972602)
 
-**Wee Meng Soon , Hwee Tou Ng , Daniel Chung Yong Lim, A machine learning approach to coreference resolution of noun phrases, Computational Linguistics, v.27 n.4, December 2001** (https://dl.acm.org/citation.cfm?id=972602)
+## Required Packages:
+```
+python3.6
+numpy nltk spacy scikit-learn prettytable 
+python3 -m spacy download en_core_web_sm
 
+Inside python3.6 prompt
+>>> import nltk
+>>> nltk.download('wordnet')
+```
+
+## Training From the Scratch:
+```
+python3.6 ./feature_extract.py
+cd models/Logistic_Regression/
+python3.6 ./lr_train.py
+cd ../../
+```
+
+## Using Coref File to Test:
+```
+python3.6 ./coref.py list_file.txt scoring-program/responses/
+```
 ## Input File Specifications:
 Input files are present in data/train folder, they end with ".input" extension
-
 Each document is marked up with two types of information:
 1. Sentence boundaries.
 2. The initial reference for every coreference cluster.
@@ -115,8 +136,8 @@ For example, given 52.input, your program should generate an output file named 5
 The performance of the coreference resolver is based on its F score, which is a harmonic mean of Recall and Precision.
 These scores are defined as:
 
-Recall (R): the number of correct references identied by your system divided by the total number of references in the answer key.
-Precision (P): the number of correct references identied by your system divided by the total number of references produced by your system.
+**Recall (R):** the number of correct references identified by your system divided by the total number of references in the answer key.
+**Precision (P):** the number of correct references identified by your system divided by the total number of references produced by your system.
 
 ```
 F Score: F(R,P) = (2 x P x R)/(P + R)
@@ -125,29 +146,4 @@ F Score: F(R,P) = (2 x P x R)/(P + R)
 This formula measures the balance between recall and precision (it is the harmonic mean).
 The final performance of each system will be based on its F Score.
 
-## Mandatorily Required Packages:
-```
-python3.6
-apt install python3-pip
-pip3 install numpy nltk spacy
-pip3 install scikit-learn
-pip3 install prettytable --user
-python3 -m spacy download en_core_web_sm
 
-Inside python3.6 prompt
->>> import nltk
->>> nltk.download('wordnet')
-```
-
-## Training From the Scratch:
-```
-python3.6 ./feature_extract.py
-cd models/Logistic_Regression/
-python3.6 ./lr_train.py
-cd ../../
-```
-
-## Using Coref File to Test:
-```
-python3.6 ./coref.py list_file.txt scoring-program/responses/
-```
