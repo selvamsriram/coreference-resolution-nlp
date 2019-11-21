@@ -1,0 +1,83 @@
+<COREF ID="X0">F14-CRASH</COREF>
+{5} {F14-CRASH}
+
+<COREF ID="X1">02 - 22</COREF>
+{5} {- ART}
+{7} {( ART ADV}
+{10} {( HLW}
+
+<COREF ID="X2">SERIES OF CRASHES</COREF>
+{6} {CRASHES}
+
+<COREF ID="X3">NAVY</COREF>
+
+<COREF ID="X4">ITS F-14S</COREF>
+{13} {its F-14s}
+{16} {more than 330 F-14s}
+{18} {he}
+{22} {He}
+{25} {it}
+{41} {it}
+
+<COREF ID="X5">one of them</COREF>
+{13} {them}
+{16} {we}
+{21} {we}
+{25} {We}
+{28} {they}
+{40} {They}
+
+<COREF ID="X6">Thursday</COREF>
+{38} {Thursday}
+
+<COREF ID="X7">the Persian Gulf</COREF>
+{14} {the gulf}
+{38} {the gulf}
+
+<COREF ID="X8">The two - man crew</COREF>
+{15} {The two crewmen}
+{23} {the past two years}
+{33} {recent years}
+{33} {the recent spate}
+
+<COREF ID="X9">the carrier Nimitz</COREF>
+{14} {Nimitz}
+{38} {the Nimitz}
+{38} {the Persian Gulf}
+
+<COREF ID="X10">The three - day shutdown</COREF>
+{16} {the three crashes}
+{22} {the three - day review}
+{27} {the three recent crashes}
+{31} {the three planes}
+{35} {three people}
+
+<COREF ID="X11">the chief of naval operations</COREF>
+{16} {naval operations}
+
+<COREF ID="X12">the earlier models</COREF>
+{28} {Earlier models}
+
+<COREF ID="X13">Navy officials</COREF>
+{28} {the Navy 's fleet}
+{30} {The Navy}
+{33} {all Navy fighter planes}
+{37} {the fighter}
+
+<COREF ID="X14">the engines</COREF>
+{30} {the engines}
+{32} {The engines}
+{35} {The two - man crew}
+{36} {The pilot}
+{38} {The F-14 that}
+{41} {The plane}
+{41} {the plane}
+
+<COREF ID="X15">Two of the three planes that have crashed since late January</COREF>
+{31} {late January}
+
+<COREF ID="X16">later models</COREF>
+
+<COREF ID="X17">an F-14D</COREF>
+{38} {an operation}
+

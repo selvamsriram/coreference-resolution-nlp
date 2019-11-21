@@ -533,6 +533,9 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
   eliminate_set = set (eliminate_list)
   res_set = a_set & b_set
   res_set = res_set - eliminate_set
+  print ("A Set    : ", a_set)
+  print ("B Set    : ", b_set)
+  print ("Res Set  : ", res_set)
   return len(res_set)
 
 def get_manual_coref_id_given_mps (doc_obj, test_mp_list):

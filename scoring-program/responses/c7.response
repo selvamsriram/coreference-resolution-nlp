@@ -1,0 +1,65 @@
+<COREF ID="X0">Dept</COREF>
+
+<COREF ID="X1">Outbreak</COREF>
+{2} {An outbreak}
+
+<COREF ID="X2">Winter Vomiting Disease</COREF>
+{2} {winter vomiting disease}
+{6} {winter}
+{14} {" winter vomiting disease}
+{16} {the winter}
+
+<COREF ID="X3">Sunnybrook Hospital</COREF>
+
+<COREF ID="X4">Monday</COREF>
+{4} {Monday afternoon}
+{6} {it}
+
+<COREF ID="X5">patients</COREF>
+{4} {13 patients}
+
+<COREF ID="X6">staff</COREF>
+{4} {28 staff members}
+
+<COREF ID="X7">vomiting</COREF>
+{6} {vomiting}
+{11} {Winter vomiting disease}
+{12} {vomiting}
+{18} {Winter vomiting disease}
+
+<COREF ID="X8">symptoms</COREF>
+{12} {Symptoms}
+
+<COREF ID="X9">the virus</COREF>
+{13} {the Norwalk virus}
+{18} {a Norwalk - like virus}
+{19} {Norwalk - like viruses}
+{20} {- Mod}
+
+<COREF ID="X10">infection</COREF>
+{11} {an infection}
+
+<COREF ID="X11">We</COREF>
+{6} {We}
+{7} {we}
+{8} {We}
+
+<COREF ID="X12">Craig DuHamel</COREF>
+{8} {DuHamel}
+{13} {DuHamel}
+
+<COREF ID="X13">We d</COREF>
+
+<COREF ID="X14">hospital</COREF>
+{10} {the hospital}
+
+<COREF ID="X15">a virus</COREF>
+{13} {the virus}
+
+<COREF ID="X16">Norwalk</COREF>
+
+<COREF ID="X17">ProMED - mail</COREF>
+{20} {ProMED - mail & lt;promed@promedmail.org&gt}
+
+<COREF ID="X18">infection</COREF>
+

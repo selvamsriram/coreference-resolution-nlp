@@ -1,0 +1,41 @@
+<COREF ID="X0">West Nile Virus</COREF>
+{1} {West Nile virus infection}
+{2} {West Nile virus}
+{6} {West Nile virus surveillance information}
+
+<COREF ID="X1">Canada</COREF>
+{2} {human , imported - Canada}
+{2} {& lt;http://www.who.int / disease -}
+{6} {lt;http://www.hc - sc.gc.ca / pphb - dgspsp / wnv - vwn / index.html&gt}
+
+<COREF ID="X2">Tue</COREF>
+
+<COREF ID="X3">Health Canada</COREF>
+{6} {the Health Canada web site}
+
+<COREF ID="X4">cases</COREF>
+{1} {65 suspected cases}
+{1} {31 confirmed cases}
+{2} {One confirmed case}
+{2} {one suspected case}
+{2} {the remaining 64 suspected cases}
+{2} {27 confirmed cases}
+{3} {suspected cases}
+{5} {all other cases}
+
+<COREF ID="X5">case</COREF>
+{5} {case}
+{5} {one confirmed case}
+
+<COREF ID="X6">Alberta</COREF>
+{5} {Alberta}
+
+<COREF ID="X7">details</COREF>
+
+<COREF ID="X8">Ontario</COREF>
+{5} {Ontario}
+
+<COREF ID="X9">deaths</COREF>
+
+<COREF ID="X10">individuals</COREF>
+

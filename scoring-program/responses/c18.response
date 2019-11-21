@@ -1,0 +1,59 @@
+<COREF ID="X0">Lassa fever</COREF>
+{1} {Lassa fever}
+{2} {fever}
+{3} {He}
+{5} {He}
+{5} {he}
+{5} {he}
+{6} {He}
+{7} {He}
+{8} {he}
+{9} {He}
+{10} {This patient}
+
+<COREF ID="X1">UNAMSILLL</COREF>
+
+<COREF ID="X2">force</COREF>
+
+<COREF ID="X3">Daru</COREF>
+{2} {Daru}
+{10} {Daru}
+{11} {Daru}
+
+<COREF ID="X4">case</COREF>
+{14} {the first case}
+
+<COREF ID="X5">Freetown</COREF>
+{5} {Freetown}
+{10} {Freetown}
+{12} {urban Freetown}
+
+<COREF ID="X6">member</COREF>
+
+<COREF ID="X7">malaria</COREF>
+{4} {Subsequently malaria}
+
+<COREF ID="X8">temperatures</COREF>
+{10} {temperatures}
+
+<COREF ID="X9">We</COREF>
+{15} {We}
+{19} {we}
+
+<COREF ID="X10">The first</COREF>
+{13} {first}
+
+<COREF ID="X11">virus</COREF>
+{21} {Lassa fever virus - infected laboratory}
+{26} {- Mod}
+
+<COREF ID="X12">investigation</COREF>
+{23} {a full epidemiological investigation}
+
+<COREF ID="X13">I</COREF>
+
+<COREF ID="X14">confirmation</COREF>
+{25} {Laboratory confirmation}
+
+<COREF ID="X15">CP</COREF>
+
