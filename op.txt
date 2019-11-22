@@ -1,0 +1,4201 @@
+Processing :  data/new_test/tst1/a13.input
+
+nyt960327.0549  
+A0338  
+BC  -  AEROFLOT  -  FAMILIES  -  SUE  
+03  -  27  
+0292  
+BC  
+SUE  -  SCMP  
+FAMILIES  
+SUE  
+AREOFLOT  CRASH  DEATHS  
+PATRICIA  YOUNG  
+c.1996  South  China  Morning  Post  
+The  Russian  airline  Aeroflot  
+a  writ  
+loss  
+damages  
+Hong  Kong  
+the  families  
+seven  passengers  
+an  air  crash  
+All  75  people  
+board  
+Aeroflot  Airbus  
+it  
+a  Siberian  mountain  
+March  1994  
+Aeroflot  general  manager  
+Hong  Kong  Vassili  Tkatchenko  
+Tuesday  
+he  
+the  writ  
+The  writ  
+`  damages  
+interest  
+costs  
+seven  passengers  
+who  
+the  Moscow  Airbus  A310  flight  
+Hong  Kong  
+Novokuznetsk  
+Siberia  
+It  
+the  deaths  
+negligence  
+breach  
+statutory  duty  
+breach  
+contract  
+the  part  
+the  defendant  
+Aeroflot  
+Air  industry  investigators  
+the  15-year  -  old  son  
+Captain  Yaroslav  Kudrinsky  
+the  Hong  Kong  -  bound  aircraft  
+it  
+Moscow  
+Black  box  transcripts  
+Eldar  
+Yana  
+his  13-year  -  old  sister  
+the  cockpit  
+the  crash  
+Airline  passengers  
+a  section  
+the  Warsaw  Convention  
+air  travel  
+October  12  ,  1929  
+The  liability  
+the  carrier  
+death  
+personal  injury  
+passengers  
+an  upper  limit  
+75,000  
+larger  amounts  
+the  courts  
+court  
+settlements  
+Aviation  consultant  Steve  Miller  
+the  managing  director  
+Trinity  Aviation  
+he  
+any  aviation  court  settlements  
+Hong  Kong  
+it  
+the  courts  
+Hong  Kong  
+Mr  Miller  
+Six  
+the  claims  
+the  writs  
+family  members  
+who  
+Hong  Kong  
+NYT-03  -  27  -  96  1647EST  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['AEROFLOT', 'FAMILIES']
+SID :  2 Coref ID :  ['X0', 'X1'] ante_str_list :  ['AEROFLOT', 'FAMILIES']
+['X2']
+['03-27']
+SID :  3 Coref ID :  ['X2'] ante_str_list :  ['03-27']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X3']
+['AREOFLOT CRASH DEATHS']
+SID :  6 Coref ID :  ['X3'] ante_str_list :  ['AREOFLOT CRASH DEATHS']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+['X4', 'X5']
+['a writ', 'Hong Kong']
+SID :  9 Coref ID :  ['X4', 'X5'] ante_str_list :  ['a writ', 'Hong Kong']
+['X6']
+['the Aeroflot Airbus']
+SID :  10 Coref ID :  ['X6'] ante_str_list :  ['the Aeroflot Airbus']
+['X7']
+['Aeroflot general manager for Hong Kong Vassili Tkatchenko']
+SID :  11 Coref ID :  ['X7'] ante_str_list :  ['Aeroflot general manager for Hong Kong Vassili Tkatchenko']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+['X8']
+['the 15-year-old son of Captain Yaroslav Kudrinsky']
+SID :  14 Coref ID :  ['X8'] ante_str_list :  ['the 15-year-old son of Captain Yaroslav Kudrinsky']
+['X9']
+['Yana']
+SID :  15 Coref ID :  ['X9'] ante_str_list :  ['Yana']
+['X10']
+['Airline passengers']
+SID :  16 Coref ID :  ['X10'] ante_str_list :  ['Airline passengers']
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+['X11']
+['Aviation consultant Steve Miller']
+SID :  19 Coref ID :  ['X11'] ante_str_list :  ['Aviation consultant Steve Miller']
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/a14.input
+
+nyt960405.0560  
+A0222  
+BC  
+-  AIRLINE  
+LIABILITY-575  
+04  -  05  
+1094  
+BC  -  AIRLINE  
+LIABILITY-575@amp;AMP;ADD  -  NYT  
+NEW  PRESSURES  
+(  lh  
+MATTHEW  L.  WALD  
+c.1996  
+N.Y.  
+WASHINGTON  
+@amp;MD  
+The  Warsaw  Convention  
+the  liability  
+an  airline  
+passengers  
+a  plane  crash  
+airlines  
+the  accord  's  $  75,000  limit  
+damages  
+prospects  
+a  new  agreement  
+the  U.S.  Department  of  Transportation  
+the  accord  
+damage  suits  
+Americans  
+the  United  States  
+Some  foreign  airlines  
+that  demand  
+the  third  effort  
+the  $  75,000  limit  
+1966  
+all  parties  
+Efforts  
+1977  
+1988  
+the  limit  
+fold  
+U.S.  officials  
+the  United  States  
+them  
+Trial  lawyers  
+the  higher  limits  
+aircraft  manufacturers  
+high  limits  
+suits  
+them  
+`  The  amount  
+time  
+it  
+something  
+Jeffrey  N.  Shane  
+an  aviation  lawyer  
+who  
+assistant  secretary  
+transportation  
+policy  
+international  affairs  
+1989  to  1993  
+The  Warsaw  Convention  
+1929  
+29  countries  
+the  United  States  
+1934  
+who  
+details  cargo  rules  
+All  nations  
+commercial  airlines  
+the  airlines  
+the  document  
+the  low  liability  limit  
+many  airlines  
+themselves  
+families  
+negligence  
+@amp;MD  
+higher  damages  
+@amp;MD  
+general  good  will  
+they  
+the  limits  
+court  
+American  Airlines  
+example  
+families  
+the  people  
+who  
+one  
+its  planes  
+Colombia  
+December  
+it  
+the  limit  
+it  
+the  16  passengers  
+international  trips  
+who  
+the  American  Eagle  commuter  flight  
+Roselawn  
+Ind.  
+October  1994  
+The  message  
+American  
+We  
+what  
+we  
+a  jury  
+what  
+Barry  Lambert  Harris  
+who  
+an  acting  administrator  
+the  Federal  Aviation  Administration  
+the  Bush  administration  
+the  airlines  
+a  realistic  limit  
+uniform  system  
+Representatives  
+airlines  
+the  world  
+this  week  
+Montreal  
+the  details  
+a  system  
+no  limits  
+U.S.  airlines  
+an  antitrust  exemption  
+an  agreement  
+government  approval  
+The  airlines  
+U.S.  officials  
+fairly  simple  negotiations  
+families  
+`  economic  damages  
+the  amount  
+the  remaining  years  
+his  or  her  life  
+normal  life  expectancy  
+The  sticking  point  
+court  
+disputes  
+negotiations  
+the  current  agreement  
+survivors  
+suit  
+the  country  
+the  home  country  
+the  airline  
+a  country  
+the  airline  
+its  major  operation  
+the  country  
+the  contract  
+transportation  
+The  United  States  
+a  `  `  fifth  jurisdiction  
+Americans  
+the  United  States  
+domestic  carriers  
+they  
+the  `  `  fifth  jurisdiction  
+overseas  carriers  
+NYT-04  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0']
+['AIRLINE-LIABILITY']
+SID :  2 Coref ID :  ['X0'] ante_str_list :  ['AIRLINE-LIABILITY']
+['X1']
+['04-05']
+SID :  3 Coref ID :  ['X1'] ante_str_list :  ['04-05']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X2']
+['AIRLINE CRASH-LIABILITY ACCORD']
+SID :  6 Coref ID :  ['X2'] ante_str_list :  ['AIRLINE CRASH-LIABILITY ACCORD']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X3', 'X4']
+['airlines', '$75,000 limit']
+SID :  10 Coref ID :  ['X3', 'X4'] ante_str_list :  ['airlines', '$75,000 limit']
+['X5', 'X6']
+['Americans', 'United States']
+SID :  11 Coref ID :  ['X5', 'X6'] ante_str_list :  ['Americans', 'United States']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+['X7']
+['This']
+SID :  13 Coref ID :  ['X7'] ante_str_list :  ['This']
+['X8', 'X9']
+['Efforts', 'U.S. officials']
+SID :  14 Coref ID :  ['X8', 'X9'] ante_str_list :  ['Efforts', 'U.S. officials']
+['X10']
+['aircraft manufacturers']
+SID :  15 Coref ID :  ['X10'] ante_str_list :  ['aircraft manufacturers']
+['X11']
+['Jeffrey N. Shane']
+SID :  16 Coref ID :  ['X11'] ante_str_list :  ['Jeffrey N. Shane']
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+['X12', 'X13']
+['many airlines', 'families']
+SID :  19 Coref ID :  ['X12', 'X13'] ante_str_list :  ['many airlines', 'families']
+['X14']
+['American Airlines']
+SID :  20 Coref ID :  ['X14'] ante_str_list :  ['American Airlines']
+['X15']
+['Barry Lambert Harris']
+SID :  21 Coref ID :  ['X15'] ante_str_list :  ['Barry Lambert Harris']
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+['X16']
+['U.S. airlines']
+SID :  24 Coref ID :  ['X16'] ante_str_list :  ['U.S. airlines']
+['X17', 'X18']
+['fairly simple negotiations', 'economic damages']
+SID :  25 Coref ID :  ['X17', 'X18'] ante_str_list :  ['fairly simple negotiations', 'economic damages']
+[]
+[]
+SID :  26 Coref ID :  [] ante_str_list :  []
+['X19']
+['the airline']
+SID :  27 Coref ID :  ['X19'] ante_str_list :  ['the airline']
+['X20']
+["a ``fifth jurisdiction''"]
+SID :  28 Coref ID :  ['X20'] ante_str_list :  ["a ``fifth jurisdiction''"]
+[]
+[]
+SID :  29 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  30 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/a15.input
+
+nyt960406.0216  
+A0580  
+BC  -  CRASH  
+NYT  
+@amp;LR  
+04  -  06  
+BC  -  CRASH  
+NYT  
+SOMBER  FAREWELL  
+CROATIA  
+U.S.  VICTIMS  
+CHRIS  HEDGES  
+c.1996  
+N.Y.  
+DUBROVNIK  
+Croatia  
+@amp;MD  
+The  coffins  
+the  remains  
+Commerce  Secretary  Ron  Brown  
+32  other  Americans  
+a  plane  crash  
+Wednesday  
+two  C-17  transport  planes  
+Dover  Air  Force  Base  
+Delaware  
+a  somber  farewell  ceremony  
+Dubrovnik  
+Saturday  morning  
+Croatian  and  American  officials  
+19  
+19  Croatian  honor  guards  
+the  last  four  coffins  
+two  
+the  American  flag  
+two  
+the  Croatian  flag  
+the  tarmac  
+Two  
+who  
+the  crash  
+Croatian  citizens  
+President  Franjo  Tudjman  
+Croatia  
+who  
+the  ceremony  
+his  nation  
+pain  
+sorrow  
+Today  
+we  
+our  leave  
+Ron  Brown  
+all  other  senior  U.S.  officials  
+behalf  
+the  whole  
+Croatia  
+myself  
+I  
+my  deepest  sympathy  
+the  families  
+who  
+Tudjman  
+You  
+our  memory  
+He  
+Brown  
+Croatian  decoration  
+a  brief  euology  
+the  American  ambassador  
+Croatia  
+Peter  W.  Galbraith  
+Saturday  
+Easter  eve  
+`  As  Jesus  
+the  Sermon  
+the  Mount  
+the  ambassador  
+the  peacemakers  
+they  
+children  
+God  
+our  friends  
+colleagues  
+who  
+a  mission  
+peace  
+The  Air  Force  T-43  plane  
+a  rocky  hill  
+St.  John  the  Baptist  
+Wednesday  
+heavy  rain  
+fog  
+The  35  passengers  
+board  
+The  two  Croatians  
+Brown  
+the  only  victims  
+whose  
+The  remaining  bodies  
+forensic  experts  
+the  United  States  
+Galbraith  
+the  most  fitting  memorial  
+peace  
+reality  
+the  ground  
+`  a  vastly  better  future  
+people  
+who  
+the  last  five  years  
+He  
+Americans  
+Croats  
+Bosnians  
+the  `  `  decent  ,  honorable  and  wonderfully  ordinary  lives  
+we  
+Americans  
+The  Roman  Catholic  archbishop  
+Dubrovnik  
+Zelimir  Puljic  
+a  prayer  
+the  remains  
+A  bugler  
+taps  
+the  planes  
+the  runway  
+a  clear  sky  
+the  11-hour  journey  
+American  investigators  
+the  crash  site  
+Saturday  
+a  debris  -  covered  area  
+orange  tape  
+several  pieces  
+wreckage  
+tape  
+The  investigating  team  
+the  causes  
+the  accident  
+Dubrovnik  
+Saturday  
+The  white  tail  section  
+the  plane  
+the  Stars  and  Stripes  
+a  few  rows  
+attached  passenger  seats  
+the  only  large  pieces  
+A  long  black  burn  mark  
+the  body  
+the  aircraft  
+the  steep  ,  rocky  hillside  
+part  
+the  engine  
+a  chunk  
+the  fuselage  
+NYT-04  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['CRASH', 'BROWN']
+SID :  2 Coref ID :  ['X0', 'X1'] ante_str_list :  ['CRASH', 'BROWN']
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+['X2']
+['04-06']
+SID :  4 Coref ID :  ['X2'] ante_str_list :  ['04-06']
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X3', 'X4', 'X5']
+['SOMBER FAREWELL', 'CROATIA', 'U.S. VICTIMS']
+SID :  6 Coref ID :  ['X3', 'X4', 'X5'] ante_str_list :  ['SOMBER FAREWELL', 'CROATIA', 'U.S. VICTIMS']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X6', 'X7', 'X8']
+['DUBROVNIK', 'two C-17 transport planes', 'Saturday']
+SID :  10 Coref ID :  ['X6', 'X7', 'X8'] ante_str_list :  ['DUBROVNIK', 'two C-17 transport planes', 'Saturday']
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X9']
+['Two of those who died in the crash']
+SID :  12 Coref ID :  ['X9'] ante_str_list :  ['Two of those who died in the crash']
+['X10']
+['President Franjo Tudjman of Croatia']
+SID :  13 Coref ID :  ['X10'] ante_str_list :  ['President Franjo Tudjman of Croatia']
+['X11', 'X12']
+['U.S.', 'the families of those who have perished']
+SID :  14 Coref ID :  ['X11', 'X12'] ante_str_list :  ['U.S.', 'the families of those who have perished']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+['X13']
+['the American ambassador to Croatia']
+SID :  17 Coref ID :  ['X13'] ante_str_list :  ['the American ambassador to Croatia']
+['X14']
+['the peacemakers']
+SID :  18 Coref ID :  ['X14'] ante_str_list :  ['the peacemakers']
+['X15']
+['our friends and colleagues']
+SID :  19 Coref ID :  ['X15'] ante_str_list :  ['our friends and colleagues']
+['X16', 'X17']
+['The Air Force T-43 plane', 'a rocky hill named after St. John the Baptist']
+SID :  20 Coref ID :  ['X16', 'X17'] ante_str_list :  ['The Air Force T-43 plane', 'a rocky hill named after St. John the Baptist']
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+['X18']
+['The two Croatians and Brown']
+SID :  22 Coref ID :  ['X18'] ante_str_list :  ['The two Croatians and Brown']
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  24 Coref ID :  [] ante_str_list :  []
+['X19']
+['Americans']
+SID :  25 Coref ID :  ['X19'] ante_str_list :  ['Americans']
+['X20']
+['The Roman Catholic archbishop of Dubrovnik']
+SID :  26 Coref ID :  ['X20'] ante_str_list :  ['The Roman Catholic archbishop of Dubrovnik']
+[]
+[]
+SID :  27 Coref ID :  [] ante_str_list :  []
+['X21']
+['American investigators']
+SID :  28 Coref ID :  ['X21'] ante_str_list :  ['American investigators']
+[]
+[]
+SID :  29 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  30 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  31 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  32 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  33 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/a16.input
+
+nyt960409.0732  
+A3781  
+BC  -  HK  -  AIRCRASH  -  CHINA  -  SCM  
+04  -  09  
+BC  -  HK  -  AIRCRASH  -  CHINA  -  SCMP  
+TWO  DIE  
+HELO  CRASH  OFF  CHINA  
+c.1996  South  China  Morning  Post  
+JONATHAN  HILL  
+ADAM  LEE  
+Macau  
+Chinese  crew  members  
+Tuesday  
+their  helicopter  
+Macau  
+The  China  Southern  Helicopter  Company  aircraft  
+its  way  
+Zhuhai  
+an  oil  rig  
+it  
+a  spokesman  
+Hong  Kong  's  Civil  Aviation  Department  
+Other  reports  
+the  helicopter  
+10  to  15  
+miles  
+the  Portuguese  enclave  
+weather  information  
+The  incident  
+Hong  Kong  airspace  
+a  search  
+Civil  Aviation  Department  rescuers  
+Two  Government  Flying  Service  helicopters  
+Macau  Marine  Police  
+the  search  
+the  Sikorsky  
+Mainland  authorities  
+the  department  's  Aeronautical  Rescue  Co  -  ordination  Centre  
+the  Chinese  island  
+Daiwaishan  
+`  Someone  on  the  island  heard  a  noise  and  called  
+Zhuhai  
+a  Macau  aviation  source  
+China  
+a  helicopter  
+the  crash  
+the  island  
+Macau  authorities  
+who  
+radar  contact  
+10  am  
+the  pilots  
+the  site  
+Zhuhai  officials  
+the  crew  
+Sources  
+poor  weather  
+the  likely  cause  
+the  crash  
+The  Royal  Observatory  
+strong  winds  
+the  area  
+the  time  
+Rescuers  
+poor  visibility  
+China  
+the  country  
+registration  
+the  incident  
+the  Civil  Aviation  Department  
+NYT-04  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['AIRCRASH', 'CHINA']
+SID :  2 Coref ID :  ['X0', 'X1'] ante_str_list :  ['AIRCRASH', 'CHINA']
+['X2']
+['04-09']
+SID :  3 Coref ID :  ['X2'] ante_str_list :  ['04-09']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X3']
+['TWO']
+SID :  6 Coref ID :  ['X3'] ante_str_list :  ['TWO']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+['X4']
+['Macau']
+SID :  8 Coref ID :  ['X4'] ante_str_list :  ['Macau']
+['X5', 'X6']
+['Tuesday', 'their helicopter']
+SID :  9 Coref ID :  ['X5', 'X6'] ante_str_list :  ['Tuesday', 'their helicopter']
+['X7', 'X8']
+['Zhuhai', "Hong Kong's Civil Aviation Department"]
+SID :  10 Coref ID :  ['X7', 'X8'] ante_str_list :  ['Zhuhai', "Hong Kong's Civil Aviation Department"]
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X9']
+['a search']
+SID :  12 Coref ID :  ['X9'] ante_str_list :  ['a search']
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+['X10']
+['the Chinese island']
+SID :  14 Coref ID :  ['X10'] ante_str_list :  ['the Chinese island']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+['X11']
+['poor weather']
+SID :  19 Coref ID :  ['X11'] ante_str_list :  ['poor weather']
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/a17.input
+
+nyt960412.0309  
+A7011  
+BC  -  REID  
+FLIGHT  -  INSTRUCTOR  
+04  -  12  
+BC  
+-  REID  
+FLIGHT  
+INSTRUCTOR  
+HNS  
+OTHER  PILOTS  
+JOE  REID  
+JESSICA  'S  FLIGHT  INSTRUCTOR  
+use  
+New  York  Times  News  Service  clients  
+GEORGE  RAINE  
+c.1996  San  Francisco  Examiner  
+HALF  MOON  BAY  
+Calif.  Joe  Reid  
+who  
+Thursday  
+the  airplane  
+he  
+7-year  -  old  Jessica  Dubroff  
+her  father  
+Cheyenne  
+Wyo  .  
+way  
+he  
+anything  
+passion  
+attention  
+detail  
+I  
+his  leadership  
+his  
+thoroughness  
+Gary  Petersen  
+manager  
+Half  Moon  Bay  Airport  
+He  
+the  -  book  
+guy  
+@amp;MD  
+Reid  
+52  
+who  
+nearly  27  years  
+a  broker  
+the  Dean  Witter  Reynolds  office  
+Palo  Alto  
+president  
+the  Half  Moon  Bay  Pilots  Association  
+George  Auld  
+a  longtime  friend  
+who  
+the  aircraft  
+he  
+first  
+Reid  
+a  small  plane  
+1970  
+He  
+Reid  
+a  Vietnam  veteran  
+his  pilot  's  license  
+the  late  1970s  
+an  instructor  
+They  
+the  plane  
+a  1975  single  -  engine  Cessna  177B  Cardinal  
+about  nine  years  ago  
+He  
+other  people  
+the  excitement  
+flying  
+Auld  
+Joe  
+the  type  
+anything  
+way  
+Reid  
+lessons  
+Jessica  
+her  effort  
+the  youngest  person  
+a  round  -  trip  ,  cross  -  country  flight  
+the  United  States  
+I  
+her  
+I  
+anybody  
+he  
+she  
+the  concepts  
+an  adult  
+Forrest  Storz  
+who  
+flying  lessons  
+the  airport  
+Reid  
+pilot  
+Reid  
+who  
+Kansas  City  
+Mo.  
+Saint  Mary  
+the  Plains  College  
+Dodge  City  
+Kan.  
+the  Half  Moon  Bay  community  
+a  fourth  term  
+the  Coastside  County  Water  District  board  
+He  
+a  member  
+the  San  Mateo  County  Airport  Land  Use  Committee  
+chairman  
+the  annual  Half  Moon  Bay  Fly  -  In  
+Air  Show  
+He  
+his  wife  
+Ana  
+active  parishioners  
+Our  Lady  of  the  Pillar  Catholic  Church  
+They  
+two  sons  
+Christopher  
+27  
+Occidental  
+Matthew  
+23  
+Half  Moon  Bay  
+NYT-04  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0']
+['REID']
+SID :  2 Coref ID :  ['X0'] ante_str_list :  ['REID']
+['X1']
+['04-12']
+SID :  3 Coref ID :  ['X1'] ante_str_list :  ['04-12']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X2', 'X3', 'X4', 'X5']
+['HALF MOON BAY', 'the airplane', 'Jessica Dubroff', 'flying']
+SID :  10 Coref ID :  ['X2', 'X3', 'X4', 'X5'] ante_str_list :  ['HALF MOON BAY', 'the airplane', 'Jessica Dubroff', 'flying']
+['X6']
+['Gary Petersen']
+SID :  11 Coref ID :  ['X6'] ante_str_list :  ['Gary Petersen']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+['X7']
+['George Auld']
+SID :  14 Coref ID :  ['X7'] ante_str_list :  ['George Auld']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  24 Coref ID :  [] ante_str_list :  []
+['X8']
+['He and his wife']
+SID :  25 Coref ID :  ['X8'] ante_str_list :  ['He and his wife']
+[]
+[]
+SID :  26 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  27 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b11.input
+
+871112  -  0041  
+International  Corporate  Report  
+WALL  STREET  JOURNAL  (  
+J  
+EUROP  
+TENDER  OFFERS  
+MERGERS  
+ACQUISITIONS  
+FINANCIAL  
+INSURANCE  
+MUTUAL  
+FUNDS  
+ACCOUNTING  
+LEASING  
+(  FIN  
+INSURANCE  
+BANKS  
+THRIFT  INSTITUTIONS  
+BNK  
+BOND  MARKET  NEWS  
+BON  
+AUTOS  
+AUTO  PARTS  
+AUT  
+BAYERISCHE  MOTOREN  WERKE  AG  
+BMW  
+parent  -  company  sales  
+17  %  
+1987  's  first  10  months  
+14.4  billion  West  German  marks  
+$  8.66  billion  
+12.3  billion  marks  
+The  auto  maker  
+consolidated  sales  
+earnings  
+a  rise  
+group  sales  
+about  19  billion  marks  
+1987  
+17.52  billion  marks  
+1986  
+Moody  's  Investors  Service  Inc.  
+the  long  -  term  debt  
+DEN  NORSKE  CREDITBANK  
+review  
+possible  downgrading  
+the  bank  's  announcement  
+it  
+trading  losses  
+more  than  600  million  Norwegian  kroner  
+$  94.3  million  
+the  past  month  
+1987  net  income  
+unauthorized  dealing  
+an  individual  broker  
+the  bank  's  own  portfolio  
+Moody  's  
+the  long  -  term  debt  
+Norway  
+bank  
+A-3  
+about  $  1.2  billion  
+debt  
+the  review  
+DEUTSCHE  GENOSSENSCHAFTS  BANK  
+it  
+a  majority  stake  
+the  trade  union  -  owned  insurance  group  
+VOLKSFUERSORGE  
+an  insurance  concern  
+it  
+The  combination  
+Volksfuersorge  
+the  insurance  group  
+R@amp;V  
+ALLGEMEINE  VERSICHERUNGS  AG  
+West  Germany  's  second  -  largest  retail  -  insurance  concern  
+A  spokesman  
+the  trade  -  union  holding  company  
+it  
+slightly  more  than  50  %  
+Volksfuersorge  
+LINDE  AG  
+group  sales  
+6.7  %  
+1987  's  first  nine  months  
+2.56  billion  West  German  marks  
+$  1.54  billion  
+2.73  billion  marks  
+1987  sales  
+as  much  as  9  %  
+the  result  
+several  large  orders  
+the  fourth  quarter  
+The  machinery  maker  's  earnings  
+Chairman  Hans  Meinhardt  
+Analysts  
+domestic  group  profit  
+last  year  's  106  million  marks  
+$  63.7  million  
+NATIONALE  NEDERLANDEN  N.V.  
+it  
+a  definitive  agreement  
+the  next  few  weeks  
+MIDWESTERN  UNITED  LIFE  INSURANCE  CO  .  
+one  
+its  U.S.  subsidiaries  
+Ireland  's  largest  insurer  
+IRISH  LIFE  PLC  
+The  Netherlands  '  biggest  insurance  group  
+Midwestern  United  
+the  operations  
+one  
+its  other  U.S.  units  
+the  Dutch  concern  
+its  strategy  
+its  North  American  presence  
+expansion  
+existing  subsidiaries  
+new  acquisitions  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+['X0', 'X1', 'X2']
+['BAYERISCHE MOTOREN WERKE AG', '1987', 'a year earlier']
+SID :  11 Coref ID :  ['X0', 'X1', 'X2'] ante_str_list :  ['BAYERISCHE MOTOREN WERKE AG', '1987', 'a year earlier']
+['X3']
+['group sales']
+SID :  12 Coref ID :  ['X3'] ante_str_list :  ['group sales']
+['X4', 'X5', 'X6']
+['the long-term debt', 'DEN NORSKE CREDITBANK', 'review for possible downgrading']
+SID :  13 Coref ID :  ['X4', 'X5', 'X6'] ante_str_list :  ['the long-term debt', 'DEN NORSKE CREDITBANK', 'review for possible downgrading']
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+['X7', 'X8', 'X9']
+['DEUTSCHE GENOSSENSCHAFTS BANK', 'the trade union-owned insurance group VOLKSFUERSORGE', 'an insurance concern it controls']
+SID :  15 Coref ID :  ['X7', 'X8', 'X9'] ante_str_list :  ['DEUTSCHE GENOSSENSCHAFTS BANK', 'the trade union-owned insurance group VOLKSFUERSORGE', 'an insurance concern it controls']
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+['X10']
+['the trade-union holding company']
+SID :  17 Coref ID :  ['X10'] ante_str_list :  ['the trade-union holding company']
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+['X11', 'X12', 'X13']
+['NATIONALE NEDERLANDEN N.V.', 'MIDWESTERN UNITED LIFE INSURANCE CO., one of its U.S. subsidiaries,', "Ireland's largest insurer, "]
+SID :  21 Coref ID :  ['X11', 'X12', 'X13'] ante_str_list :  ['NATIONALE NEDERLANDEN N.V.', 'MIDWESTERN UNITED LIFE INSURANCE CO., one of its U.S. subsidiaries,', "Ireland's largest insurer, "]
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b12.input
+
+871125  -  0048  
+Business  Brief  
+Communications  Satellite  Corp.  
+11/25/87  
+WALL  STREET  JOURNAL  (  
+J  
+CQ  T  
+TELECOMMUNICATIONS  
+BROADCASTING  
+TELEPHONE  
+TELEGRAPH  
+TEL  
+Communications  Satellite  Corp.  
+Washington  
+it  
+the  Federal  Communications  Commission  
+50  %  rates  
+certain  international  telecommunication  services  
+exchange  
+the  reductions  
+customers  
+American  Telephone  @amp  
+Telegraph  Co.  
+themselves  
+one  
+two  new  types  
+digital  satellite  services  
+a  10-year  period  
+Comsat  
+The  proposal  
+part  
+a  multi  -  year  agreement  
+Comsat  
+AT@amp;T  
+Comsat  
+the  telephone  company  's  international  business  
+the  face  
+growing  competition  
+fiber  -  optic  cables  
+Comsat  
+other  customers  
+the  new  digital  service  
+next  year  
+1994  
+as  much  as  83  %  
+a  customer  's  international  circuits  
+the  price  reductions  
+Digital  service  
+telecommunications  customers  
+satellite  circuits  
+more  than  one  message  
+a  time  
+Comsat  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  1 Coref ID :  [] ante_str_list :  []
+['X0']
+['Communications Satellite Corp.']
+SID :  2 Coref ID :  ['X0'] ante_str_list :  ['Communications Satellite Corp.']
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+['X1', 'X2', 'X3']
+['the reductions', 'American Telephone @amp; Telegraph Co.', 'two new types of digital satellite services']
+SID :  8 Coref ID :  ['X1', 'X2', 'X3'] ante_str_list :  ['the reductions', 'American Telephone @amp; Telegraph Co.', 'two new types of digital satellite services']
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b13.input
+
+880111  -  0081  
+Federal  Mediators  
+Pan  Am  
+Teamsters  
+Contract  Talks  
+Teri  Agins  
+WSJ  Staff  
+GOVMT  PN  LABOR  
+AIR  
+NEW  YORK  
+The  National  Mediation  Board  
+Pan  Am  Corp.  
+its  Teamsters  union  
+their  long  -  stalled  contract  negotiations  
+question  
+The  release  
+both  sides  
+arbitration  
+the  parties  
+a  30-day  cooling  off  period  
+effect  
+the  Teamsters  
+William  Genoese  
+head  
+the  airline  division  
+the  International  Brotherhood  of  Teamsters  
+he  
+he  
+late  Friday  
+negotiator  Walter  Wallace  
+the  board  's  plans  
+the  parties  
+negotiations  
+noon  EST  
+today  
+the  mediation  board  
+both  parties  
+arbitration  
+Pan  Am  
+the  National  Mediation  Board  
+an  impasse  
+the  talks  
+late  December  
+Pan  Am  
+progress  
+its  recent  negotiations  
+the  unions  
+the  board  
+the  company  's  request  
+a  source  
+the  board  
+Pan  Am  
+last  week  
+it  
+changes  
+senior  management  
+exchange  
+labor  -  cost  concessions  
+$  180  million  
+year  
+three  years  
+the  unions  
+its  Pan  American  World  Airways  unit  
+The  agreement  
+a  coalition  
+four  
+Pan  Am  's  five  unions  
+the  Teamsters  union  
+part  
+that  coalition  
+it  
+it  
+the  agreement  
+the  past  year  
+the  coalition  
+a  restructuring  
+Pan  Am  
+a  change  
+top  management  
+Negotiations  
+William  T.  Coleman  
+a  Pan  Am  director  
+Washington  attorney  
+Pan  Am  's  directors  
+tomorrow  
+the  deadline  
+the  union  's  wage  -  concession  agreement  
+It  
+the  Teamsters  's  release  
+that  agreement  
+Last  Saturday  
+Mr.  Genoese  
+he  
+a  telegram  
+Mr.  Coleman  
+the  Teamsters  
+their  talks  
+the  company  
+Mr.  Genoese  
+he  
+a  "  cordial  "  initial  meeting  
+Mr.  Coleman  
+no  commitment  
+concessions  
+That  meeting  
+it  
+Mr.  Coleman  
+the  Teamsters  
+Pan  Am  
+one  source  
+the  negotiations  
+we  
+the  company  
+Mr.  Genoese  
+We  
+Pan  Am  
+We  
+strike  procedure  
+The  union  
+it  
+arbitration  
+A  Pan  Am  spokesman  
+The  Teamsters  
+about  4,500  ticket  agents  
+reservation  agents  
+clerical  workers  
+a  contract  
+1978  
+1981  
+The  federal  mediation  board  
+several  earlier  requests  
+the  union  
+the  negotiations  
+Pan  Am  's  pilots  union  
+it  
+an  agreement  
+concessions  
+the  company  
+today  
+A  pilot  's  union  spokesman  
+the  leaders  
+the  agreement  
+their  membership  
+ratification  
+He  
+he  
+the  Teamsters  action  
+the  union  's  agreement  
+the  company  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1', 'X2']
+['Pan Am', 'Teamsters', 'Contract Talks']
+SID :  1 Coref ID :  ['X0', 'X1', 'X2'] ante_str_list :  ['Pan Am', 'Teamsters', 'Contract Talks']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X3', 'X4']
+['The National Mediation Board', 'a wage-concession agreement']
+SID :  6 Coref ID :  ['X3', 'X4'] ante_str_list :  ['The National Mediation Board', 'a wage-concession agreement']
+['X5', 'X6']
+['both sides', 'arbitration']
+SID :  7 Coref ID :  ['X5', 'X6'] ante_str_list :  ['both sides', 'arbitration']
+['X7']
+['William Genoese']
+SID :  8 Coref ID :  ['X7'] ante_str_list :  ['William Genoese']
+['X8']
+['today']
+SID :  9 Coref ID :  ['X8'] ante_str_list :  ['today']
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X9']
+['changes in senior management']
+SID :  12 Coref ID :  ['X9'] ante_str_list :  ['changes in senior management']
+['X10']
+["a coalition of four of Pan Am's five unions"]
+SID :  13 Coref ID :  ['X10'] ante_str_list :  ["a coalition of four of Pan Am's five unions"]
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+['X11']
+['William T. Coleman']
+SID :  15 Coref ID :  ['X11'] ante_str_list :  ['William T. Coleman']
+['X12']
+['tomorrow']
+SID :  16 Coref ID :  ['X12'] ante_str_list :  ['tomorrow']
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+['X13']
+['Mr. Coleman']
+SID :  18 Coref ID :  ['X13'] ante_str_list :  ['Mr. Coleman']
+['X14']
+['a "cordial" initial meeting with Mr. Coleman last Thursday']
+SID :  19 Coref ID :  ['X14'] ante_str_list :  ['a "cordial" initial meeting with Mr. Coleman last Thursday']
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  24 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  25 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  26 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  27 Coref ID :  [] ante_str_list :  []
+['X15', 'X16']
+["Pan Am's pilots union", 'an agreement to deliver concessions to the company']
+SID :  28 Coref ID :  ['X15', 'X16'] ante_str_list :  ["Pan Am's pilots union", 'an agreement to deliver concessions to the company']
+['X17']
+["A pilot's union spokesman"]
+SID :  29 Coref ID :  ['X17'] ante_str_list :  ["A pilot's union spokesman"]
+[]
+[]
+SID :  30 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b14.input
+
+880127  -  0073  
+Labor  Costs  
+Wage  Agreements  
+'  87  
+Years  
+Jeanne  Saddler  
+WSJ  Staff  
+LABOR  
+ECO  EMI  
+WASHINGTON  
+The  rise  
+labor  costs  
+wage  settlements  
+the  decade  
+last  year  
+the  Labor  Department  
+Total  compensation  costs  
+private  industry  
+pay  
+benefits  
+3.3  %  
+a  3.2  %  increase  
+1986  
+the  department  
+The  increase  
+these  costs  
+each  year  
+1981  
+they  
+9.8  %  
+1980  
+collective  bargaining  agreements  
+last  year  
+an  average  2.2  %  wage  increase  
+the  first  year  
+the  contract  
+2.1  %  
+the  life  
+the  pact  
+The  industries  
+the  same  percentage  pay  
+they  
+contract  accords  
+the  department  
+Officials  
+it  
+the  first  time  
+1982  
+current  contract  settlements  
+lower  average  wage  adjustments  
+the  bargaining  agreements  
+they  
+The  wage  agreements  
+last  year  
+the  average  pay  rises  
+1986  
+a  1.2  %  increase  
+the  first  contract  year  
+a  1.8  %  annual  increase  
+the  life  
+the  settlements  
+the  smallest  increases  
+the  20  years  
+the  statistics  
+Department  officials  
+this  year  's  higher  wage  increases  
+a  trend  
+A  tighter  labor  market  
+the  services  sector  
+part  
+the  reason  
+officials  
+A  tighter  labor  market  
+employees  
+higher  pay  
+benefits  
+its  report  
+major  collective  bargaining  agreements  
+the  department  
+the  average  increase  
+lump  -  sum  payments  
+one  -  time  payments  
+a  contract  's  ratification  
+The  payments  
+wage  increases  
+they  
+wages  
+a  base  
+future  increases  
+About  half  
+the  workers  
+big  labor  contracts  
+these  payments  
+Better  -  than  -  average  wage  settlements  
+construction  industry  workers  
+the  Mid  -  Atlantic  and  Northeastern  regions  
+the  narrowing  trend  
+Construction  pacts  
+1987  
+2.9  %  increases  
+the  first  contract  year  
+3.1  %  
+All  other  industries  
+last  year  
+the  automobile  ,  food  store  and  steel  industries  
+2.1  %  increases  
+the  first  contract  year  
+1.9  %  
+About  two  million  workers  
+agreements  
+last  year  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['Rise in Labor Costs, Wage Agreements', "'87"]
+SID :  1 Coref ID :  ['X0', 'X1'] ante_str_list :  ['Rise in Labor Costs, Wage Agreements', "'87"]
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X2']
+['the Labor Department']
+SID :  6 Coref ID :  ['X2'] ante_str_list :  ['the Labor Department']
+['X3', 'X4']
+['Total compensation costs in private industry, including pay and benefits,', '1986']
+SID :  7 Coref ID :  ['X3', 'X4'] ante_str_list :  ['Total compensation costs in private industry, including pay and benefits,', '1986']
+['X5']
+['9.8%, ']
+SID :  8 Coref ID :  ['X5'] ante_str_list :  ['9.8%, ']
+['X6', 'X7', 'X8']
+['collective bargaining agreements reached last year', 'an average 2.2% wage increase in the first year of the contract', 'the life of the pact']
+SID :  9 Coref ID :  ['X6', 'X7', 'X8'] ante_str_list :  ['collective bargaining agreements reached last year', 'an average 2.2% wage increase in the first year of the contract', 'the life of the pact']
+['X9']
+['pay']
+SID :  10 Coref ID :  ['X9'] ante_str_list :  ['pay']
+['X10']
+['Officials']
+SID :  11 Coref ID :  ['X10'] ante_str_list :  ['Officials']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+['X11']
+['labor']
+SID :  14 Coref ID :  ['X11'] ante_str_list :  ['labor']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+['X12']
+["lump-sum payments, which are one-time payments often made upon a contract's ratification"]
+SID :  16 Coref ID :  ['X12'] ante_str_list :  ["lump-sum payments, which are one-time payments often made upon a contract's ratification"]
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+['X13']
+['construction industry']
+SID :  19 Coref ID :  ['X13'] ante_str_list :  ['construction industry']
+['X14']
+['the first contract year']
+SID :  20 Coref ID :  ['X14'] ante_str_list :  ['the first contract year']
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b15.input
+
+880311  -  0130  
+Northwest  Attendants  Snub  Airline  's  
+Contract  
+Changes  
+NWA  LABOR  
+AIR  
+ST  
+.  
+PAUL  
+Minn.  
+The  Northwest  Airlines  flight  attendants  union  
+new  wage  
+work  
+the  NWA  Inc.  unit  
+a  strike  threat  
+a  yearlong  stalemate  
+the  union  
+Northwest  
+Wednesday  
+it  
+new  contract  terms  
+the  attendants  
+April  
+Union  leaders  
+Northwest  
+a  strike  
+a  statement  
+passengers  
+reservations  
+Northwest  
+the  Easter  holidays  
+other  arrangements  
+The  union  
+a  Teamsters  chapter  
+leaders  
+the  unions  
+Northwest  pilots  
+machinists  
+a  strategy  meeting  
+Monday  
+Washington  
+The  Teamsters  
+guarantees  
+the  other  unions  
+a  walkout  
+An  Air  Line  Pilots  Association  spokesman  
+union  leaders  
+the  meeting  
+A  spokesman  
+the  machinists  
+Northwest  's  largest  union  
+comment  
+A  Northwest  spokesman  
+management  
+the  union  's  threat  
+holiday  service  
+We  
+they  
+the  imposed  (  contract  )  policy  
+they  
+bargaining  
+table  
+something  
+themselves  
+he  
+The  attendants  union  
+the  company  's  board  
+Chairman  Steven  G.  Rothmeier  
+competent  management  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['Northwest Attendants', 'Airline']
+SID :  1 Coref ID :  ['X0', 'X1'] ante_str_list :  ['Northwest Attendants', 'Airline']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X2']
+['strike']
+SID :  5 Coref ID :  ['X2'] ante_str_list :  ['strike']
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+['X3']
+['Easter']
+SID :  7 Coref ID :  ['X3'] ante_str_list :  ['Easter']
+['X4', 'X5']
+['leaders of the unions representing Northwest pilots and machinists', 'strategy meeting']
+SID :  8 Coref ID :  ['X4', 'X5'] ante_str_list :  ['leaders of the unions representing Northwest pilots and machinists', 'strategy meeting']
+['X6']
+['The Teamsters']
+SID :  9 Coref ID :  ['X6'] ante_str_list :  ['The Teamsters']
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+['X7']
+['machinists']
+SID :  11 Coref ID :  ['X7'] ante_str_list :  ['machinists']
+['X8']
+['A Northwest spokesman']
+SID :  12 Coref ID :  ['X8'] ante_str_list :  ['A Northwest spokesman']
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+Appositive Feature : Index Diff :  -6 Ante : leaders of the unions representing Northwest pilots and machinists Anaphor : the unions
+Processing :  data/new_test/tst1/b16.input
+
+880316  -  0101  
+Chrysler  
+Create  Grievance  Process  For  Non  -  Union  Staff  
+Jacob  M.  Schlesinger  
+WSJ  Staff  
+C  LABOR  
+AUT  
+ROCHESTER  
+Mich.  
+Chrysler  Corp.  
+the  highly  unusual  step  
+a  formal  grievance  procedure  
+its  non  -  union  white  -  collar  employees  
+We  
+Chrysler  
+restructuring  
+many  employees  
+management  's  decisions  
+actions  
+Anthony  P.  St.  John  
+vice  president  
+human  resources  
+the  auto  maker  's  Chrysler  Motors  subsidiary  
+a  speech  
+Oakland  University  
+yesterday  
+Employees  
+they  
+management  's  credibility  
+Mr.  St.  John  
+the  company  
+an  "  alternative  disputes  resolution  "  system  
+a  traditional  union  grievance  procedure  
+the  first  time  
+a  formal  and  impartial  internal  mechanism  
+discipline  
+employment  opportunity  
+disputes  
+Mr.  St.  John  
+The  process  
+several  steps  
+final  arbitration  
+a  neutral  third  party  
+Chrysler  's  move  
+the  turmoil  
+its  current  cost  -  cutting  
+restructuring  
+forces  
+many  industrial  companies  
+The  auto  maker  
+wage  and  benefit  plans  
+its  white  -  collar  rolls  
+the  wake  
+its  acquisition  
+American  Motors  Corp.  
+Chrysler  
+about  31,000  white  -  collar  employees  
+the  U.S.  
+roughly  21,000  
+1982  
+About  6,000  salaried  workers  
+the  United  Auto  Workers  union  
+Some  analysts  
+the  move  
+further  union  organizing  
+the  white  -  collar  ranks  
+Several  management  consultants  
+a  formal  grievance  procedure  
+third  -  party  arbitration  
+government  employees  
+they  
+such  a  policy  
+non  -  union  employees  
+a  major  private  company  
+It  
+the  potential  
+supervisory  and  management  responsibility  
+authority  
+Jerrold  Bratkovich  
+a  vice  president  
+the  Los  Angeles  office  
+the  Hay  Group  
+a  management  consulting  firm  
+the  main  reasons  
+employers  
+unionization  
+A  Chrysler  spokesman  
+the  company  
+"  a  couple  
+other  companies  
+arbitration  
+nonunion  employees  
+he  
+which  companies  
+A  more  common  business  approach  
+the  "  open  -  door  "  policy  
+International  Business  Machines  Corp.  
+where  "  any  employee  
+who  
+a  problem  
+satisfaction  
+the  complaint  
+the  attention  
+higher  management  
+an  IBM  spokesman  
+the  employee  
+the  problem  
+the  IBM  chief  executive  officer  
+the  spokesman  
+Chrysler  
+its  system  
+The  details  
+Chrysler  
+a  slide  
+Mr.  St.  John  's  presentation  
+the  policy  
+all  "  professional  ,  administrative  ,  management  and  executive  employees  
+It  
+a  four  -  step  grievance  process  
+UAW  -  represented  workers  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['Chrysler', 'Grievance Process For Non-Union Staff']
+SID :  1 Coref ID :  ['X0', 'X1'] ante_str_list :  ['Chrysler', 'Grievance Process For Non-Union Staff']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X2']
+['ROCHESTER, Mich.']
+SID :  5 Coref ID :  ['X2'] ante_str_list :  ['ROCHESTER, Mich.']
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X3']
+['Anthony P. St. John']
+SID :  10 Coref ID :  ['X3'] ante_str_list :  ['Anthony P. St. John']
+['X4']
+['Employees']
+SID :  11 Coref ID :  ['X4'] ante_str_list :  ['Employees']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+['X5']
+['these employees']
+SID :  13 Coref ID :  ['X5'] ante_str_list :  ['these employees']
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+['X6']
+["Chrysler's move"]
+SID :  15 Coref ID :  ['X6'] ante_str_list :  ["Chrysler's move"]
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+['X7']
+['United Auto Workers']
+SID :  18 Coref ID :  ['X7'] ante_str_list :  ['United Auto Workers']
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+['X8']
+['Several management consultants']
+SID :  20 Coref ID :  ['X8'] ante_str_list :  ['Several management consultants']
+['X9']
+['Jerrold Bratkovich']
+SID :  21 Coref ID :  ['X9'] ante_str_list :  ['Jerrold Bratkovich']
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+['X10']
+['A Chrysler spokesman']
+SID :  23 Coref ID :  ['X10'] ante_str_list :  ['A Chrysler spokesman']
+['X11']
+['International Business Machines Corp.']
+SID :  24 Coref ID :  ['X11'] ante_str_list :  ['International Business Machines Corp.']
+[]
+[]
+SID :  25 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  26 Coref ID :  [] ante_str_list :  []
+['X12']
+['an IBM spokesman']
+SID :  27 Coref ID :  ['X12'] ante_str_list :  ['an IBM spokesman']
+[]
+[]
+SID :  28 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  29 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  30 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  31 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  32 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/b17.input
+
+880505  -  0157  
+Reagan  Doubts  
+He  
+An  Arms  Pact  
+Summit  
+FREST  
+NUK  ARO  
+EXE  
+CHICAGO  
+President  Reagan  
+little  chance  
+he  
+Soviet  leader  Mikhail  Gorbachev  
+a  strategic  arms  agreement  
+their  summit  
+Moscow  
+questions  
+members  
+the  National  Strategy  Forum  
+Mr.  Reagan  
+it  
+a  strategic  arms  reduction  
+START  
+treaty  
+time  
+Administration  aides  
+weeks  
+far  too  many  disagreements  
+a  treaty  
+Mr.  Reagan  's  remarks  
+his  bluntest  public  assessment  
+Mr.  Reagan  
+both  he  
+Mr.  Gorbachev  
+an  agreement  
+intermediate  -  range  nuclear  missiles  
+a  summit  meeting  
+Washington  
+the  Senate  
+time  
+the  Moscow  summit  
+he  
+Our  desire  
+we  
+a  START  treaty  
+this  Moscow  summit  
+we  
+the  Washington  summit  
+Mr.  Reagan  
+such  a  treaty  
+it  
+"  parity  
+U.S.  and  Soviet  strategic  arsenals  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1', 'X2']
+['Reagan', 'An Arms Pact', 'Summit']
+SID :  1 Coref ID :  ['X0', 'X1', 'X2'] ante_str_list :  ['Reagan', 'An Arms Pact', 'Summit']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X3']
+['CHICAGO']
+SID :  5 Coref ID :  ['X3'] ante_str_list :  ['CHICAGO']
+['X4']
+['Soviet leader Mikhail Gorbachev']
+SID :  6 Coref ID :  ['X4'] ante_str_list :  ['Soviet leader Mikhail Gorbachev']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+['X5']
+['an agreement eliminating intermediate-range nuclear missiles, signed at a summit meeting in Washington last December']
+SID :  9 Coref ID :  ['X5'] ante_str_list :  ['an agreement eliminating intermediate-range nuclear missiles, signed at a summit meeting in Washington last December']
+['X6']
+['Our']
+SID :  10 Coref ID :  ['X6'] ante_str_list :  ['Our']
+['X7']
+['such a treaty']
+SID :  11 Coref ID :  ['X7'] ante_str_list :  ['such a treaty']
+Processing :  data/new_test/tst1/b18.input
+
+880516  -  0071  
+U.S.  Mediator  
+Eastern  Negotiations  
+Near  
+Critical  Stage  
+Paulette  Thomas  
+WSJ  Staff  
+TEX  LABOR  GOVMT  
+AIR  
+months  
+quiet  and  productive  meetings  
+negotiators  
+the  bitter  labor  battle  
+Eastern  Airlines  
+a  critical  phase  
+the  talks  
+a  federal  mediator  
+Harry  Bickford  
+who  
+the  talks  
+Miami  
+last  fall  
+representatives  
+the  company  
+the  International  Association  of  Machinists  
+almost  daily  
+January  
+hundreds  
+differences  
+We  
+the  point  
+a  short  time  
+we  
+terms  
+the  gut  issues  
+he  
+Mr.  Bickford  's  comments  
+the  first  indication  
+progress  
+the  high  -  stakes  ,  16-month  confrontation  
+labor  costs  
+Eastern  
+a  unit  
+Texas  Air  Corp.  
+steep  wage  cuts  
+its  roughly  10,000  machinists  
+baggage  handlers  
+part  
+a  plan  
+the  ailing  carrier  
+profitability  
+it  
+its  capacity  
+the  past  year  
+the  cost  concessions  
+an  interview  
+Mr.  Bickford  
+the  ever  -  growing  clamor  
+public  demonstrations  
+letter  -  writing  campaigns  
+political  lobbying  
+antagonism  
+the  bargaining  table  
+Litigation  
+charges  
+counter  
+-  
+charges  
+I  
+Mr.  Bickford  
+an  18-year  mediation  veteran  
+the  extent  
+it  
+this  case  
+I  
+anything  
+it  
+We  
+Mr.  Bickford  
+every  day  
+the  26th  of  January  
+the  exception  
+three  periods  
+10  days  
+Mr.  Bickford  
+anger  
+the  growing  perception  
+the  mediation  process  
+Last  week  
+instance  
+Florida  Gov.  Bob  Martinez  
+a  news  release  
+mediation  
+a  stalemate  
+both  sides  
+the  bargaining  table  
+their  part  
+Eastern  officials  
+the  National  Mediation  Board  
+a  deadline  
+the  talks  
+management  
+an  agreement  
+a  wage  -  concession  package  
+U.S.  labor  law  
+airlines  
+the  mediator  
+an  impasse  
+a  30-day  countdown  
+management  
+its  last  contract  offer  
+the  union  
+I  
+any  prospect  
+a  negotiated  settlement  
+Phil  Bakes  
+president  
+chief  executive  officer  
+Eastern  
+a  firm  date  
+the  existing  contract  
+an  end  
+The  union  
+it  
+each  side  
+concessions  
+A  settlement  
+mediation  
+Charles  Bryan  
+head  
+the  machinists  '  union  
+Eastern  
+I  
+a  strike  
+Eastern  
+he  
+the  Machinists  union  
+the  pilot  and  flight  attendant  unions  
+Eastern  
+whom  
+management  
+concessions  
+the  coming  months  
+a  strike  
+Eastern  
+elaborate  preparations  
+the  airline  
+non  -  union  workers  
+talks  
+Mr.  Bickford  
+neither  side  
+any  sign  
+public  
+Last  week  
+Eastern  
+newspaper  advertising  
+Frank  Borman  
+the  former  astronaut  
+former  Eastern  president  
+the  federal  investigation  
+Texas  Air  
+a  union  "  whisper  campaign  
+the  airline  
+A  week  earlier  
+Eastern  
+the  Machinist  and  pilot  unions  
+them  
+a  criminal  conspiracy  
+Texas  Air  's  stock  price  
+Eastern  
+Texas  Air  
+employees  
+shareholders  
+their  members  
+Congress  
+the  National  Mediation  Board  
+the  30-day  countdown  
+the  talks  
+Thursday  
+about  3,000  union  members  
+part  
+a  lunch  -  time  demonstration  
+downtown  Miami  
+Texas  Air  
+Gov.  Martinez  
+Mr.  Bickford  
+he  
+the  level  
+tenor  
+the  recent  clamor  
+the  talks  
+a  period  
+April  
+Miami  
+Eastern  
+Boston  
+he  
+things  
+quieter  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1']
+['U.S. Mediator', 'Eastern Negotiations']
+SID :  1 Coref ID :  ['X0', 'X1'] ante_str_list :  ['U.S. Mediator', 'Eastern Negotiations']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X2']
+['negotiators in the bitter labor battle at Eastern Airlines']
+SID :  5 Coref ID :  ['X2'] ante_str_list :  ['negotiators in the bitter labor battle at Eastern Airlines']
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+['X3']
+['We']
+SID :  7 Coref ID :  ['X3'] ante_str_list :  ['We']
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+['X4', 'X5']
+['Eastern, a unit of Texas Air Corp.,', 'steep wage cuts from its roughly 10,000 machinists and baggage handlers']
+SID :  9 Coref ID :  ['X4', 'X5'] ante_str_list :  ['Eastern, a unit of Texas Air Corp.,', 'steep wage cuts from its roughly 10,000 machinists and baggage handlers']
+['X6']
+['the bargaining table']
+SID :  10 Coref ID :  ['X6'] ante_str_list :  ['the bargaining table']
+['X7']
+['that']
+SID :  11 Coref ID :  ['X7'] ante_str_list :  ['that']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+['X8']
+['the mediation process']
+SID :  15 Coref ID :  ['X8'] ante_str_list :  ['the mediation process']
+['X9']
+['Florida Gov. Bob Martinez']
+SID :  16 Coref ID :  ['X9'] ante_str_list :  ['Florida Gov. Bob Martinez']
+['X10', 'X11', 'X12']
+['the National Mediation Board', 'management', 'an agreement on a wage-concession package']
+SID :  17 Coref ID :  ['X10', 'X11', 'X12'] ante_str_list :  ['the National Mediation Board', 'management', 'an agreement on a wage-concession package']
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+['X13']
+['I']
+SID :  19 Coref ID :  ['X13'] ante_str_list :  ['I']
+['X14']
+['The union']
+SID :  20 Coref ID :  ['X14'] ante_str_list :  ['The union']
+['X15']
+['Charles Bryan, ']
+SID :  21 Coref ID :  ['X15'] ante_str_list :  ['Charles Bryan, ']
+['X16']
+['a strike']
+SID :  22 Coref ID :  ['X16'] ante_str_list :  ['a strike']
+['X17']
+['the pilot']
+SID :  23 Coref ID :  ['X17'] ante_str_list :  ['the pilot']
+[]
+[]
+SID :  24 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  25 Coref ID :  [] ante_str_list :  []
+['X18', 'X19', 'X20']
+['Frank Borman, ', 'Texas Air', 'union']
+SID :  26 Coref ID :  ['X18', 'X19', 'X20'] ante_str_list :  ['Frank Borman, ', 'Texas Air', 'union']
+[]
+[]
+SID :  27 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  28 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  29 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  30 Coref ID :  [] ante_str_list :  []
+Appositive Feature : Index Diff :  -6 Ante : negotiators in the bitter labor battle at Eastern Airlines Anaphor : the bitter labor battle
+Appositive Feature : Index Diff :  1 Ante : Frank Borman , Anaphor : the former astronaut
+Processing :  data/new_test/tst1/b19.input
+
+880614  -  0077  
+Aluminum  
+Talks  
+By  
+Steel  Union  
+LABOR  AA  RLM  
+MIN  
+ST  
+LOUIS  
+The  United  Steelworkers  union  
+yesterday  
+early  contract  talks  
+Aug.  
+the  nation  's  two  biggest  aluminum  makers  
+Local  presidents  
+the  early  bargaining  
+an  effort  
+concessions  
+1986  
+The  current  pacts  
+Aluminum  Co.  of  America  
+Reynolds  Metals  Co.  
+expire  
+next  May  31  
+any  new  accord  
+we  
+the  current  contracts  
+1986  
+our  members  
+sacrifices  
+the  companies  
+hard  times  
+George  Becker  
+the  union  's  chief  negotiator  
+the  aluminum  industry  
+a  strong  recovery  
+Mr.  Becker  
+union  members  
+those  gains  
+the  sacrifices  
+they  
+normal  circumstances  
+bargaining  
+next  year  
+Pittsburgh  -  based  Alcoa  and  Reynolds  
+Richmond  
+Va.  
+the  early  talks  
+The  union  's  action  
+a  similar  decision  
+Friday  
+the  Aluminum  ,  Brick  and  Glass  Workers  union  
+concert  
+the  Steelworkers  
+the  two  unions  
+about  21,000  Alcoa  
+Reynolds  employees  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1', 'X2']
+['Early Aluminum Talks', 'Steel Union', '2 Firms']
+SID :  1 Coref ID :  ['X0', 'X1', 'X2'] ante_str_list :  ['Early Aluminum Talks', 'Steel Union', '2 Firms']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+['X3']
+['ST. LOUIS']
+SID :  4 Coref ID :  ['X3'] ante_str_list :  ['ST. LOUIS']
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X4']
+['1986']
+SID :  6 Coref ID :  ['X4'] ante_str_list :  ['1986']
+['X5']
+['The current pacts with Aluminum Co. of America and Reynolds Metals Co.']
+SID :  7 Coref ID :  ['X5'] ante_str_list :  ['The current pacts with Aluminum Co. of America and Reynolds Metals Co.']
+['X6', 'X7', 'X8']
+['our members', 'sacrifices to help the companies over hard times', 'George Becker, ']
+SID :  8 Coref ID :  ['X6', 'X7', 'X8'] ante_str_list :  ['our members', 'sacrifices to help the companies over hard times', 'George Becker, ']
+['X9']
+['a strong recovery']
+SID :  9 Coref ID :  ['X9'] ante_str_list :  ['a strong recovery']
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+['X10', 'X11']
+['Pittsburgh-based Alcoa', 'Reynolds, Richmond, Va.,']
+SID :  11 Coref ID :  ['X10', 'X11'] ante_str_list :  ['Pittsburgh-based Alcoa', 'Reynolds, Richmond, Va.,']
+['X12']
+['union']
+SID :  12 Coref ID :  ['X12'] ante_str_list :  ['union']
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+Appositive Feature : Index Diff :  1 Ante : George Becker , Anaphor : the union 's chief negotiator
+Processing :  data/new_test/tst1/b20.input
+
+880729  -  0142  
+OPEC  
+a  Price  War  
+Output  Sags  
+Quota  
+Violator  
+Reforms  
+James  Tanner  
+WSJ  Staff  
+MDEST  
+PET  MON  
+The  Organization  of  Petroleum  Exporting  Countries  
+the  brink  
+a  possible  price  war  
+recent  major  price  declines  
+a  sharp  rise  
+OPEC  production  
+total  cartel  output  
+as  much  as  one  million  barrels  
+day  
+the  year  's  peak  
+20  million  barrels  
+day  
+early  this  month  
+new  indications  
+even  the  United  Arab  Emirates  
+OPEC  's  most  notable  quota  violator  
+its  own  output  
+a  targeted  1.5  million  barrels  
+day  
+pressure  
+others  
+the  cartel  
+Saudi  Arabia  
+The  Emirates  
+any  promises  
+its  government  
+conciliatory  gestures  
+OPEC  
+yesterday  
+The  gestures  
+the  arrival  
+Abu  Dhabi  
+OPEC  's  new  secretary  
+Subroto  
+Mr.  Subroto  
+a  letter  
+Sheik  Zayed  Al  Nahyyan  
+the  Emirates  '  ruler  
+Rilwanu  Lukman  
+Nigeria  's  oil  minister  
+OPEC  's  president  
+concern  
+the  Emirates  '  recent  renunciation  
+its  assigned  quota  
+948,000  barrels  
+day  
+The  chief  conciliatory  note  
+the  round  
+talks  
+Mr.  Subroto  
+Sheik  Zayed  
+who  
+the  Emirates  '  support  
+OPEC  's  "  unity  
+cohesion  
+the  Emirates  '  official  news  agency  
+the  ruler  
+his  country  
+the  forefront  
+OPEC  decisions  
+the  stability  
+the  market  
+The  news  agency  report  
+the  Emirates  '  production  level  
+senior  oil  officials  
+the  Emirates  
+Dow  Jones  International  Petroleum  Report  
+yesterday  
+the  government  
+its  demand  
+a  higher  OPEC  quota  
+current  production  
+the  target  
+Industry  estimates  
+the  Emirates  '  current  production  
+between  1.2  million  and  1.5  million  barrels  
+day  
+such  excess  output  
+the  Emirates  
+it  
+an  issue  
+OPEC  
+the  world  oil  markets  
+last  month  
+Emirates  '  officials  
+their  intent  
+their  quota  
+new  attention  
+OPEC  output  
+late  June  
+it  
+concern  
+other  exporters  
+Iraq  
+the  system  
+a  result  
+fallout  
+its  war  
+Iran  
+they  
+the  UAE  
+no  control  
+the  others  
+Bahman  Karbassioun  
+a  Vienna  -  based  consultant  
+OPEC  affairs  
+addition  
+Mr.  Subroto  's  visit  
+Abu  Dhabi  
+OPEC  's  price  -  monitoring  committee  
+five  leading  oil  ministers  
+next  Wednesday  
+Lausanne  
+Switzerland  
+the  problem  
+the  Emirates  '  unilateral  quota  decision  
+world  oil  prices  
+OPEC  's  headquarters  
+yesterday  
+details  
+the  meeting  
+It  
+it  
+the  outcome  
+the  talks  
+the  UAE  
+an  OPEC  spokesman  
+total  OPEC  output  
+as  much  as  5  %  
+the  recent  run  -  up  
+Saudi  Arabia  
+the  cartel  's  biggest  producer  
+the  declines  
+PetroLogistics  Ltd.  
+a  Geneva  -  based  consulting  firm  
+OPEC  
+output  
+production  
+July  
+just  over  19  million  barrels  
+day  
+20  million  barrels  
+day  
+the  first  week  of  the  month  
+line  
+demand  
+OPEC  oil  
+the  second  half  
+a  current  report  
+world  oil  markets  
+Charles  L.  McSpadden  
+manager  
+petroleum  analysis  
+Antonio  M.  Szabo  
+manager  
+petroleum  planning  
+Bonner  @amp  
+Moore  Market  Consultants  
+Houston  
+The  19  million  barrels  
+day  
+OPEC  's  comfort  zone  
+Mr.  Szabo  []
+[]
+SID :  0 Coref ID :  [] ante_str_list :  []
+['X0', 'X1', 'X2', 'X3']
+['OPEC', 'a Price War', 'Output', 'Quota Violator']
+SID :  1 Coref ID :  ['X0', 'X1', 'X2', 'X3'] ante_str_list :  ['OPEC', 'a Price War', 'Output', 'Quota Violator']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  3 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+['X4', 'X5', 'X6', 'X7']
+['price', 'a sharp rise in OPEC production', 'a day', '20 million barrels a day early this month']
+SID :  6 Coref ID :  ['X4', 'X5', 'X6', 'X7'] ante_str_list :  ['price', 'a sharp rise in OPEC production', 'a day', '20 million barrels a day early this month']
+['X8', 'X9', 'X10']
+['its own output', 'a targeted 1.5 million barrels a day', 'Saudi Arabia']
+SID :  7 Coref ID :  ['X8', 'X9', 'X10'] ante_str_list :  ['its own output', 'a targeted 1.5 million barrels a day', 'Saudi Arabia']
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+['X11', 'X12', 'X13']
+['its government', 'conciliatory gestures to OPEC', 'yesterday']
+SID :  9 Coref ID :  ['X11', 'X12', 'X13'] ante_str_list :  ['its government', 'conciliatory gestures to OPEC', 'yesterday']
+['X14', 'X15']
+['Abu Dhabi', "OPEC's new secretary-general, "]
+SID :  10 Coref ID :  ['X14', 'X15'] ante_str_list :  ['Abu Dhabi', "OPEC's new secretary-general, "]
+['X16', 'X17', 'X18']
+['Sheik Zayed Al Nahyyan, ', 'Rilwanu Lukman, ', 'its assigned quota of 948,000 barrels a day']
+SID :  11 Coref ID :  ['X16', 'X17', 'X18'] ante_str_list :  ['Sheik Zayed Al Nahyyan, ', 'Rilwanu Lukman, ', 'its assigned quota of 948,000 barrels a day']
+['X19', 'X20']
+['the round of talks with Mr. Subroto', "the Emirates' official news agency"]
+SID :  12 Coref ID :  ['X19', 'X20'] ante_str_list :  ['the round of talks with Mr. Subroto', "the Emirates' official news agency"]
+[]
+[]
+SID :  13 Coref ID :  [] ante_str_list :  []
+['X21']
+['oil']
+SID :  14 Coref ID :  ['X21'] ante_str_list :  ['oil']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+['X22']
+['such excess output by the Emirates']
+SID :  16 Coref ID :  ['X22'] ante_str_list :  ['such excess output by the Emirates']
+['X23']
+['the world oil markets']
+SID :  17 Coref ID :  ['X23'] ante_str_list :  ['the world oil markets']
+['X24', 'X25']
+['That', 'other exporters']
+SID :  18 Coref ID :  ['X24', 'X25'] ante_str_list :  ['That', 'other exporters']
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+['X26']
+['the meeting']
+SID :  21 Coref ID :  ['X26'] ante_str_list :  ['the meeting']
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+['X27']
+['just over 19 million barrels a day']
+SID :  24 Coref ID :  ['X27'] ante_str_list :  ['just over 19 million barrels a day']
+['X28', 'X29']
+['Charles L. McSpadden, ', 'Antonio M. Szabo, ']
+SID :  25 Coref ID :  ['X28', 'X29'] ante_str_list :  ['Charles L. McSpadden, ', 'Antonio M. Szabo, ']
+[]
+[]
+SID :  26 Coref ID :  [] ante_str_list :  []
+Appositive Feature : Index Diff :  1 Ante : Sheik Zayed Al Nahyyan , Anaphor : the Emirates ' ruler
+Processing :  data/new_test/tst1/c16.input
+
+A  Novel  Pneumovirus  
+Children  
+Respiratory  Tract  Disease  
+the  current  issue  
+"  Nature  Medicine  
+Bernadette  G  
+van  den  Hoogen  
+Jan  C.  de  Jong  
+Jan  Goen  
+Thijs  Kuiken  
+Ronald  de  Groot  
+Ron  A.M.  Fouchier  
+Albert  D.M.E.  Osterhaus  
+the  isolation  
+characterisation  
+a  novel  paramyxovirus  
+28  children  
+the  Netherlands  
+the  basis  
+virological  data  
+sequence  homology  
+genome  organisation  
+this  virus  
+a  new  member  
+the  genus  _  Metapneumovirus  _  
+The  only  other  known  member  
+this  genus  
+the  avian  virus  
+turkey  rhinotracheitis  virus  
+avian  pneumovirus  
+Bernadette  
+et  
+al  
+the  provisional  name  
+human  metapneumovirus  
+this  newly  discovered  human  pathogen  
+The  clinical  symptoms  
+the  children  
+whom  
+human  respiratory  syncytial  virus  infection  
+upper  respiratory  tract  disease  
+severe  bronchiolitis  
+pneumonia  
+Serological  studies  
+the  age  of  5  years  
+virtually  all  children  
+the  Netherlands  
+human  metapneumovirus  
+the  virus  
+humans  
+at  least  50  years  
+Human  respiratory  syncytial  virus  
+HRSV  
+a  paramyxovirus  
+_  Pneumovirus  _  
+a  universal  respiratory  pathogen  
+temperate  
+climates  
+the  principal  cause  
+hospitalisation  
+children  
+their  first  year  
+life  
+a  major  cause  
+death  
+influenza  virus  
+this  respect  
+The  isolation  
+a  metapneumovirus  
+a  related  but  distinct  virus  
+birds  
+children  
+bronchiolitis  
+a  significant  and  surprising  discovery  
+A  great  deal  
+effort  
+development  
+a  vaccine  
+HRSV  infection  
+children  
+the  discovery  
+another  apparently  equally  ubiquitous  and  serologically  unrelated  virus  
+similar  disease  
+unwelcome  news  
+It  
+turkey  rhinotracheitis  virus  
+the  founder  member  
+the  genus  _  Metapneumovirus  _  
+many  years  
+the  Old  World  
+the  immunological  reagents  
+diagnosis  
+strains  
+the  virus  
+the  New  World  
+It  
+the  widespread  use  
+highly  specific  monoclonal  antibodies  
+diagnosis  
+HRSV  infection  
+children  
+the  reasons  
+this  human  metapneumovirus  
+-  Mod  
+CP  
+cp  
+pg  ['X0', 'X1']
+['Pneumovirus', 'Children']
+SID :  0 Coref ID :  ['X0', 'X1'] ante_str_list :  ['Pneumovirus', 'Children']
+['X2', 'X3', 'X4']
+['Bernadette G, van den Hoogen, Jan C. de Jong, Jan Goen, Thijs Kuiken, Ronald de Groot, Ron A.M. Fouchier and Albert D.M.E. Osterhaus', 'isolation and characterisation', 'the Netherlands']
+SID :  1 Coref ID :  ['X2', 'X3', 'X4'] ante_str_list :  ['Bernadette G, van den Hoogen, Jan C. de Jong, Jan Goen, Thijs Kuiken, Ronald de Groot, Ron A.M. Fouchier and Albert D.M.E. Osterhaus', 'isolation and characterisation', 'the Netherlands']
+['X5']
+['Metapneumovirus']
+SID :  2 Coref ID :  ['X5'] ante_str_list :  ['Metapneumovirus']
+['X6']
+['member']
+SID :  3 Coref ID :  ['X6'] ante_str_list :  ['member']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X7', 'X8']
+['human respiratory syncytial virus', 'infection']
+SID :  5 Coref ID :  ['X7', 'X8'] ante_str_list :  ['human respiratory syncytial virus', 'infection']
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X9']
+['reagents']
+SID :  10 Coref ID :  ['X9'] ante_str_list :  ['reagents']
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X10']
+['Mod.CP']
+SID :  12 Coref ID :  ['X10'] ante_str_list :  ['Mod.CP']
+Processing :  data/new_test/tst1/c17.input
+
+posting  
+10  
+May  
+Psittacosis  
+birds  -  Australia  
+NSW)20030509.1157  
+one  significant  misleading  fact  
+a  few  questionable  elements  
+I  
+the  source  
+a  local  newspaper  
+it  
+the  less  accurate  elements  
+this  report  
+It  
+the  disease  
+person  
+person  
+person  
+person  
+transmission  
+the  organisms  
+it  
+the  years  
+Person  
+person  
+spread  
+the  disease  
+the  1943  Louisiana  outbreak  
+a  single  fatal  human  case  
+rise  
+18  additional  human  cases  
+nursing  attendants  
+the  hospital  
+Interhuman  transmission  
+psittacosis  
+Hansen  et  al  
+the  Danish  Med  Bul  
+1955  Vol  2  page  
+It  
+experimental  *  hosts  
+this  disease  
+all  species  
+birds  
+it  
+experimental  disease  transmission  
+natural  occurrence  
+the  disease  
+I  
+the  claim  
+all  birds  
+the  infection  
+The  response  
+different  species  
+birds  
+the  disease  
+some  species  
+birds  
+Highly  resistant  species  
+birds  
+the  same  human  health  risk  
+they  
+the  organism  
+only  a  small  number  
+these  bacteria  
+the  time  
+exposure  
+development  
+symptoms  
+4  -  14  days  
+the  article  
+longer  incubation  periods  
+up  to  4  weeks  
+humans  
+the  literature  
+It  
+an  open  mind  
+all  aspects  
+disease  reporting  
+cases  
+the  disease  
+significance  
+human  health  
+the  source  
+a  local  newspaper  
+[  ProMED  thanks  
+Dr  
+these  clarifications  
+1929  -  30  
+psittacosis  
+12  countries  
+approx  
+1000  
+cases  
+amp  
+200  
+deaths  
+Schachter  
+Hubbert  et  
+al.(eds  
+Diseases  
+animals  
+man  
+6th  
+ed  
+.  
+Thomas  
+Springfield  IL  
+the  importation  
+psittacines  
+South  America  
+it  
+human-  to  -  human  transmission  
+only  2  reports  
+60  years  
+a  common  occurrence  
+the  USA  
+the  human  disease  
+turkeys  
+central  &  amp  
+eastern  Europe  
+ducks  
+Mod  .  JW  ['X0', 'X1', 'X2', 'X3']
+['ProMED', 'posting', 'Psittacosis', 'one significant misleading fact and a few questionable elements']
+SID :  0 Coref ID :  ['X0', 'X1', 'X2', 'X3'] ante_str_list :  ['ProMED', 'posting', 'Psittacosis', 'one significant misleading fact and a few questionable elements']
+['X4', 'X5']
+['I', 'the source']
+SID :  1 Coref ID :  ['X4', 'X5'] ante_str_list :  ['I', 'the source']
+[]
+[]
+SID :  2 Coref ID :  [] ante_str_list :  []
+['X6']
+['transmission']
+SID :  3 Coref ID :  ['X6'] ante_str_list :  ['transmission']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+['X7']
+['species']
+SID :  8 Coref ID :  ['X7'] ante_str_list :  ['species']
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+['X8']
+['some']
+SID :  10 Coref ID :  ['X8'] ante_str_list :  ['some']
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X9']
+['the organism']
+SID :  12 Coref ID :  ['X9'] ante_str_list :  ['the organism']
+['X10']
+['time']
+SID :  13 Coref ID :  ['X10'] ante_str_list :  ['time']
+[]
+[]
+SID :  14 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/c18.input
+
+Lassa  fever  
+UNAMSILLL  peacekeeping  force  
+Daru  
+another  probable  case  
+Lassa  fever  
+Freetown  
+the  four  cases  
+four  deaths  
+21  year  old  
+member  
+the  Indian  contingent  
+UNAMSIL  peacekeeping  forces  
+Daru  
+Kailahun  District  
+fever  
+about  10  July  2000  
+He  
+malaria  
+malaria  
+typhoid  
+laboratory  tests  
+He  
+temperatures  
+41  C.  Lassa  fever  
+he  
+the  UNAMSIL  referral  hospital  
+Freetown  
+he  
+strict  isolation  
+careful  precautions  
+handling  
+blood  
+body  fluids  
+He  
+phayrngitis  
+edema  
+erythema  
+bleeding  
+venipuncture  sites  
+He  
+IV  ribavirin  
+Day  3  
+treatment  
+his  temperature  
+he  
+He  
+albuminuria  
+no  evidence  
+renal  ,  hepatic  or  pulmonary  failure  
+Prothrombin  times  
+This  patient  
+the  UNAMSIL  medical  services  
+Daru  
+Freetown  
+All  contacts  
+temperatures  
+UNAMSIL  's  preventive  medicine  officer  
+Daru  
+conditions  
+the  UNAMSIL  camp  
+food  security  
+rodent  
+control  
+Some  conclusions  
+We  
+a  third  introduction  
+Lassa  fever  
+urban  Freetown  
+first  
+the  DFID  worker  
+who  
+London  
+the  first  case  
+UN  peacekeeping  forces  
+whom  
+tents  
+Lassa  fever  endemic  areas  
+rural  Lassa  fever  virus  -  carrying  rodents  
+We  
+no  laboratory  capacity  
+the  diagnosis  
+no  definitive  investigation  
+(  E.g.  
+What  
+the  intensity  
+exposure  
+UNAMSIL  forces  
+other  sub  -  clinical/  undiagnosed  cases  
+other  more  aggressive  measures  
+we  
+outsiders  
+the  resident  population  
+I  
+information  
+advice  
+following:(1)How  
+I  
+some  laboratory  confirmation  
+suspect  cases  
+the  options  
+possibly  Lassa  fever  virus  -  infected  laboratory  
+specimens  
+the  country  
+(  3)Is  
+Guinea  
+operating  
+4)Has  
+a  full  epidemiological  investigation  
+this  problem  
+[  Offers  
+help  
+Dr.  Aldis  
+Laboratory  confirmation  
+-  Mod  
+CP  
+jw  
+cp  ['X0', 'X1', 'X2', 'X3']
+['Lassa fever', 'UNAMSILLL', 'force', 'Daru']
+SID :  0 Coref ID :  ['X0', 'X1', 'X2', 'X3'] ante_str_list :  ['Lassa fever', 'UNAMSILLL', 'force', 'Daru']
+['X4', 'X5']
+['case', 'Freetown']
+SID :  1 Coref ID :  ['X4', 'X5'] ante_str_list :  ['case', 'Freetown']
+['X6']
+['member']
+SID :  2 Coref ID :  ['X6'] ante_str_list :  ['member']
+['X7']
+['malaria']
+SID :  3 Coref ID :  ['X7'] ante_str_list :  ['malaria']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+['X8']
+['temperatures']
+SID :  5 Coref ID :  ['X8'] ante_str_list :  ['temperatures']
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  8 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  9 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  11 Coref ID :  [] ante_str_list :  []
+['X9']
+['We']
+SID :  12 Coref ID :  ['X9'] ante_str_list :  ['We']
+['X10']
+['The first']
+SID :  13 Coref ID :  ['X10'] ante_str_list :  ['The first']
+['X11']
+['virus']
+SID :  14 Coref ID :  ['X11'] ante_str_list :  ['virus']
+['X12']
+['investigation']
+SID :  15 Coref ID :  ['X12'] ante_str_list :  ['investigation']
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  18 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+['X13', 'X14']
+['I', 'confirmation']
+SID :  20 Coref ID :  ['X13', 'X14'] ante_str_list :  ['I', 'confirmation']
+[]
+[]
+SID :  21 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  22 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  23 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  24 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  25 Coref ID :  [] ante_str_list :  []
+['X15']
+['CP']
+SID :  26 Coref ID :  ['X15'] ante_str_list :  ['CP']
+Processing :  data/new_test/tst1/c6.input
+
+West  Nile  Virus  
+Canada  
+WHO  
+Tue  
+Oct  
+Health  Canada  
+a  total  number  
+96  human  cases  
+West  Nile  virus  infection  
+65  suspected  cases  
+31  confirmed  cases  
+1  death  
+One  confirmed  case  
+the  province  
+Alberta  
+details  
+ProMED  -  mail  post  
+West  Nile  virus  
+human  
+Canada  
+Alberta)20021023.5625  
+-  Mod  
+CP  
+one  suspected  case  
+3  confirmed  cases  
+the  province  
+Quebec  
+the  remaining  64  suspected  cases  
+27  confirmed  cases  
+the  province  
+Ontario  
+previous  report  
+lt;http://www.who.int  
+disease  
+outbreak  
+news  
+n2002  
+october/22aoctober2002.html&gt  
+2  deaths  
+individuals  
+suspected  cases  
+The  cause  
+death  
+these  persons  
+investigation  
+The  one  confirmed  case  
+Alberta  
+one  confirmed  case  
+Ontario  
+infection  
+the  United  States  
+all  other  cases  
+their  infection  
+their  home  province  
+more  information  
+this  outbreak  
+the  Health  Canada  web  site  
+West  Nile  virus  surveillance  information  
+lt;http://www.hc  -  sc.gc.ca  /  pphb  -  dgspsp  /  wnv  -  vwn  /  index.html&gt  ['X0', 'X1']
+['West Nile Virus', 'Canada']
+SID :  0 Coref ID :  ['X0', 'X1'] ante_str_list :  ['West Nile Virus', 'Canada']
+['X2', 'X3', 'X4']
+['Tue', 'Health Canada', 'cases']
+SID :  1 Coref ID :  ['X2', 'X3', 'X4'] ante_str_list :  ['Tue', 'Health Canada', 'cases']
+['X5', 'X6', 'X7', 'X8']
+['case', 'Alberta', 'details', 'Ontario']
+SID :  2 Coref ID :  ['X5', 'X6', 'X7', 'X8'] ante_str_list :  ['case', 'Alberta', 'details', 'Ontario']
+['X9', 'X10']
+['deaths', 'individuals']
+SID :  3 Coref ID :  ['X9', 'X10'] ante_str_list :  ['deaths', 'individuals']
+[]
+[]
+SID :  4 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  5 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  6 Coref ID :  [] ante_str_list :  []
+Processing :  data/new_test/tst1/c7.input
+
+Emergency  Dept  
+Suspected  Outbreak  
+Winter  Vomiting  Disease  
+An  outbreak  
+what  
+winter  vomiting  disease  
+the  closure  
+Sunnybrook  Hospital  's  emergency  department  
+Monday  morning  
+the  weekend  
+a  number  
+patients  
+staff  
+bouts  
+vomiting  
+diarrhea  
+Monday  afternoon  
+Nov  
+2002  
+28  staff  members  
+13  patients  
+symptoms  
+the  virus  infection  
+person  
+person  
+contact  
+We  
+what  
+We  
+it  
+a  case  
+something  
+winter  
+vomiting  
+disease  
+hospital  spokesman  Craig  DuHamel  
+we  
+our  emergency  department  
+The  emergency  department  
+the  afternoon  
+We  
+27  
+Nov  
+2002  
+DuHamel  
+cleaning  crews  
+the  scene  
+anti  -  viral  agents  
+Patients  
+emergency  
+the  situation  
+arrival  
+their  condition  
+another  hospital  
+who  
+another  facility  
+the  hospital  
+a  news  release  
+Winter  vomiting  disease  
+an  infection  
+a  virus  
+person  
+person  
+cold  weather  
+people  
+indoors  
+closer  contact  
+Symptoms  
+severe  nausea  
+vomiting  
+between  24  and  48  hours  
+DuHamel  
+the  virus  
+life  
+the  Norwalk  virus  
+headlines  
+hundreds  
+passengers  
+the  Florida  -  based  cruise  ship  
+Amsterdam  
+ProMED  -  mail  
+winter  vomiting  disease  
+a  misnomer  
+Outbreaks  
+the  UK  
+Ireland  
+the  year  
+hospitals  
+health  care  facilities  
+schools  
+North  America  outbreaks  
+cruise  ships  
+voyages  
+Alaska  
+the  summer  
+Caribbean  destinations  
+the  winter  
+Density  and  hygiene  considerations  
+the  relevant  determining  factors  
+Winter  vomiting  disease  
+infection  
+a  Norwalk  -  like  virus  
+Norwalk  -  like  viruses  
+a  heterogenous  group  
+caliciviruses  
+the  genus  _  Norovirus  _  
+-  Mod  
+CP  
+ProMED  -  mail  
+lt;promed@promedmail.org&gt  ['X0']
+['Dept']
+SID :  0 Coref ID :  ['X0'] ante_str_list :  ['Dept']
+['X1', 'X2']
+['Outbreak', 'Winter Vomiting Disease']
+SID :  1 Coref ID :  ['X1', 'X2'] ante_str_list :  ['Outbreak', 'Winter Vomiting Disease']
+['X3', 'X4']
+['Sunnybrook Hospital', 'Monday']
+SID :  2 Coref ID :  ['X3', 'X4'] ante_str_list :  ['Sunnybrook Hospital', 'Monday']
+['X5', 'X6', 'X7']
+['patients', 'staff', 'vomiting']
+SID :  3 Coref ID :  ['X5', 'X6', 'X7'] ante_str_list :  ['patients', 'staff', 'vomiting']
+['X8', 'X9', 'X10']
+['symptoms', 'the virus', 'infection']
+SID :  4 Coref ID :  ['X8', 'X9', 'X10'] ante_str_list :  ['symptoms', 'the virus', 'infection']
+['X11']
+['We']
+SID :  5 Coref ID :  ['X11'] ante_str_list :  ['We']
+['X12']
+['Craig DuHamel']
+SID :  6 Coref ID :  ['X12'] ante_str_list :  ['Craig DuHamel']
+[]
+[]
+SID :  7 Coref ID :  [] ante_str_list :  []
+['X13']
+['Wed']
+SID :  8 Coref ID :  ['X13'] ante_str_list :  ['Wed']
+['X14']
+['hospital']
+SID :  9 Coref ID :  ['X14'] ante_str_list :  ['hospital']
+[]
+[]
+SID :  10 Coref ID :  [] ante_str_list :  []
+['X15']
+['a virus']
+SID :  11 Coref ID :  ['X15'] ante_str_list :  ['a virus']
+[]
+[]
+SID :  12 Coref ID :  [] ante_str_list :  []
+['X16']
+['Norwalk']
+SID :  13 Coref ID :  ['X16'] ante_str_list :  ['Norwalk']
+['X17']
+['ProMED-mail']
+SID :  14 Coref ID :  ['X17'] ante_str_list :  ['ProMED-mail']
+[]
+[]
+SID :  15 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  16 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  17 Coref ID :  [] ante_str_list :  []
+['X18']
+['infection']
+SID :  18 Coref ID :  ['X18'] ante_str_list :  ['infection']
+[]
+[]
+SID :  19 Coref ID :  [] ante_str_list :  []
+[]
+[]
+SID :  20 Coref ID :  [] ante_str_list :  []
+<COREF ID="X0">AEROFLOT</COREF>
+
+<COREF ID="X1">FAMILIES</COREF>
+
+<COREF ID="X2">03 - 27</COREF>
+
+<COREF ID="X3">AREOFLOT CRASH DEATHS</COREF>
+
+<COREF ID="X4">a writ</COREF>
+
+<COREF ID="X5">Hong Kong</COREF>
+
+<COREF ID="X6">the Aeroflot Airbus</COREF>
+
+<COREF ID="X7">Aeroflot general manager for Hong Kong Vassili Tkatchenko</COREF>
+
+<COREF ID="X8">the 15-year - old son of Captain Yaroslav Kudrinsky</COREF>
+
+<COREF ID="X9">Yana</COREF>
+
+<COREF ID="X10">Airline passengers</COREF>
+
+<COREF ID="X11">Aviation consultant Steve Miller</COREF>
+
+<COREF ID="X1">04 - 05</COREF>
+
+<COREF ID="X2">AIRLINE CRASH - LIABILITY ACCORD</COREF>
+
+<COREF ID="X3">airlines</COREF>
+
+<COREF ID="X4">$ 75,000 limit</COREF>
+
+<COREF ID="X5">Americans</COREF>
+
+<COREF ID="X6">United States</COREF>
+
+<COREF ID="X7">This</COREF>
+
+<COREF ID="X8">Efforts</COREF>
+
+<COREF ID="X9">U.S. officials</COREF>
+
+<COREF ID="X10">aircraft manufacturers</COREF>
+
+<COREF ID="X11">Jeffrey N. Shane</COREF>
+
+<COREF ID="X12">many airlines</COREF>
+
+<COREF ID="X13">families</COREF>
+
+<COREF ID="X14">American Airlines</COREF>
+
+<COREF ID="X15">Barry Lambert Harris</COREF>
+
+<COREF ID="X16">U.S. airlines</COREF>
+
+<COREF ID="X17">fairly simple negotiations</COREF>
+
+<COREF ID="X18">economic damages</COREF>
+
+<COREF ID="X19">the airline</COREF>
+
+<COREF ID="X20">a ` ` fifth jurisdiction ' '</COREF>
+
+<COREF ID="X0">CRASH</COREF>
+
+<COREF ID="X1">BROWN</COREF>
+
+<COREF ID="X2">04 - 06</COREF>
+
+<COREF ID="X3">SOMBER FAREWELL</COREF>
+
+<COREF ID="X4">CROATIA</COREF>
+
+<COREF ID="X5">U.S. VICTIMS</COREF>
+
+<COREF ID="X6">DUBROVNIK</COREF>
+
+<COREF ID="X7">two C-17 transport planes</COREF>
+
+<COREF ID="X8">Saturday</COREF>
+
+<COREF ID="X9">Two of those who died in the crash</COREF>
+
+<COREF ID="X10">President Franjo Tudjman of Croatia</COREF>
+
+<COREF ID="X11">U.S.</COREF>
+
+<COREF ID="X12">the families of those who have perished</COREF>
+
+<COREF ID="X13">the American ambassador to Croatia</COREF>
+
+<COREF ID="X14">the peacemakers</COREF>
+
+<COREF ID="X15">our friends and colleagues</COREF>
+
+<COREF ID="X16">The Air Force T-43 plane</COREF>
+
+<COREF ID="X17">a rocky hill named after St. John the Baptist</COREF>
+
+<COREF ID="X18">The two Croatians and Brown</COREF>
+
+<COREF ID="X19">Americans</COREF>
+
+<COREF ID="X20">The Roman Catholic archbishop of Dubrovnik</COREF>
+
+<COREF ID="X21">American investigators</COREF>
+
+<COREF ID="X0">AIRCRASH</COREF>
+
+<COREF ID="X1">CHINA</COREF>
+
+<COREF ID="X2">04 - 09</COREF>
+
+<COREF ID="X3">TWO</COREF>
+
+<COREF ID="X4">Macau</COREF>
+
+<COREF ID="X5">Tuesday</COREF>
+
+<COREF ID="X6">their helicopter</COREF>
+
+<COREF ID="X7">Zhuhai</COREF>
+
+<COREF ID="X8">Hong Kong 's Civil Aviation Department</COREF>
+
+<COREF ID="X9">a search</COREF>
+
+<COREF ID="X10">the Chinese island</COREF>
+
+<COREF ID="X11">poor weather</COREF>
+
+<COREF ID="X0">REID</COREF>
+
+<COREF ID="X1">04 - 12</COREF>
+
+<COREF ID="X2">HALF MOON BAY</COREF>
+
+<COREF ID="X3">the airplane</COREF>
+
+<COREF ID="X5">flying</COREF>
+
+<COREF ID="X4">Jessica Dubroff</COREF>
+
+<COREF ID="X6">Gary Petersen</COREF>
+
+<COREF ID="X7">George Auld</COREF>
+
+<COREF ID="X8">He and his wife</COREF>
+
+<COREF ID="X0">BAYERISCHE MOTOREN WERKE AG</COREF>
+
+<COREF ID="X1">1987</COREF>
+
+<COREF ID="X2">a year earlier</COREF>
+
+<COREF ID="X3">group sales</COREF>
+
+<COREF ID="X4">the long - term debt</COREF>
+
+<COREF ID="X5">DEN NORSKE CREDITBANK</COREF>
+
+<COREF ID="X6">review for possible downgrading</COREF>
+
+<COREF ID="X7">DEUTSCHE GENOSSENSCHAFTS BANK</COREF>
+
+<COREF ID="X8">the trade union - owned insurance group VOLKSFUERSORGE</COREF>
+
+<COREF ID="X9">an insurance concern it controls</COREF>
+
+<COREF ID="X10">the trade - union holding company</COREF>
+
+<COREF ID="X11">NATIONALE NEDERLANDEN N.V.</COREF>
+
+<COREF ID="X12">MIDWESTERN UNITED LIFE INSURANCE CO . , one of its U.S. subsidiaries ,</COREF>
+
+<COREF ID="X13">Ireland 's largest insurer ,</COREF>
+
+<COREF ID="X0">Communications Satellite Corp.</COREF>
+
+<COREF ID="X1">the reductions</COREF>
+
+<COREF ID="X2">American Telephone @amp ; Telegraph Co.</COREF>
+
+<COREF ID="X3">two new types of digital satellite services</COREF>
+
+<COREF ID="X0">Pan Am</COREF>
+
+<COREF ID="X1">Teamsters</COREF>
+
+<COREF ID="X2">Contract Talks</COREF>
+
+<COREF ID="X3">The National Mediation Board</COREF>
+
+<COREF ID="X4">a wage - concession agreement</COREF>
+
+<COREF ID="X5">both sides</COREF>
+
+<COREF ID="X6">arbitration</COREF>
+
+<COREF ID="X7">William Genoese</COREF>
+
+<COREF ID="X8">today</COREF>
+
+<COREF ID="X9">changes in senior management</COREF>
+
+<COREF ID="X10">a coalition of four of Pan Am 's five unions</COREF>
+
+<COREF ID="X11">William T. Coleman</COREF>
+
+<COREF ID="X12">tomorrow</COREF>
+
+<COREF ID="X13">Mr. Coleman</COREF>
+
+<COREF ID="X14">a " cordial " initial meeting with Mr. Coleman last Thursday</COREF>
+
+<COREF ID="X15">Pan Am 's pilots union</COREF>
+
+<COREF ID="X16">an agreement to deliver concessions to the company</COREF>
+
+<COREF ID="X17">A pilot 's union spokesman</COREF>
+
+<COREF ID="X0">Rise in Labor Costs , Wage Agreements</COREF>
+
+<COREF ID="X1">' 87</COREF>
+
+<COREF ID="X2">the Labor Department</COREF>
+
+<COREF ID="X3">Total compensation costs in private industry , including pay and benefits ,</COREF>
+
+<COREF ID="X4">1986</COREF>
+
+<COREF ID="X5">9.8 % ,</COREF>
+
+<COREF ID="X6">collective bargaining agreements reached last year</COREF>
+
+<COREF ID="X7">an average 2.2 % wage increase in the first year of the contract</COREF>
+
+<COREF ID="X8">the life of the pact</COREF>
+
+<COREF ID="X9">pay</COREF>
+
+<COREF ID="X10">Officials</COREF>
+
+<COREF ID="X11">labor</COREF>
+
+<COREF ID="X12">lump - sum payments , which are one - time payments often made upon a contract 's ratification</COREF>
+
+<COREF ID="X13">construction industry</COREF>
+
+<COREF ID="X14">the first contract year</COREF>
+
+<COREF ID="X0">Northwest Attendants</COREF>
+
+<COREF ID="X1">Airline</COREF>
+
+<COREF ID="X2">strike</COREF>
+
+<COREF ID="X3">Easter</COREF>
+
+<COREF ID="X4">leaders of the unions representing Northwest pilots and machinists</COREF>
+
+<COREF ID="X5">strategy meeting</COREF>
+
+<COREF ID="X6">The Teamsters</COREF>
+
+<COREF ID="X7">machinists</COREF>
+
+<COREF ID="X8">A Northwest spokesman</COREF>
+
+<COREF ID="X0">Chrysler</COREF>
+
+<COREF ID="X1">Grievance Process For Non - Union Staff</COREF>
+
+<COREF ID="X2">ROCHESTER , Mich.</COREF>
+
+<COREF ID="X3">Anthony P. St. John</COREF>
+
+<COREF ID="X4">Employees</COREF>
+
+<COREF ID="X5">these employees</COREF>
+
+<COREF ID="X6">Chrysler 's move</COREF>
+
+<COREF ID="X7">United Auto Workers</COREF>
+
+<COREF ID="X8">Several management consultants</COREF>
+
+<COREF ID="X9">Jerrold Bratkovich</COREF>
+
+<COREF ID="X10">A Chrysler spokesman</COREF>
+
+<COREF ID="X11">International Business Machines Corp.</COREF>
+
+<COREF ID="X12">an IBM spokesman</COREF>
+
+<COREF ID="X0">Reagan</COREF>
+
+<COREF ID="X1">An Arms Pact</COREF>
+
+<COREF ID="X2">Summit</COREF>
+
+<COREF ID="X3">CHICAGO</COREF>
+
+<COREF ID="X4">Soviet leader Mikhail Gorbachev</COREF>
+
+<COREF ID="X5">an agreement eliminating intermediate - range nuclear missiles , signed at a summit meeting in Washington last December</COREF>
+
+<COREF ID="X6">Our</COREF>
+
+<COREF ID="X7">such a treaty</COREF>
+
+<COREF ID="X0">U.S. Mediator</COREF>
+
+<COREF ID="X1">Eastern Negotiations</COREF>
+
+<COREF ID="X2">negotiators in the bitter labor battle at Eastern Airlines</COREF>
+
+<COREF ID="X3">We</COREF>
+
+<COREF ID="X4">Eastern , a unit of Texas Air Corp. ,</COREF>
+
+<COREF ID="X5">steep wage cuts from its roughly 10,000 machinists and baggage handlers</COREF>
+
+<COREF ID="X6">the bargaining table</COREF>
+
+<COREF ID="X7">that</COREF>
+
+<COREF ID="X8">the mediation process</COREF>
+
+<COREF ID="X9">Florida Gov. Bob Martinez</COREF>
+
+<COREF ID="X10">the National Mediation Board</COREF>
+
+<COREF ID="X11">management</COREF>
+
+<COREF ID="X12">an agreement on a wage - concession package</COREF>
+
+<COREF ID="X13">I</COREF>
+
+<COREF ID="X14">The union</COREF>
+
+<COREF ID="X15">Charles Bryan ,</COREF>
+
+<COREF ID="X16">a strike</COREF>
+
+<COREF ID="X17">the pilot</COREF>
+
+<COREF ID="X18">Frank Borman ,</COREF>
+
+<COREF ID="X19">Texas Air</COREF>
+
+<COREF ID="X20">union</COREF>
+
+<COREF ID="X0">Early Aluminum Talks</COREF>
+
+<COREF ID="X1">Steel Union</COREF>
+
+<COREF ID="X2">2 Firms</COREF>
+
+<COREF ID="X3">ST . LOUIS</COREF>
+
+<COREF ID="X4">1986</COREF>
+
+<COREF ID="X5">The current pacts with Aluminum Co. of America and Reynolds Metals Co.</COREF>
+
+<COREF ID="X6">our members</COREF>
+
+<COREF ID="X7">sacrifices to help the companies over hard times</COREF>
+
+<COREF ID="X8">George Becker ,</COREF>
+
+<COREF ID="X9">a strong recovery</COREF>
+
+<COREF ID="X10">Pittsburgh - based Alcoa</COREF>
+
+<COREF ID="X11">Reynolds , Richmond , Va. ,</COREF>
+
+<COREF ID="X12">union</COREF>
+
+<COREF ID="X0">OPEC</COREF>
+
+<COREF ID="X1">a Price War</COREF>
+
+<COREF ID="X2">Output</COREF>
+
+<COREF ID="X3">Quota Violator</COREF>
+
+<COREF ID="X4">price</COREF>
+
+<COREF ID="X5">a sharp rise in OPEC production</COREF>
+
+<COREF ID="X6">a day</COREF>
+
+<COREF ID="X7">20 million barrels a day early this month</COREF>
+
+<COREF ID="X8">its own output</COREF>
+
+<COREF ID="X9">a targeted 1.5 million barrels a day</COREF>
+
+<COREF ID="X10">Saudi Arabia</COREF>
+
+<COREF ID="X11">its government</COREF>
+
+<COREF ID="X12">conciliatory gestures to OPEC</COREF>
+
+<COREF ID="X13">yesterday</COREF>
+
+<COREF ID="X14">Abu Dhabi</COREF>
+
+<COREF ID="X15">OPEC 's new secretary - general ,</COREF>
+
+<COREF ID="X16">Sheik Zayed Al Nahyyan ,</COREF>
+
+<COREF ID="X17">Rilwanu Lukman ,</COREF>
+
+<COREF ID="X18">its assigned quota of 948,000 barrels a day</COREF>
+
+<COREF ID="X19">the round of talks with Mr. Subroto</COREF>
+
+<COREF ID="X20">the Emirates ' official news agency</COREF>
+
+<COREF ID="X21">oil</COREF>
+
+<COREF ID="X22">such excess output by the Emirates</COREF>
+
+<COREF ID="X23">the world oil markets</COREF>
+
+<COREF ID="X24">That</COREF>
+
+<COREF ID="X25">other exporters</COREF>
+
+<COREF ID="X26">the meeting</COREF>
+
+<COREF ID="X27">just over 19 million barrels a day</COREF>
+
+<COREF ID="X28">Charles L. McSpadden ,</COREF>
+
+<COREF ID="X29">Antonio M. Szabo ,</COREF>
+
+<COREF ID="X0">Pneumovirus</COREF>
+
+<COREF ID="X1">Children</COREF>
+
+<COREF ID="X2">Bernadette G , van den Hoogen , Jan C. de Jong , Jan Goen , Thijs Kuiken , Ronald de Groot , Ron A.M. Fouchier and Albert D.M.E. Osterhaus</COREF>
+
+<COREF ID="X3">isolation and characterisation</COREF>
+
+<COREF ID="X4">the Netherlands</COREF>
+
+<COREF ID="X5">Metapneumovirus</COREF>
+
+<COREF ID="X6">member</COREF>
+
+<COREF ID="X7">human respiratory syncytial virus</COREF>
+
+<COREF ID="X8">infection</COREF>
+
+<COREF ID="X9">reagents</COREF>
+
+<COREF ID="X10">Mod . CP</COREF>
+
+<COREF ID="X0">ProMED</COREF>
+
+<COREF ID="X1">posting</COREF>
+
+<COREF ID="X2">Psittacosis</COREF>
+
+<COREF ID="X3">one significant misleading fact and a few questionable elements</COREF>
+
+<COREF ID="X4">I</COREF>
+
+<COREF ID="X5">the source</COREF>
+
+<COREF ID="X6">transmission</COREF>
+
+<COREF ID="X7">species</COREF>
+
+<COREF ID="X8">some</COREF>
+
+<COREF ID="X9">the organism</COREF>
+
+<COREF ID="X10">time</COREF>
+
+<COREF ID="X0">Lassa fever</COREF>
+
+<COREF ID="X1">UNAMSILLL</COREF>
+
+<COREF ID="X2">force</COREF>
+
+<COREF ID="X3">Daru</COREF>
+
+<COREF ID="X4">case</COREF>
+
+<COREF ID="X5">Freetown</COREF>
+
+<COREF ID="X6">member</COREF>
+
+<COREF ID="X7">malaria</COREF>
+
+<COREF ID="X8">temperatures</COREF>
+
+<COREF ID="X9">We</COREF>
+
+<COREF ID="X10">The first</COREF>
+
+<COREF ID="X11">virus</COREF>
+
+<COREF ID="X12">investigation</COREF>
+
+<COREF ID="X13">I</COREF>
+
+<COREF ID="X14">confirmation</COREF>
+
+<COREF ID="X15">CP</COREF>
+
+<COREF ID="X0">West Nile Virus</COREF>
+
+<COREF ID="X1">Canada</COREF>
+
+<COREF ID="X2">Tue</COREF>
+
+<COREF ID="X3">Health Canada</COREF>
+
+<COREF ID="X4">cases</COREF>
+
+<COREF ID="X5">case</COREF>
+
+<COREF ID="X6">Alberta</COREF>
+
+<COREF ID="X7">details</COREF>
+
+<COREF ID="X8">Ontario</COREF>
+
+<COREF ID="X9">deaths</COREF>
+
+<COREF ID="X10">individuals</COREF>
+
+<COREF ID="X0">Dept</COREF>
+
+<COREF ID="X1">Outbreak</COREF>
+
+<COREF ID="X2">Winter Vomiting Disease</COREF>
+
+<COREF ID="X3">Sunnybrook Hospital</COREF>
+
+<COREF ID="X4">Monday</COREF>
+
+<COREF ID="X5">patients</COREF>
+
+<COREF ID="X6">staff</COREF>
+
+<COREF ID="X7">vomiting</COREF>
+
+<COREF ID="X8">symptoms</COREF>
+
+<COREF ID="X9">the virus</COREF>
+
+<COREF ID="X10">infection</COREF>
+
+<COREF ID="X11">We</COREF>
+
+<COREF ID="X12">Craig DuHamel</COREF>
+
+<COREF ID="X13">We d</COREF>
+
+<COREF ID="X14">hospital</COREF>
+
+<COREF ID="X15">a virus</COREF>
+
+<COREF ID="X16">Norwalk</COREF>
+
+<COREF ID="X17">ProMED - mail</COREF>
+
+<COREF ID="X18">infection</COREF>
+

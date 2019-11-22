@@ -1,0 +1,72 @@
+<COREF ID="X0">APMV-1</COREF>
+{3} {any APMV-1 viruses}
+{10} {any disease surveillance programme}
+{12} {Newcastle disease - Australia}
+{12} {disease - Australia}
+
+<COREF ID="X3">viruses</COREF>
+{0} {these viruses}
+{1} {these Victorian flocks}
+
+<COREF ID="X1">poultry</COREF>
+{0} {poultry flocks}
+{3} {poultry flocks}
+{11} {domestic poultry}
+
+<COREF ID="X2">mutation</COREF>
+{1} {a very similar mutation event}
+
+<COREF ID="X4">virulence</COREF>
+{5} {virulence}
+{8} {high , intermediate , or low virulence}
+{9} {high virulence}
+{9} {high virulence}
+{9} {low virulence}
+
+<COREF ID="X5">flocks</COREF>
+{3} {flocks}
+
+<COREF ID="X6">ND</COREF>
+{1} {it}
+{1} {this virulent virus}
+{4} {Newcastle disease virus}
+{4} {a notoriously variable virus}
+{5} {Newcastle disease virus}
+{7} {virus strains}
+{8} {Newcastle disease virus}
+{9} {a closely related ) precursor virus}
+{11} {the precursor viruses}
+
+<COREF ID="X7">virus</COREF>
+{1} {the same precursor virus}
+{2} {such precursor viruses}
+{6} {inactive precursor proteins}
+{6} {the precursor proteins}
+
+<COREF ID="X8">Victoria</COREF>
+{12} {Victoria}
+{12} {Victoria}
+
+<COREF ID="X10">viruses</COREF>
+
+<COREF ID="X11">Australia</COREF>
+
+<COREF ID="X12">virus</COREF>
+
+<COREF ID="X13">Strains</COREF>
+
+<COREF ID="X14">the cleavability</COREF>
+{7} {the inherent cleavability}
+
+<COREF ID="X15">proteins</COREF>
+
+<COREF ID="X16">strains</COREF>
+{8} {strains}
+{8} {strains}
+{9} {strains}
+
+<COREF ID="X17">tissue</COREF>
+{7} {the tissue tropism}
+
+<COREF ID="X18">This</COREF>
+

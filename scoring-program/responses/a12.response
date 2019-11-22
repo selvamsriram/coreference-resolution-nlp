@@ -1,0 +1,74 @@
+<COREF ID="X0">NTSB</COREF>
+{5} {NTSB}
+{6} {NTSB}
+{21} {The NTSB}
+{24} {The NTSB}
+
+<COREF ID="X1">CRASH</COREF>
+{5} {CRASH}
+{6} {CRASH}
+{18} {the crash}
+{24} {the crash}
+
+<COREF ID="X2">02 - 27</COREF>
+
+<COREF ID="X3">737</COREF>
+{15} {the 737 's rudder}
+{16} {It}
+{16} {he}
+{17} {it}
+
+<COREF ID="X4">CRASH PROBE</COREF>
+{6} {PROBE}
+
+<COREF ID="X5">SEATTLE</COREF>
+{14} {Seattle}
+
+<COREF ID="X6">Seattle 's Museum of Flight</COREF>
+{11} {The museum 's aircraft}
+{12} {The board}
+{19} {the board}
+
+<COREF ID="X7">a similar jetliner</COREF>
+
+<COREF ID="X8">Pittsburgh</COREF>
+{12} {the Pittsburgh airport}
+{19} {the Pittsburgh crash}
+
+<COREF ID="X9">the plane 's rudder</COREF>
+{12} {plane}
+{13} {the plane 's tail @amp;MD}
+{13} {the jet 's deadly roll}
+
+<COREF ID="X10">Aviation safety investigators</COREF>
+{15} {investigators}
+{16} {we}
+
+<COREF ID="X11">the rudder</COREF>
+{17} {the rudder}
+{18} {` ` surmise ' ' rudder and pedal position}
+
+<COREF ID="X12">NTSB Chairman Jim Hall</COREF>
+{14} {Hall}
+
+<COREF ID="X13">board spokesman Mike Benson</COREF>
+{15} {Benson}
+{18} {Benson}
+{25} {Benson}
+
+<COREF ID="X14">Newer models of flight data recorders</COREF>
+{17} {flight data recorders}
+{18} {older - model flight recorders}
+{19} {improved flight recorders}
+
+<COREF ID="X15">the angle of the rudder and the pedal controlling it</COREF>
+{17} {the pedal}
+
+<COREF ID="X16">tests</COREF>
+{21} {tests}
+{22} {The tests}
+{23} {No airborne tests}
+{24} {tests}
+
+<COREF ID="X17">last September</COREF>
+
