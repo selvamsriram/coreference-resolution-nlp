@@ -459,10 +459,12 @@ def select_neg_data (top_obj, neg_ratio):
   pos_size = len (top_obj.pos_list)
   neg_size = len (top_obj.neg_list)
 
+  '''
   required_neg = pos_size * neg_ratio
   if (required_neg > neg_size):
     print ("For the given ratio we don't have enough neg samples")
-  
+  '''
+  required_neg = neg_size 
   #Set seed and randomly select required samples
   random.seed (100)
   top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)
@@ -521,22 +523,29 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
 
   #Fill A Part String
   for i in range (a_marker.w_s_idx, a_marker.w_e_idx+1):
-    a_string.append (a_sent_obj.word_list[i].word)
+    a_string.append (a_sent_obj.word_list[i].word.lower())
 
   #Fill b Part String
   for j in range (b_marker.w_s_idx, b_marker.w_e_idx+1):
-    b_string.append (b_sent_obj.word_list[j].word)
+    b_string.append (b_sent_obj.word_list[j].word.lower())
 
   a_set = set (a_string)
   b_set = set (b_string)
-  eliminate_list = ["the", "a", "this", "that", "an"]
+  eliminate_list = ["the", "a", "this", "that", "an", "them", "-"]
   eliminate_set = set (eliminate_list)
   res_set = a_set & b_set
   res_set = res_set - eliminate_set
+  print ("Detailed Manual Comparison Information")
+  print ("-----------------------------------------------------------------------------------------------")  
   print ("A Set    : ", a_set)
   print ("B Set    : ", b_set)
   print ("Res Set  : ", res_set)
-  return len(res_set)
+  utils.print_mention_pair_all_details (doc_obj.top_obj, mp, None)
+  #Divide the o/p by the difference in the sent ids.
+  #This will make the sentences closer having better values
+  #sent_diff = b_sent_id - a_sent_id + 1
+  sent_diff = 1
+  return (len(res_set)/sent_diff)
 
 def get_manual_coref_id_given_mps (doc_obj, test_mp_list):
   max_coref_id = None
@@ -558,7 +567,7 @@ def predict_wrapper (doc_obj, mp):
 
 def get_predicted_coref_id_given_mps (doc_obj, test_mp_list):
   max_coref_id = None
-  max_score = 0.6
+  max_score = 0.5
 
   #Predict probability or use softmax and get the coref_id responsible for max score
   for mp in test_mp_list:
@@ -574,8 +583,7 @@ def create_mention_pairs_for_testing (doc_obj, coref_id, a_sent_idx, a_mark_idx,
   mp.coref_id = coref_id
   return mp
 
-def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
-  #Pair this markable with every other markable found in the cluster and creat mention pairs
+def get_mp_list_only_last_mention (doc_obj, line_num, mark_index):
   test_mp_list = []
   for coref_id, clus_info_obj in doc_obj.clusters_info.items ():
     #Pair up the clus info obj and our mark index and generate mp
@@ -583,10 +591,27 @@ def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
                                            clus_info_obj.sent_idx, clus_info_obj.mark_idx,
                                            line_num, mark_index)
     test_mp_list.append (mp)
+  return test_mp_list
+
+def get_mp_list_all_mention (doc_obj, line_num, mark_index):
+  test_mp_list = []
+  for coref_id, clus_info_list in doc_obj.result_clusters_info.items ():
+    for clus_info_obj in clus_info_list:
+      #Pair up the clus info obj and our mark index and generate mp
+      mp = create_mention_pairs_for_testing (doc_obj, coref_id, 
+                                           clus_info_obj.sent_idx, clus_info_obj.mark_idx,
+                                           line_num, mark_index)
+      test_mp_list.append (mp)
+  return test_mp_list
+
+def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
+  #Pair this markable with every other markable found in the cluster and creat mention pairs
+  #test_mp_list =  get_mp_list_only_last_mention (doc_obj, line_num, mark_index)
+  test_mp_list =  get_mp_list_all_mention (doc_obj, line_num, mark_index)
 
   predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
-  if (predicted_coref_id == None):
-    predicted_coref_id = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
+  #if (predicted_coref_id == None):
+  #  predicted_coref_id = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
   return predicted_coref_id
 
 def process_testing_per_sentence (doc_obj, line_num):

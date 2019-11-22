@@ -383,7 +383,7 @@ def print_mention_pair_all_details (top_obj, mp, row):
   NER_label_list = ["NER LABEL"]
   NP_chunk_tag_list = ["NP CHUNK TAG"]
   tok_header_list = ["Info Name"]
-  an_string = ""
+  ante_string = ""
   for i in range (a_s_idx, a_e_idx+1):
     word = a_sent_obj.word_list[i]
     tok_header_list.append (i)
@@ -392,23 +392,16 @@ def print_mention_pair_all_details (top_obj, mp, row):
     NER_tag_list.append (word.NER_tag)
     NER_label_list.append (word.NER_label) 
     NP_chunk_tag_list.append (word.chunk_tag)
-    an_string += word.word
+    ante_string += word.word
     if (i != a_e_idx):
-      an_string += " "
+      ante_string += " "
 
-  print ("-----------------------------------------------------------------------------------------------")  
-  print ("Antecedent")
-  print ("-----------")
-  print ("Sentence   : ", a_sent_obj.full_sentence)
-  print ("Antecedent : ", an_string)
-
-  t = PrettyTable(tok_header_list)
-  t.add_row (tok_list)
-  t.add_row (pos_list)
-  t.add_row (NER_tag_list)
-  t.add_row (NER_label_list)
-  t.add_row (NP_chunk_tag_list)
-  print (t)
+  ante_t = PrettyTable(tok_header_list)
+  ante_t.add_row (tok_list)
+  ante_t.add_row (pos_list)
+  ante_t.add_row (NER_tag_list)
+  ante_t.add_row (NER_label_list)
+  ante_t.add_row (NP_chunk_tag_list)
 
   tok_list = ["TOKEN"]
   pos_list = ["POS TAG"]
@@ -416,7 +409,7 @@ def print_mention_pair_all_details (top_obj, mp, row):
   NER_label_list = ["NER LABEL"]
   NP_chunk_tag_list = ["NP CHUNK TAG"]
   tok_header_list = ["Info Name"]
-  an_string = ""
+  ana_string = ""
   for i in range (b_s_idx, b_e_idx+1):
     word = b_sent_obj.word_list[i]
     tok_header_list.append (i)
@@ -425,23 +418,30 @@ def print_mention_pair_all_details (top_obj, mp, row):
     NER_tag_list.append (word.NER_tag)
     NER_label_list.append (word.NER_label) 
     NP_chunk_tag_list.append (word.chunk_tag)
-    an_string += word.word
+    ana_string += word.word
     if (i != b_e_idx):
-      an_string += " "
+      ana_string += " "
   
-  print ("\nAnaphor")
-  print ("----------")
-  print ("Sentence : ", b_sent_obj.full_sentence)
-  print ("Anaphor  : ", an_string)
+  ana_t = PrettyTable(tok_header_list)
+  ana_t.add_row (tok_list)
+  ana_t.add_row (pos_list)
+  ana_t.add_row (NER_tag_list)
+  ana_t.add_row (NER_label_list)
+  ana_t.add_row (NP_chunk_tag_list)
 
-  t = PrettyTable(tok_header_list)
-  t.add_row (tok_list)
-  t.add_row (pos_list)
-  t.add_row (NER_tag_list)
-  t.add_row (NER_label_list)
-  t.add_row (NP_chunk_tag_list)
-  print (t)
-  print_feature_row (top_obj, mp, row)
+  print ("Antecedent      : {", mp.a_sent_idx, "}", ante_string)
+  print ("Anaphor         : {", mp.b_sent_idx, "}", ana_string)
+  print ("Ante Sentence   : ", a_sent_obj.full_sentence)
+  print ("Ana  Sentence   : ", b_sent_obj.full_sentence)
+  print ("Antecedent Table")
+  print ("-----------------")
+  print (ante_t)
+  print ("\nAnaphor Table")
+  print ("----------------")
+  print (ana_t)
+
+  if (row != None):
+    print_feature_row (top_obj, mp, row)
 
 def print_feature_row (top_obj, mp, row):
   feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
@@ -740,7 +740,7 @@ def create_features_handler (filename, lst, top_obj, label):
             row.append (0)
 
     #Debug Print
-    #print_mention_pair_all_details (top_obj, lst[i], row)
+    # print_mention_pair_all_details (top_obj, lst[i], row)
     #Feature - ENDS       
     if (filename == None):
       return np.asarray (row)

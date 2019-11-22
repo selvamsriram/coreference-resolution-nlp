@@ -1,1 +1,1 @@
-python3.6 ./coref.py ./list_file.txt ./scoring-program/responses/
+python3.6  ./coref.py new_list_file.txt ./scoring-program/responses/ 
