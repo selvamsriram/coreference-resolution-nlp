@@ -1,4 +1,5 @@
 import class_defs
+import random
 import numpy as np 
 import re
 import nltk
@@ -482,25 +483,34 @@ def create_features_handler (filename, lst, top_obj, label):
     row.append (b_sentid - a_sentid)
 
     #Feature 2 (i-Pronoun)
+    antecedent_is_pronoun = False
     if (a_s_idx == a_e_idx):
       a_pos_tag = antecedent_sent.word_list[a_s_idx].pos_tag
       if (a_pos_tag == "PRP" or a_pos_tag == "PRP$"):
         row.append (1)
+        antecedent_is_pronoun = True
       else:
         row.append (0)
     else:
       row.append(0)
 
+    
     #Feature 3 (j-Pronoun)
+    anaphor_is_pronoun = False
     if (b_s_idx == b_e_idx):
       b_pos_tag = anaphor_sent.word_list[b_s_idx].pos_tag
       if (b_pos_tag == "PRP" or b_pos_tag == "PRP$"):
         row.append (1)
+        anaphor_is_pronoun = True
       else:
         row.append (0)
     else:
       row.append(0)
      
+    if ((antecedent_is_pronoun == True) and (anaphor_is_pronoun == False)):
+      print ("Antecedent is pronoun but anaphor is not so skipping this MP creation")
+      return None, False
+
     #Feature 4 (String Match)
     temp_s1 = ""
     for s in range (a_s_idx, a_e_idx+1):
@@ -743,7 +753,7 @@ def create_features_handler (filename, lst, top_obj, label):
     # print_mention_pair_all_details (top_obj, lst[i], row)
     #Feature - ENDS       
     if (filename == None):
-      return np.asarray (row)
+      return np.asarray (row), True
 
     for idx, col_val in enumerate (row):
       filename.write ("%s" %col_val)
@@ -757,13 +767,34 @@ def create_features_handler (filename, lst, top_obj, label):
 
 def create_features (top_obj):
   fv_file = open ("feature_vector.input", 'w+')
+  result_fv_row_list = []
   pos_lst = top_obj.pos_list
   neg_lst = top_obj.selected_neg_list
  
   print ("Positive data")
-  create_features_handler (fv_file, pos_lst, top_obj, 1)
+  for mp in pos_lst:
+    row, valid = create_features_handler (None, [mp], top_obj, 1)
+    if (valid == True):
+      result_fv_row_list.append (row)
+
   print ("Negative data")
-  create_features_handler (fv_file, neg_lst, top_obj, 0)
+  for mp in neg_lst:
+    row, valid = create_features_handler (None, [mp], top_obj, 0)
+    if (valid == True):
+      result_fv_row_list.append (row)
+
+  # Shuffle the data so that +ve and -ve will get randomized
+  random.seed (100)
+  random.shuffle (result_fv_row_list)
+
+  # Write the shuffled data
+  for row in result_fv_row_list:
+    for idx, col_val in enumerate (row):
+      fv_file.write ("%s" %col_val)
+      if (idx != len(row) -1):
+        fv_file.write (", ")
+
+    fv_file.write ("\n")
 
   fv_file.close ()
 

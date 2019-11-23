@@ -3,7 +3,6 @@ import pickle
 from sklearn.linear_model import LogisticRegression
 from sklearn import model_selection
 
-
 def train_lr_model (fpath):
   data = np.loadtxt(fpath, delimiter=',', dtype=int)
   num_col = len (data[0])

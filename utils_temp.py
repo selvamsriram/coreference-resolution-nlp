@@ -7,6 +7,8 @@ import spacy
 import sys
 sys.path.insert(1,'models/Logistic_Regression')
 import lr_test
+sys.path.insert(1,'models/SVM')
+import svm_test
 
 def debug_printer(doc_obj):
   sent_obj = doc_obj.sentences[28]
@@ -464,7 +466,7 @@ def select_neg_data (top_obj, neg_ratio):
   if (required_neg > neg_size):
     print ("For the given ratio we don't have enough neg samples")
   '''
-  required_neg = neg_size 
+  required_neg = int(neg_size/3)
   #Set seed and randomly select required samples
   random.seed (100)
   top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)
@@ -561,8 +563,11 @@ def get_manual_coref_id_given_mps (doc_obj, test_mp_list):
   return max_coref_id
 
 def predict_wrapper (doc_obj, mp):
-  #To be filled after model is ready
+  #Logistic Regression Prediction
   y_prob = lr_test.test_lr_model (mp, doc_obj.top_obj)
+
+  #SVM Prediction
+  #y_prob = svm_test.test_svm_model (mp, doc_obj.top_obj)
   return y_prob
 
 def get_predicted_coref_id_given_mps (doc_obj, test_mp_list):
