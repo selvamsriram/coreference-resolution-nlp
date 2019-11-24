@@ -52,3 +52,28 @@ Micro Average Precision: 0.32079 (179/558)
 Micro Average Recall:    0.25462 (179/703)
 F-score:                 0.28390
 ```
+
+*Logistic Regression - Manual match with only the gold antecedent*
+```
+Micro Average Precision: 0.36667 (176/480)
+Micro Average Recall:    0.25036 (176/703)
+F-score:                 0.29755
+```
+
+*Logistic Regression*
+*Manual Match - Only Gold Ante Comparison*
+*Sent Dist divides result*
+```
+Micro Average Precision: 0.37605 (179/476)
+Micro Average Recall:    0.25462 (179/703)
+F-score:                 0.30365
+```
+
+*Logistic Regression*
+*All above + selecting only the substring in anaphor that matches*
+```
+Micro Average Precision: 0.53678 (197/367)
+Micro Average Recall:    0.28023 (197/703)
+F-score:                 0.36822
+```
+

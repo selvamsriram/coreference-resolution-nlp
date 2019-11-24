@@ -67,6 +67,18 @@ class cluster_info_piece:
     self.sent_idx = sentence_idx
     self.mark_idx = markable_idx
 
+class mp_one_comp_feature_brick:
+  def __init__ (self, sent_id, sent_obj, markable_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list):
+    self.sent_id = sent_id
+    self.sent_obj = sent_obj
+    self.markable_list = markable_list
+    self.w_start_idx = w_start_idx
+    self.w_end_idx = w_end_idx
+    self.w_list = w_list
+    self.string_with_spaces_wo_pronoun = string_with_spaces_wo_pronoun
+    self.string_with_spaces = string_with_spaces
+    self.words_pos_tag_list = words_pos_tag_list
+
 class mention_pair:
   def __init__ (self, doc_obj, a_sent_idx, a_mark_idx, b_sent_idx, b_mark_idx):
     self.dobj = doc_obj

@@ -545,9 +545,15 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
   utils.print_mention_pair_all_details (doc_obj.top_obj, mp, None)
   #Divide the o/p by the difference in the sent ids.
   #This will make the sentences closer having better values
-  #sent_diff = b_sent_id - a_sent_id + 1
-  sent_diff = 1
-  return (len(res_set)/sent_diff)
+  sent_diff = b_sent_id - a_sent_id + 1
+  #sent_diff = 1
+
+  score = len(res_set)/len(a_set)
+  if (score < 0.5):
+    return 0
+
+  return (score)
+  #return (score/sent_diff)
 
 def get_manual_coref_id_given_mps (doc_obj, test_mp_list):
   max_coref_id = None
@@ -598,7 +604,7 @@ def get_mp_list_only_last_mention (doc_obj, line_num, mark_index):
     test_mp_list.append (mp)
   return test_mp_list
 
-def get_mp_list_all_mention (doc_obj, line_num, mark_index):
+def get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante):
   test_mp_list = []
   for coref_id, clus_info_list in doc_obj.result_clusters_info.items ():
     for clus_info_obj in clus_info_list:
@@ -607,16 +613,22 @@ def get_mp_list_all_mention (doc_obj, line_num, mark_index):
                                            clus_info_obj.sent_idx, clus_info_obj.mark_idx,
                                            line_num, mark_index)
       test_mp_list.append (mp)
+      if (pair_only_gold_ante == True):
+        break
   return test_mp_list
 
 def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
   #Pair this markable with every other markable found in the cluster and creat mention pairs
   #test_mp_list =  get_mp_list_only_last_mention (doc_obj, line_num, mark_index)
-  test_mp_list =  get_mp_list_all_mention (doc_obj, line_num, mark_index)
+  pair_only_gold_ante = False
+  test_mp_list =  get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante)
 
   predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
-  #if (predicted_coref_id == None):
-  #  predicted_coref_id = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
+  #Get Manual Coref ID if ML fails
+  if (predicted_coref_id == None):
+    pair_only_gold_ante = True
+    test_mp_list        =  get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante)
+    predicted_coref_id  = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
   return predicted_coref_id
 
 def process_testing_per_sentence (doc_obj, line_num):

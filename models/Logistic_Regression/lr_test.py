@@ -5,14 +5,11 @@ import numpy as np
 import pickle
 
 def test_lr_model (mp_obj, top_obj):
-  lst = []
-  lst.append (mp_obj)
-  data, valid = utils.create_features_handler (None, lst, top_obj, 0)
-  
+  data, valid = utils.single_mp_create_features_handler (mp_obj, top_obj, 0)  
   #Antecedent is pronoun or something invalid about this MP
   if (valid == False):
     return 0
-
+  data = np.asarray(data)
   num_col = data.shape[0]
   X = data[1:num_col]
 

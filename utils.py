@@ -8,6 +8,17 @@ from nltk.stem import WordNetLemmatizer
 import spacy
 from prettytable import PrettyTable
 
+#Globals Start
+pronoun_lst = ["a", "an", "the", "this", "these", "that", "those"]
+dem_pronoun_lst = ["this", "these", "that", "those"]
+male_identifiers = ["mr.", "mr", "he", "him", "himself", "his", "boy", "sir", "boys", "men", "man"]
+female_identifiers = ["mrs.", "miss", "ms.", "ms", "she", "her", "herself", "her's", "madam", "lady", "girl", "girls", "women", "woman"]
+plural_pronoun_lst = ["these", "those", "both", "few", "fewer", "many", "others", "several", "our",
+                      "their", "theirs", "we", "they", "us", "them", "ourselves", "themselves"]
+singular_pronoun_lst = ["me", "it", "my", "mine", "its", "myself", "itself", "this", "that", "he", "him", "himself",
+                         "his", "she", "her", "herself", "her's"]
+#Globals end
+
 def extract_document (doc_obj, input_file, key_file):
   ifp = open (input_file)
 
@@ -450,6 +461,359 @@ def print_feature_row (top_obj, mp, row):
   t.add_row (row)
   print (t)
 
+def get_imp_data_for_mention (top_obj, mp, is_ante):
+  dobj = mp.dobj
+
+  if (is_ante == True):
+    sent_id             = mp.a_sent_idx
+    sent_obj            = dobj.sentences[sent_id]
+    markables_list      = sent_obj.markables
+    w_start_idx         = markables_list[mp.a_mark_idx].w_s_idx
+    w_end_idx           = markables_list[mp.a_mark_idx].w_e_idx
+  else:
+    sent_id             = mp.b_sent_idx
+    sent_obj            = dobj.sentences[sent_id]
+    markables_list      = sent_obj.markables
+    w_start_idx         = markables_list[mp.b_mark_idx].w_s_idx
+    w_end_idx           = markables_list[mp.b_mark_idx].w_e_idx
+
+  w_list                          = sent_obj.word_list
+  string_with_spaces_wo_pronoun   = ""
+  string_with_spaces              = ""
+  words_pos_tag_list              = []
+  #At the same time fill the POS list, word with spaces and word with spaces and no pronoun
+  for s in range (w_start_idx, w_end_idx+1):
+    words_pos_tag_list.append (w_list[s].pos_tag)
+    string_with_spaces += w_list[s].word.lower()
+    if (s != w_end_idx):
+      string_with_spaces += " "
+
+    if (w_list[s].word.lower() in pronoun_lst):
+      continue
+
+    string_with_spaces_wo_pronoun += w_list[s].word.lower()
+    if (s != w_end_idx):
+      string_with_spaces_wo_pronoun += " "
+
+  return sent_id, sent_obj, markables_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list
+
+def feature_is_pronoun (brick):
+  is_pronoun = False
+  if (brick.w_start_idx == brick.w_end_idx):
+    pos_tag = brick.w_list[brick.w_start_idx].pos_tag
+    if (pos_tag == "PRP" or pos_tag == "PRP$"):
+      is_pronoun = True
+
+  if (is_pronoun == True):
+    is_pronoun = 1
+  else:
+    is_pronoun = 0
+  return is_pronoun
+
+def feature_is_string_match (antecedent_brick, anaphor_brick):
+  is_match = False
+  if (antecedent_brick.string_with_spaces_wo_pronoun == anaphor_brick.string_with_spaces_wo_pronoun):
+    is_match = True
+
+  if (is_match == True):
+    is_match = 1
+  else:
+    is_match = 0
+
+  return is_match
+
+def feature_is_def_np (brick):
+  is_def_np = False
+  if (brick.w_list[brick.w_start_idx].word.lower() == "the"):
+    is_def_np = True
+
+  if (is_def_np == True):
+    is_def_np = 1
+  else:
+    is_def_np = 0
+  return is_def_np
+
+def feature_is_demons_np (brick):
+  is_dem_np = False
+  if (brick.w_list[brick.w_start_idx].word.lower() in dem_pronoun_lst):
+    is_dem_np = True
+
+  if (is_dem_np == True):
+    is_dem_np = 1
+  else:
+    is_dem_np = 0
+  return is_dem_np
+
+def feature_is_number_agreement (top_obj, a_brick, b_brick):
+  wl = WordNetLemmatizer ()
+  #-1 = unknown
+  #0 = singular
+  #1 = plural
+  a_person = -1
+  for a_idx in range (a_brick.w_start_idx, a_brick.w_end_idx + 1):
+    word_a = a_brick.w_list[a_idx].word
+    if (word_a.lower() in plural_pronoun_lst):
+      a_person = 1
+      break
+    elif (word_a.lower() in singular_pronoun_lst):
+      a_person = 0
+      break
+
+    lemma = wl.lemmatize(word_a, 'n')
+    if (word_a not in lemma):
+      a_person = 1
+      break
+    else:
+      if (a_brick.w_list[a_idx].pos_tag == "NN" or a_brick.w_list[a_idx].pos_tag == "NNP"):
+        if (word_a in lemma):
+          a_person = 0
+          break
+
+  b_person = -1
+  for b_idx in range (b_brick.w_start_idx, b_brick.w_end_idx + 1):
+    word_b = b_brick.w_list[b_idx].word
+    if (word_b.lower() in plural_pronoun_lst):
+      b_person = 1
+      break
+    elif (word_b.lower() in singular_pronoun_lst):
+      b_person = 0
+      break
+
+    lemma = wl.lemmatize(word_b, 'n')
+    if (word_b not in lemma):
+      b_person = 1
+      break
+    else:
+      if (b_brick.w_list[b_idx].pos_tag == "NN" or b_brick.w_list[b_idx].pos_tag == "NNP"):
+        if (word_b in lemma):
+          b_person = 0
+          break
+  if (a_person == b_person):
+    return 1
+  else:
+    return 0
+
+def feature_is_sem_class_agreement (top_obj, a_brick, b_brick):
+  ner_spacy = top_obj.spacy_obj 
+
+  ner_spacy_ant = ner_spacy (a_brick.string_with_spaces)
+  ner_spacy_ana = ner_spacy (b_brick.string_with_spaces)
+
+  #print ("Antecedent: ", antecedent)
+  #for ents in ner_spacy_ant.ents:
+    #print (ents.text, ents.label_ )
+
+  #print ("Anaphor: ", anaphor)
+  flag = False
+
+  for ents in ner_spacy_ana.ents:
+    for ant_ents in ner_spacy_ana.ents:
+      if (ents.label_ is ant_ents.label_):
+        flag = True
+        break
+    if (flag == True):
+      break
+
+  if (flag == True):
+    flag = 1
+  else:
+    flag = 0
+  return flag
+
+def feature_gender_agreement (a_brick, b_brick):
+  antecedent = a_brick.string_with_spaces
+  anaphor    = b_brick.string_with_spaces
+  gender_agreement = 3
+  if (((antecedent.lower () in male_identifiers) and (anaphor.lower () in male_identifiers)) or
+     ((antecedent.lower () in female_identifiers) and (anaphor.lower () in female_identifiers))):
+     gender_agreement = 1
+
+  if (((antecedent.lower () in male_identifiers) and (anaphor.lower () in female_identifiers)) or
+     ((antecedent.lower () in female_identifiers) and (anaphor.lower () in male_identifiers))):
+     gender_agreement = 2
+
+  return gender_agreement
+
+def feature_is_both_proper_name (a_brick, b_brick):
+  a_pos_tag_list = a_brick.words_pos_tag_list
+  b_pos_tag_list = b_brick.words_pos_tag_list
+  both_proper_names = 0
+
+  if (("NNP" in a_pos_tag_list) or ("NNPS" in a_pos_tag_list)):
+    if (("NNP" in b_pos_tag_list) or ("NNPS" in b_pos_tag_list)):
+      both_proper_names = 1
+  
+  return both_proper_names
+
+def feature_is_alias(a_brick, b_brick):
+  a_tok_list = []
+  a_ner_tag_list = []
+  a_atleast_one_valid = False
+  a_ner_label_type = ""
+
+  b_tok_list = []
+  b_ner_tag_list = []
+  b_atleast_one_valid = False 
+  b_ner_label_type = ""
+  
+  is_alias = False
+
+  for ner_iter_index  in range (a_brick.w_start_idx, a_brick.w_end_idx+1):
+    word = a_brick.w_list[ner_iter_index]
+    if (word.NER_tag != 'O'):
+      a_atleast_one_valid = True
+      a_ner_label_type = word.NER_label
+    a_ner_tag_list.append (word.NER_tag)
+    a_tok_list.append (word.word)
+
+  for ner_iter_index  in range (b_brick.w_start_idx, b_brick.w_end_idx+1):
+    word = b_brick.w_list[ner_iter_index]
+    if (word.NER_tag != 'O'):
+      b_atleast_one_valid = True
+      b_ner_label_type = word.NER_label
+    b_ner_tag_list.append (word.NER_tag)
+    b_tok_list.append (word.word)
+
+  if ((a_atleast_one_valid != b_atleast_one_valid) or 
+      ((a_atleast_one_valid == False) and (b_atleast_one_valid == False)) or
+      (a_ner_label_type != b_ner_label_type)):
+    is_alias = False
+  else:
+    a_set = set(a_tok_list)
+    b_set = set (b_tok_list)
+
+    if (a_set & b_set):
+      #print ("NER Type :", antecedent, a_ner_label_type, anaphor, b_ner_label_type, "Match", )
+      is_alias = True
+    else:
+      is_alias = False
+
+  if (is_alias == True):
+    is_alias = 1
+  else:
+    is_alias = 0
+  return is_alias
+
+def feature_is_appositive (a_brick, b_brick):
+  sent_diff = b_brick.sent_id - a_brick.sent_id
+  is_appositive = False
+
+  if (sent_diff > 0):
+    is_appositive = False
+  else:
+    #They are in the same line, now check how close they are to each other
+    index_diff = b_brick.w_start_idx - a_brick.w_end_idx
+    if (index_diff > 1):
+      is_appositive = False
+    else:
+      #We have established they are close, now check what is in between if there is any.
+      verb_found = False
+      if (index_diff > 0):
+        for temp_index  in range (a_brick.w_end_idx+1, b_brick.w_start_idx):
+          if (a_brick.w_list[temp_index].pos_tag in ["MD", "VBD", "VB", "VBG", "VBN", "VBZ"]):
+            verb_found = True
+            break
+        if (verb_found == True):
+          is_appositive = False
+      
+      if (verb_found == False):
+        #Check if one of them are proper noun
+        #Dependent on Feature 10
+        pos_tag_set = set (a_brick.words_pos_tag_list + b_brick.words_pos_tag_list)
+        if ("NNP" in pos_tag_set):
+          if (b_brick.w_list[b_brick.w_start_idx].word.lower() == "the"):
+            #print ("Appositive Feature : Index Diff : ", index_diff, "Ante :", antecedent, "Anaphor :", anaphor)
+            is_appositive = True
+          else:
+            is_appositive = False
+        else:
+          is_appositive = False
+  
+  if (is_appositive == True):
+    is_appositive = 1
+  else:
+    is_appositive = 0
+  return is_appositive
+
+def create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label):
+  row = []
+  #Label
+  row.append (label)
+
+  #Feature 1 (Distance)
+  row.append (anaphor_brick.sent_id - antecedent_brick.sent_id)
+
+  #Feature 2 (i-Pronoun)
+  antecedent_is_pronoun = feature_is_pronoun (antecedent_brick)
+  row.append (antecedent_is_pronoun)
+  
+  #Feature 3 (j-Pronoun)
+  anaphor_is_pronoun = feature_is_pronoun (anaphor_brick)
+  row.append (anaphor_is_pronoun)
+
+  #Enforcing rule by Ng and Cardie 2002
+  if ((antecedent_is_pronoun == True) and (anaphor_is_pronoun == False)):
+      print ("Antecedent is pronoun but anaphor is not so skipping this MP creation")
+      return None, False
+
+  #Feature 4 (String Match)
+  row.append (feature_is_string_match(antecedent_brick, anaphor_brick))
+
+  #Feature 5 (j is Definitive NP)
+  row.append (feature_is_def_np(anaphor_brick))
+
+  #Feature 6 (j is Demonstratie NP)
+  row.append (feature_is_demons_np(anaphor_brick))
+
+  #Feature 7 (Number Agreement)
+  row.append (feature_is_number_agreement (top_obj, antecedent_brick, anaphor_brick))
+
+  #Feature 8 (Semantic Class Agreement)
+  row.append (feature_is_sem_class_agreement(top_obj, antecedent_brick, anaphor_brick))
+
+  #Feature 9 (Gender Agreement)
+  row.append (feature_gender_agreement (antecedent_brick, anaphor_brick))
+
+  #Feature 10 (Both proper name)
+  row.append (feature_is_both_proper_name(antecedent_brick, anaphor_brick))
+
+  #Feature 11 (Alias Feature)
+  row.append (feature_is_alias(antecedent_brick, anaphor_brick))
+
+  #Feature 12  (Appositive Feature)
+  row.append (feature_is_appositive (antecedent_brick, anaphor_brick))
+
+  return row, True
+
+
+def single_mp_create_features_handler (mp, top_obj, label):
+  sent_id, sent_obj, markables_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list = get_imp_data_for_mention (top_obj, mp, True)
+  antecedent_brick = class_defs.mp_one_comp_feature_brick (sent_id, sent_obj, markables_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list)
+
+  sent_id, sent_obj, markables_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list = get_imp_data_for_mention (top_obj, mp, False)
+  anaphor_brick = class_defs.mp_one_comp_feature_brick (sent_id, sent_obj, markables_list, w_start_idx, w_end_idx, w_list, string_with_spaces_wo_pronoun, string_with_spaces, words_pos_tag_list)
+
+  feature_row, valid = create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label)
+  return feature_row, valid
+
+def bulk_mp_modular_create_features_handler (mp_list, top_obj, label, row_list):
+  mp_max = len(mp_list)
+
+  for mp_idx in range (0, mp_max):
+    mp = mp_list[mp_idx]
+    feature_row, valid = single_mp_create_features_handler (mp, top_obj, label)
+    if (valid == True):
+      row_list.append (feature_row)
+
+  return row_list
+
+def dump_features_to_file (file_handle, row_list):
+  for row in row_list:
+    for idx, col_val in enumerate (row):
+      file_handle.write ("%s" %col_val)
+      if (idx != len(row) -1):
+        file_handle.write (", ")
+    file_handle.write ("\n")
 
 def create_features_handler (filename, lst, top_obj, label):
   llen = len (lst)
@@ -772,30 +1136,17 @@ def create_features (top_obj):
   neg_lst = top_obj.selected_neg_list
  
   print ("Positive data")
-  for mp in pos_lst:
-    row, valid = create_features_handler (None, [mp], top_obj, 1)
-    if (valid == True):
-      result_fv_row_list.append (row)
+  result_fv_row_list = bulk_mp_modular_create_features_handler (pos_lst, top_obj, 1, result_fv_row_list)
 
   print ("Negative data")
-  for mp in neg_lst:
-    row, valid = create_features_handler (None, [mp], top_obj, 0)
-    if (valid == True):
-      result_fv_row_list.append (row)
+  result_fv_row_list = bulk_mp_modular_create_features_handler (neg_lst, top_obj, 0, result_fv_row_list)
 
   # Shuffle the data so that +ve and -ve will get randomized
   random.seed (100)
   random.shuffle (result_fv_row_list)
 
   # Write the shuffled data
-  for row in result_fv_row_list:
-    for idx, col_val in enumerate (row):
-      fv_file.write ("%s" %col_val)
-      if (idx != len(row) -1):
-        fv_file.write (", ")
-
-    fv_file.write ("\n")
-
+  dump_features_to_file (fv_file, result_fv_row_list)
   fv_file.close ()
 
 

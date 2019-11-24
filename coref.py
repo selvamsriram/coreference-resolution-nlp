@@ -17,6 +17,39 @@ def get_word_from_markables (doc_obj, sent_obj, markable_obj):
 
   return ret_string 
 
+def truncate_anaphor (antecedent, anaphor):
+  lo_antecedent = antecedent.lower ()
+  lo_anaphor = anaphor.lower()
+  if lo_antecedent in lo_anaphor:
+    ante_words = lo_antecedent.split (" ")
+    ana_words = lo_anaphor.split (" ")
+    max_len = len(ana_words)
+    len_of_ante_str = len(ante_words)
+    start_idx = 0
+    end_idx = 0
+
+    match = False
+    for i in range (0, max_len):
+      #Check if the first token matches
+      if ana_words[i] == ante_words[0]:
+        match = True
+        for j in range (1, len_of_ante_str):
+          if ana_words[i+j] != ante_words[j]:
+            match = False
+            break
+        if (match == True):
+          #Max pattern is found in the tokenized obj
+          max_start_idx = i
+          max_end_idx = i+ len_of_ante_str
+          break
+    ana_words = anaphor.split (" ")
+    if (match == True):
+      selected_ana_words = ana_words[max_start_idx: max_end_idx]
+      anaphor = " ".join(selected_ana_words)
+    return anaphor
+  else:
+    return anaphor
+
 def generate_cluster_specific_op (rfp, doc_obj, coref_id, cluster_info_list):
   print_str = "<COREF ID=\"" + coref_id+ "\">"
   antecedent_clus_obj = cluster_info_list[0]
@@ -35,6 +68,7 @@ def generate_cluster_specific_op (rfp, doc_obj, coref_id, cluster_info_list):
     
     anaphor_string = get_word_from_markables (doc_obj, sent_obj, marker_obj)
 
+    anaphor_string = truncate_anaphor (antecedent_string, anaphor_string)
     print_str  = "{" + str(clus_obj.sent_idx) + "} {" + anaphor_string + "}\n"
     rfp.write (print_str)
 
