@@ -3,6 +3,7 @@ import utils
 import utils_temp
 import sys
 import os
+import subprocess
 
 def get_word_from_markables (doc_obj, sent_obj, markable_obj):
   start_index = markable_obj.w_s_idx
@@ -114,6 +115,10 @@ def main ():
     print ("Invalid Number of Arguments")
     return
 
+  import nltk
+  nltk.download('wordnet')
+
+  rc = subprocess.call ("./dep_install.sh")
   arg_list = sys.argv
   input_file_list = arg_list[1]
   response_dir = arg_list[2]
