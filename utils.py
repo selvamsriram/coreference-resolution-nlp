@@ -14,9 +14,9 @@ dem_pronoun_lst = ["this", "these", "that", "those"]
 male_identifiers = ["mr.", "mr", "he", "him", "himself", "his", "boy", "sir", "boys", "men", "man"]
 female_identifiers = ["mrs.", "miss", "ms.", "ms", "she", "her", "herself", "her's", "madam", "lady", "girl", "girls", "women", "woman"]
 plural_pronoun_lst = ["these", "those", "both", "few", "fewer", "many", "others", "several", "our",
-                      "their", "theirs", "we", "they", "us", "them", "ourselves", "themselves"]
+                      "their", "theirs", "we", "they", "us", "them", "ourselves", "themselves", "some"]
 singular_pronoun_lst = ["me", "it", "my", "mine", "its", "myself", "itself", "this", "that", "he", "him", "himself",
-                         "his", "she", "her", "herself", "her's"]
+                         "his", "she", "her", "herself", "her's", "a", "an"]
 #Globals end
 
 def extract_document (doc_obj, input_file, key_file):
@@ -457,8 +457,7 @@ def print_mention_pair_all_details (top_obj, mp, row):
     print_feature_row (top_obj, mp, row)
 
 def print_feature_row (top_obj, mp, row):
-  #feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
-  feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Appositive"] 
+  feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
   header = ["Feature", "Value"]
   t = PrettyTable(header)
   for idx, feat in enumerate(feature_list):
@@ -608,7 +607,7 @@ def feature_is_sem_class_agreement (top_obj, a_brick, b_brick):
   flag = False
 
   for ents in ner_spacy_ana.ents:
-    for ant_ents in ner_spacy_ana.ents:
+    for ant_ents in ner_spacy_ant.ents:
       if (ents.label_ is ant_ents.label_):
         flag = True
         break
@@ -758,7 +757,7 @@ def create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label)
       return None, False
 
   #Feature 4 (String Match)
-  #row.append (feature_is_string_match(antecedent_brick, anaphor_brick))
+  row.append (feature_is_string_match(antecedent_brick, anaphor_brick))
 
   #Feature 5 (j is Definitive NP)
   row.append (feature_is_def_np(anaphor_brick))
@@ -779,7 +778,7 @@ def create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label)
   row.append (feature_is_both_proper_name(antecedent_brick, anaphor_brick))
 
   #Feature 11 (Alias Feature)
-  #row.append (feature_is_alias(antecedent_brick, anaphor_brick))
+  row.append (feature_is_alias(antecedent_brick, anaphor_brick))
 
   #Feature 12  (Appositive Feature)
   row.append (feature_is_appositive (antecedent_brick, anaphor_brick))

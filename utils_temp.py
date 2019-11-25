@@ -468,8 +468,8 @@ def select_neg_data (top_obj, neg_ratio):
   if (required_neg > neg_size):
     print ("For the given ratio we don't have enough neg samples")
   '''
-  required_neg = int(pos_size * 2)
-  #required_neg = int(neg_size/3)
+  #required_neg = int(pos_size * 2)
+  required_neg = int(neg_size/3)
   #Set seed and randomly select required samples
   random.seed (100)
   top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)
@@ -638,12 +638,10 @@ def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
   predicted_coref_id = None
   predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
   #Get Manual Coref ID if ML fails
-  '''
   if (predicted_coref_id == None):
     pair_only_gold_ante = True
     test_mp_list        =  get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante)
     predicted_coref_id  = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
-  '''
   return predicted_coref_id
 
 def process_testing_per_sentence (doc_obj, line_num):
