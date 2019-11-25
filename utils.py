@@ -441,6 +441,7 @@ def print_mention_pair_all_details (top_obj, mp, row):
   ana_t.add_row (NER_label_list)
   ana_t.add_row (NP_chunk_tag_list)
 
+  print ("Mention Pair Details")
   print ("Antecedent      : {", mp.a_sent_idx, "}", ante_string)
   print ("Anaphor         : {", mp.b_sent_idx, "}", ana_string)
   print ("Ante Sentence   : ", a_sent_obj.full_sentence)
@@ -456,9 +457,13 @@ def print_mention_pair_all_details (top_obj, mp, row):
     print_feature_row (top_obj, mp, row)
 
 def print_feature_row (top_obj, mp, row):
-  feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
-  t = PrettyTable(feature_list)
-  t.add_row (row)
+  #feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Str Match", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Alias", "Appositive"]
+  feature_list = ["Label", "Sent Distance", "Ante-Pronoun", "Ana-Pronoun", "Ana Def NP", "Ana Dem NP", "Number Agm", "Sem Class Agm", "Gender Agm", "Both NNP(s)", "Appositive"] 
+  header = ["Feature", "Value"]
+  t = PrettyTable(header)
+  for idx, feat in enumerate(feature_list):
+    pretty_row = [feat, row[idx]]
+    t.add_row (pretty_row)
   print (t)
 
 def get_imp_data_for_mention (top_obj, mp, is_ante):
@@ -557,7 +562,6 @@ def feature_is_number_agreement (top_obj, a_brick, b_brick):
       break
     elif (word_a.lower() in singular_pronoun_lst):
       a_person = 0
-      break
 
     lemma = wl.lemmatize(word_a, 'n')
     if (word_a not in lemma):
@@ -567,7 +571,6 @@ def feature_is_number_agreement (top_obj, a_brick, b_brick):
       if (a_brick.w_list[a_idx].pos_tag == "NN" or a_brick.w_list[a_idx].pos_tag == "NNP"):
         if (word_a in lemma):
           a_person = 0
-          break
 
   b_person = -1
   for b_idx in range (b_brick.w_start_idx, b_brick.w_end_idx + 1):
@@ -577,7 +580,6 @@ def feature_is_number_agreement (top_obj, a_brick, b_brick):
       break
     elif (word_b.lower() in singular_pronoun_lst):
       b_person = 0
-      break
 
     lemma = wl.lemmatize(word_b, 'n')
     if (word_b not in lemma):
@@ -587,7 +589,6 @@ def feature_is_number_agreement (top_obj, a_brick, b_brick):
       if (b_brick.w_list[b_idx].pos_tag == "NN" or b_brick.w_list[b_idx].pos_tag == "NNP"):
         if (word_b in lemma):
           b_person = 0
-          break
   if (a_person == b_person):
     return 1
   else:
@@ -703,14 +704,14 @@ def feature_is_appositive (a_brick, b_brick):
   else:
     #They are in the same line, now check how close they are to each other
     index_diff = b_brick.w_start_idx - a_brick.w_end_idx
-    if (index_diff > 1):
+    if (index_diff > 3):
       is_appositive = False
     else:
       #We have established they are close, now check what is in between if there is any.
       verb_found = False
       if (index_diff > 0):
         for temp_index  in range (a_brick.w_end_idx+1, b_brick.w_start_idx):
-          if (a_brick.w_list[temp_index].pos_tag in ["MD", "VBD", "VB", "VBG", "VBN", "VBZ"]):
+          if (a_brick.w_list[temp_index].pos_tag in ["MD", "VBD", "VB", "VBG", "VBN", "VBZ", "NNP", "NN"]):
             verb_found = True
             break
         if (verb_found == True):
@@ -757,7 +758,7 @@ def create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label)
       return None, False
 
   #Feature 4 (String Match)
-  row.append (feature_is_string_match(antecedent_brick, anaphor_brick))
+  #row.append (feature_is_string_match(antecedent_brick, anaphor_brick))
 
   #Feature 5 (j is Definitive NP)
   row.append (feature_is_def_np(anaphor_brick))
@@ -778,7 +779,7 @@ def create_feature_per_row (mp, antecedent_brick, anaphor_brick, top_obj, label)
   row.append (feature_is_both_proper_name(antecedent_brick, anaphor_brick))
 
   #Feature 11 (Alias Feature)
-  row.append (feature_is_alias(antecedent_brick, anaphor_brick))
+  #row.append (feature_is_alias(antecedent_brick, anaphor_brick))
 
   #Feature 12  (Appositive Feature)
   row.append (feature_is_appositive (antecedent_brick, anaphor_brick))
@@ -803,6 +804,8 @@ def bulk_mp_modular_create_features_handler (mp_list, top_obj, label, row_list):
     mp = mp_list[mp_idx]
     feature_row, valid = single_mp_create_features_handler (mp, top_obj, label)
     if (valid == True):
+      #Debug Print
+      print_mention_pair_all_details (top_obj, mp, feature_row)
       row_list.append (feature_row)
 
   return row_list

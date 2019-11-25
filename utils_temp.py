@@ -4,6 +4,7 @@ import nltk
 import random
 import utils
 import spacy
+from nltk.stem import WordNetLemmatizer
 import sys
 sys.path.insert(1,'models/Logistic_Regression')
 import lr_test
@@ -93,7 +94,8 @@ def spacy_extract_markables_from_input_file (doc_obj, line_num, sent_tag_unrem, 
   coref_id_list, ante_str_list = get_all_antecedents_from_input_file (sent_tag_unrem)
   sent_obj = doc_obj.sentences[line_num]
 
-  print ("SID : ", line_num, "Coref ID : ", coref_id_list, "ante_str_list : ", ante_str_list)
+  #Debug Prints
+  #print ("SID : ", line_num, "Coref ID : ", coref_id_list, "ante_str_list : ", ante_str_list)
 
   for coref_id, ante_str in zip (coref_id_list, ante_str_list):
     #For each of the coref ID and ante string one markable is needed
@@ -466,7 +468,8 @@ def select_neg_data (top_obj, neg_ratio):
   if (required_neg > neg_size):
     print ("For the given ratio we don't have enough neg samples")
   '''
-  required_neg = int(neg_size/3)
+  required_neg = int(pos_size * 2)
+  #required_neg = int(neg_size/3)
   #Set seed and randomly select required samples
   random.seed (100)
   top_obj.selected_neg_list = random.sample (top_obj.neg_list, required_neg)
@@ -551,6 +554,15 @@ def give_score_when_no_op_from_ml (doc_obj, mp):
   score = len(res_set)/len(a_set)
   if (score < 0.5):
     return 0
+  else:
+    #Brute String Match didn't succeed
+    #Check if one is plural of another
+    if ((len(a_set) == len (b_set)) and (len(a_set) == 1)):
+      wl = WordNetLemmatizer ()
+      a_lemma = wl.lemmatize(a_set.pop ())
+      b_lemma = wl.lemmatize(b_set.pop ())
+      if (a_lemma == b_lemma):
+        return 1
 
   return (score)
   #return (score/sent_diff)
@@ -623,12 +635,15 @@ def predict_coref_id_of_cluster (doc_obj, line_num, mark_index):
   pair_only_gold_ante = False
   test_mp_list =  get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante)
 
+  predicted_coref_id = None
   predicted_coref_id = get_predicted_coref_id_given_mps (doc_obj, test_mp_list)
   #Get Manual Coref ID if ML fails
+  '''
   if (predicted_coref_id == None):
     pair_only_gold_ante = True
     test_mp_list        =  get_mp_list_all_mention (doc_obj, line_num, mark_index, pair_only_gold_ante)
     predicted_coref_id  = get_manual_coref_id_given_mps (doc_obj, test_mp_list)
+  '''
   return predicted_coref_id
 
 def process_testing_per_sentence (doc_obj, line_num):
